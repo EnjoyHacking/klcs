@@ -1,0 +1,8 @@
+EHLO [218.195.146.146]
+MAIL FROM: <thumbscrewsw7@rambler.ru> BODY=8BITMIME
+RCPT TO:<alekseev@dataforce.ru>
+RCPT TO:<aleksey@dataforce.ru>
+RCPT TO:<alenka@dataforce.ru>
+RCPT TO:<alesha@dataforce.ru>
+RCPT TO:<alex1@dataforce.ru>
+RCPT TO:<alexalex1@dat

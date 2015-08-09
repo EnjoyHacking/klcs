@@ -1,0 +1,7 @@
+HELO mail.gzhtcm.edu.cn
+MAIL FROM:<xxjsxy@gzhtcm.edu.cn>
+RCPT TO:<a323842@yahoo.com.tw>
+DATA
+Received: (GwMTA 31280 invoked from network); 22 Sep 2011 06:25:59 -0000
+Received: from unknown (HELO sxchnsw) (219.129.214.118)
+  by 0 with SMTP; 22 Sep 201

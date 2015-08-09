@@ -1,0 +1,6 @@
+220 mta1199.mail.mud.yahoo.com ESMTP YSmtp service ready
+250 mta1199.mail.mud.yahoo.com
+250 sender <info@un.org> ok
+250 recipient <sp_alien01@yahoo.com> ok
+354 go ahead
+554 delivery error: dd Sorry your message to sp_alien01@yahoo.com cannot be delive

@@ -1,0 +1,10 @@
+220 webmail.hitv.ru ESMTP
+250-webmail.hitv.ru
+250-PIPELINING
+250-SIZE 10000000
+250-ETRN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+250 2.1.0 Ok
+554 5.7.1 Service unavailable; Client host [218.195.146.146] blocked using bl.spamcop.net; Blocked - 
