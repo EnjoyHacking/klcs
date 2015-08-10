@@ -99,6 +99,7 @@ main(int argc, char **argv)
   //result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k);
   printf("result finished! \n");
   result = lst_alg_longest_common_substring(tree, min_len, max_len);
+  printf("lcs finished! \n");
   
   /* Print them out, if any. */
   if (result)

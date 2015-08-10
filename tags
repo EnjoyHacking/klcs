@@ -230,12 +230,14 @@ bin_PROGRAMS	Makefile	/^bin_PROGRAMS = lcstext$(EXEEXT)$/;"	m
 bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bitstrings	lst_structs.h	/^  u_char                            *bitstrings;  \/\/ add by sangyafei$/;"	m	struct:lst_stree
 bitstrings	lst_structs.h	/^  u_char                      *bitstrings;  \/\/ add by syf$/;"	m	struct:lst_node
+bitstrings_copy	lst_algorithms.c	/^static void bitstrings_copy(u_char *dst, u_char *src, int size){$/;"	f	file:
 bitstrings_size	lst_structs.h	/^  int                         bitstrings_size; \/\/ add by syf$/;"	m	struct:lst_node
 build_alias	Makefile	/^build_alias = $/;"	m
 builddir	Makefile	/^builddir = .$/;"	m
 bus_visited	lst_structs.h	/^  u_int                       bus_visited;$/;"	m	struct:lst_node
 byte_class	lst_string.c	/^static LST_StringClass byte_class = $/;"	v	file:
 cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	m	struct:lst_stringclass
+convert_bitstrings_to_int	lst_algorithms.c	/^static int convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){$/;"	f	file:
 copy_func	lst_string.h	/^  LST_StringItemCopyFunc      copy_func;$/;"	m	struct:lst_stringclass
 data	lst_string.h	/^  void                       *data;$/;"	m	struct:lst_string
 data_external	lst_string.h	/^  u_char                      data_external;$/;"	m	struct:lst_string
