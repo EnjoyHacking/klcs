@@ -100,8 +100,10 @@ main(int argc, char **argv)
   printf("1. tree finished! \n");
   //result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k);
   printf("2. result finished! \n");
-  result = lst_alg_longest_common_substring(tree, min_len, max_len);
-  printf("3. lcs finished! \n");
+  //result = lst_alg_longest_common_substring(tree, min_len, max_len);
+  //printf("3. lcs finished! \n");
+  result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k);
+  printf("3. klcs finished! \n");
 
   if(result == NULL){
  	printf("result is null.\n"); 
