@@ -73,7 +73,7 @@ main(int argc, char **argv)
   int k;
   char* dirName;
   
-  if (argc !=  5)
+  if (argc <  5)
     test_usage(argv[0]);
 
   min_len = atoi(argv[1]);
@@ -88,28 +88,34 @@ main(int argc, char **argv)
    * Note that we pass the string length excluding the null
    * terminator, libstree handles that generically.
    */
+  for (int i = 4; i < argc; i++)
+    lst_stringset_add(set, lst_string_new(argv[i], 1, strlen(argv[i])));
   
-  dirScan(dirName, set);
-  fprintf(stdout, "string set size : %d \n", set->size);
-  fprintf(stdout, "fileCounter : %d \n", fileCounter);
+  //dirScan(dirName, set);
+  //fprintf(stdout, "string set size : %d \n", set->size);
+  //fprintf(stdout, "fileCounter : %d \n", fileCounter);
   /* Create a suffix tree for all strings in the set: */
   tree = lst_stree_new(set);
   /* Find longest common substring(s) */
-  printf("tree finished! \n");
+  printf("1. tree finished! \n");
   //result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k);
-  printf("result finished! \n");
+  printf("2. result finished! \n");
   result = lst_alg_longest_common_substring(tree, min_len, max_len);
-  printf("lcs finished! \n");
+  printf("3. lcs finished! \n");
+
+  if(result == NULL){
+ 	printf("result is null.\n"); 
+  }
   
   /* Print them out, if any. */
   if (result)
     {
-      lst_stringset_foreach(result, string_cb, "\n=============\n");
-      printf("\n");
+  	printf("result size : %d \n", result->size);
+  	fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
+      	lst_stringset_foreach(result, string_cb, "\n=============\n");
+      	printf("\n");
     }
    
-  printf("result size : %d \n", result->size);
-  fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
 
   /* Free suffix tree: */
   lst_stree_free(tree);

@@ -250,18 +250,19 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
   
   int string_index = lst_stree_get_string_index(data->tree, node->up_edge->range.string);
   //printf("%d : %s \n", string_index, lst_string_print(lst_node_get_string(node, 0)) );
+  printf("%d\n", string_index);
 
 
   int block =  node->bitstrings_size - (int) ((double)string_index / 8) - 1;
   int offset = string_index % 8;
 
-  //printf("%d ---- %d \n", block, offset);
+  printf("%d ---- %d \n", block, offset);
 
   if (lst_node_is_leaf(node))
     {
 
 	  printf("This is the leaf node. \n");
-      u_char index = ((u_char)(1)) << offset - 1;
+      u_char index = ((u_char)(1)) << offset;
       
       node->bitstrings[block] = index;
       node->up_edge->src_node->bitstrings[block] |= index;
@@ -301,7 +302,7 @@ lst_alg_set_visitors(LST_STree *tree)
   /* First, establish the visitor bitstrings in the tree. */
   lst_alg_bus(tree, alg_clear_visitors, &data);
   lst_alg_bus(tree, (LST_NodeVisitCB) alg_set_visitors, &data);
-printf("1 run here....\n");  
+  printf("1 run here....\n");  
   
   tree->needs_visitor_update = 0;
   bitstrings_copy(tree->bitstrings, data.all_bitstrings, data.all_bitstrings_size);
@@ -420,11 +421,22 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 {
   LST_NodeIt *it;
   int depth = lst_node_get_string_length(node);
+  printf("node : \n");
+  print_bitstrings(node->bitstrings, node->bitstrings_size);
+  printf("data : \n");
+  print_bitstrings(data->all_bitstrings, node->bitstrings_size);
 
   if (data->lcs == 1)  // denote longest common substring
-    {
+    { 
+
+	
+          printf("lcs is 1...\n");
 	  if ( !is_equal_bitstrings(node->bitstrings, data->all_bitstrings, ceil((double)data->tree->num_strings / 8))){
+	  	printf("bitstrings is not equal....\n");
+	  	
 		  return 0;
+	  } else {
+	  	printf("bitstrings equal....\n");
 	  }
     }
   else if (data->lcs == 2) // denote longest k common substring
@@ -504,7 +516,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
     data.all_bitstrings = lst_alg_set_visitors(tree);
     
 
-    printf("lst_alg_set_visitors finished!\n");
+  printf("lst_alg_set_visitors finished!\n");
 
   if (lcs == 2)
 	  data.k = k;
