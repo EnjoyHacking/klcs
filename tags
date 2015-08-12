@@ -4,450 +4,512 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/sang\/klcs\/missing aclocal-1.14$/;"	m
-ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
-AMTAR	Makefile	/^AMTAR = $${TAR-tar}$/;"	m
-AM_DEFAULT_VERBOSITY	Makefile	/^AM_DEFAULT_VERBOSITY = 1$/;"	m
-AM_RECURSIVE_TARGETS	Makefile	/^AM_RECURSIVE_TARGETS = cscope$/;"	m
-AM_V_CC	Makefile	/^AM_V_CC = $(am__v_CC_$(V))$/;"	m
-AM_V_CCLD	Makefile	/^AM_V_CCLD = $(am__v_CCLD_$(V))$/;"	m
-AM_V_GEN	Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/;"	m
-AM_V_P	Makefile	/^AM_V_P = $(am__v_P_$(V))$/;"	m
-AM_V_at	Makefile	/^AM_V_at = $(am__v_at_$(V))$/;"	m
-AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/sang\/klcs\/missing autoconf$/;"	m
-AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/sang\/klcs\/missing autoheader$/;"	m
-AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/sang\/klcs\/missing automake-1.14$/;"	m
-AUTOMAKE_OPTIONS	Makefile	/^AUTOMAKE_OPTIONS = foreign$/;"	m
-AWK	Makefile	/^AWK = gawk$/;"	m
-CC	Makefile	/^CC = gcc$/;"	m
-CCDEPMODE	Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
-CCLD	Makefile	/^CCLD = $(CC)$/;"	m
-CFLAGS	Makefile	/^CFLAGS = -std=gnu99$/;"	m
-COMPILE	Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
-CONFIG_CLEAN_FILES	Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
-CONFIG_CLEAN_VPATH_FILES	Makefile	/^CONFIG_CLEAN_VPATH_FILES =$/;"	m
-CONFIG_HEADER	Makefile	/^CONFIG_HEADER = config.h$/;"	m
-CPP	Makefile	/^CPP = gcc -E$/;"	m
-CPPFLAGS	Makefile	/^CPPFLAGS = $/;"	m
-CSCOPE	Makefile	/^CSCOPE = cscope$/;"	m
-CTAGS	Makefile	/^CTAGS = ctags$/;"	m
-CURRENTDIR	Makefile	/^CURRENTDIR = $(shell \/bin\/pwd)$/;"	m
-CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
-D	lst_debug.h	69;"	d
-D	lst_debug.h	93;"	d
-DEFAULT_INCLUDES	Makefile	/^DEFAULT_INCLUDES = -I.$/;"	m
-DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
-DEPDIR	Makefile	/^DEPDIR = .deps$/;"	m
-DISTFILES	Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
-DIST_ARCHIVES	Makefile	/^DIST_ARCHIVES = $(distdir).tar.gz$/;"	m
-DIST_COMMON	Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.in $(srcdir)\/Makefile.am \\$/;"	m
-DIST_SOURCES	Makefile	/^DIST_SOURCES = $(lcstext_SOURCES)$/;"	m
-DIST_TARGETS	Makefile	/^DIST_TARGETS = dist-gzip$/;"	m
-D_ASSERT	lst_debug.h	79;"	d
-D_ASSERT	lst_debug.h	94;"	d
-D_ASSERT_PTR	lst_debug.h	88;"	d
-D_ASSERT_PTR	lst_debug.h	95;"	d
-D_PRINT_TREE	lst_debug.h	50;"	d
-D_PRINT_TREE	lst_debug.h	91;"	d
-ECHO_C	Makefile	/^ECHO_C = $/;"	m
-ECHO_N	Makefile	/^ECHO_N = -n$/;"	m
-ECHO_T	Makefile	/^ECHO_T = $/;"	m
-EGREP	Makefile	/^EGREP = \/bin\/grep -E$/;"	m
-ETAGS	Makefile	/^ETAGS = etags$/;"	m
-EXEEXT	Makefile	/^EXEEXT = $/;"	m
-GREP	Makefile	/^GREP = \/bin\/grep$/;"	m
-GZIP_ENV	Makefile	/^GZIP_ENV = --best$/;"	m
-HAVE_INTTYPES_H	config.h	5;"	d
-HAVE_LIMITS_H	config.h	8;"	d
-HAVE_MALLOC	config.h	12;"	d
-HAVE_MEMORY_H	config.h	15;"	d
-HAVE_MEMSET	config.h	18;"	d
-HAVE_STDINT_H	config.h	21;"	d
-HAVE_STDLIB_H	config.h	24;"	d
-HAVE_STRINGS_H	config.h	27;"	d
-HAVE_STRING_H	config.h	30;"	d
-HAVE_SYS_PARAM_H	config.h	33;"	d
-HAVE_SYS_STAT_H	config.h	36;"	d
-HAVE_SYS_TYPES_H	config.h	39;"	d
-HAVE_UNISTD_H	config.h	42;"	d
-INSTALL	Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
-INSTALL_DATA	Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
-INSTALL_HEADER	Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
-INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
-INSTALL_SCRIPT	Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
-INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
-LAST_UPDATE	lst_timestamp.h	28;"	d
-LDFLAGS	Makefile	/^LDFLAGS = $/;"	m
-LIBOBJS	Makefile	/^LIBOBJS = $/;"	m
-LIBS	Makefile	/^LIBS = $/;"	m
-LINK	Makefile	/^LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@$/;"	m
-LST_EMPTY_STRING	lst_string.h	37;"	d
-LST_Edge	lst_structs.h	/^typedef struct lst_edge              LST_Edge;$/;"	t	typeref:struct:lst_edge
-LST_LCS_Data	lst_algorithms.c	/^} LST_LCS_Data;$/;"	t	typeref:struct:lst_lcs_data	file:
-LST_Node	lst_structs.h	/^typedef struct lst_node              LST_Node;$/;"	t	typeref:struct:lst_node
-LST_NodeIt	lst_algorithms.c	/^} LST_NodeIt;$/;"	t	typeref:struct:lst_node_it	file:
-LST_NodeVisitCB	lst_algorithms.h	/^typedef int (*LST_NodeVisitCB)(LST_Node *node, void *data);$/;"	t
-LST_PathEnd	lst_stree.c	/^} LST_PathEnd;$/;"	t	typeref:struct:lst_path_end	file:
-LST_STREE_STRINGSLOTS	lst_stree.c	43;"	d	file:
-LST_STRING_END	lst_string.h	36;"	d
-LST_STRING_HASH_SIZE	lst_structs.h	31;"	d
-LST_STree	lst_structs.h	/^typedef struct lst_stree             LST_STree;$/;"	t	typeref:struct:lst_stree
-LST_String	lst_string.h	/^typedef struct lst_string            LST_String;$/;"	t	typeref:struct:lst_string
-LST_StringCB	lst_string.h	/^typedef void (*LST_StringCB) (LST_String *string, void *data);$/;"	t
-LST_StringClass	lst_string.h	/^typedef struct lst_stringclass       LST_StringClass;$/;"	t	typeref:struct:lst_stringclass
-LST_StringHash	lst_structs.h	/^typedef struct lst_string_hash       LST_StringHash;$/;"	t	typeref:struct:lst_string_hash
-LST_StringHashItem	lst_structs.h	/^typedef struct lst_string_hash_item  LST_StringHashItem;$/;"	t	typeref:struct:lst_string_hash_item
-LST_StringIndex	lst_string.h	/^typedef struct lst_stringindex       LST_StringIndex;$/;"	t	typeref:struct:lst_stringindex
-LST_StringItemCmpFunc	lst_string.h	/^typedef int   (*LST_StringItemCmpFunc) (void *item1, void *item2);$/;"	t
-LST_StringItemCopyFunc	lst_string.h	/^typedef void  (*LST_StringItemCopyFunc) (void *src, void *dst);$/;"	t
-LST_StringPrintFunc	lst_string.h	/^typedef char *(*LST_StringPrintFunc) (LST_StringIndex *index);$/;"	t
-LST_StringSet	lst_string.h	/^typedef struct lst_stringset         LST_StringSet;$/;"	t	typeref:struct:lst_stringset
-LTLIBOBJS	Makefile	/^LTLIBOBJS = $/;"	m
-MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/sang\/klcs\/missing makeinfo$/;"	m
-MKDIR_P	Makefile	/^MKDIR_P = \/bin\/mkdir -p$/;"	m
-NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/;"	m
-NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
-OBJEXT	Makefile	/^OBJEXT = o$/;"	m
-PACKAGE	Makefile	/^PACKAGE = klcs$/;"	m
-PACKAGE	config.h	45;"	d
-PACKAGE_BUGREPORT	Makefile	/^PACKAGE_BUGREPORT = sangyafei1026@gmail.com$/;"	m
-PACKAGE_BUGREPORT	config.h	48;"	d
-PACKAGE_NAME	Makefile	/^PACKAGE_NAME = klcs$/;"	m
-PACKAGE_NAME	config.h	51;"	d
-PACKAGE_STRING	Makefile	/^PACKAGE_STRING = klcs 1.0$/;"	m
-PACKAGE_STRING	config.h	54;"	d
-PACKAGE_TARNAME	Makefile	/^PACKAGE_TARNAME = klcs$/;"	m
-PACKAGE_TARNAME	config.h	57;"	d
-PACKAGE_URL	Makefile	/^PACKAGE_URL = $/;"	m
-PACKAGE_URL	config.h	60;"	d
-PACKAGE_VERSION	Makefile	/^PACKAGE_VERSION = 1.0$/;"	m
-PACKAGE_VERSION	config.h	63;"	d
-PATH_SEPARATOR	Makefile	/^PATH_SEPARATOR = :$/;"	m
-POST_INSTALL	Makefile	/^POST_INSTALL = :$/;"	m
-POST_UNINSTALL	Makefile	/^POST_UNINSTALL = :$/;"	m
-PRE_INSTALL	Makefile	/^PRE_INSTALL = :$/;"	m
-PRE_UNINSTALL	Makefile	/^PRE_UNINSTALL = :$/;"	m
-PROGRAMS	Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/;"	m
-SET_MAKE	Makefile	/^SET_MAKE = $/;"	m
-SHELL	Makefile	/^SHELL = \/bin\/bash$/;"	m
-SOURCES	Makefile	/^SOURCES = $(lcstext_SOURCES)$/;"	m
-STDC_HEADERS	config.h	66;"	d
-STRIP	Makefile	/^STRIP = $/;"	m
-VERSION	Makefile	/^VERSION = 1.0$/;"	m
-VERSION	config.h	69;"	d
-_UTILS_H	utils.h	2;"	d
-__libstree_h	libstree.h	26;"	d
-__lst_algorithms_h	lst_algorithms.h	26;"	d
-__lst_debug_h	lst_debug.h	26;"	d
-__lst_macros_h	lst_macros.h	26;"	d
-__lst_stree_h	lst_stree.h	26;"	d
-__lst_string_h	lst_string.h	26;"	d
-__lst_structs_h	lst_structs.h	26;"	d
-__lst_timestamp_h	lst_timestamp.h	26;"	d
-abs_builddir	Makefile	/^abs_builddir = \/home\/sang\/klcs$/;"	m
-abs_srcdir	Makefile	/^abs_srcdir = \/home\/sang\/klcs$/;"	m
-abs_top_builddir	Makefile	/^abs_top_builddir = \/home\/sang\/klcs$/;"	m
-abs_top_srcdir	Makefile	/^abs_top_srcdir = \/home\/sang\/klcs$/;"	m
-ac_ct_CC	Makefile	/^ac_ct_CC = gcc$/;"	m
-ac_fn_c_check_func	configure	/^ac_fn_c_check_func ()$/;"	f
-ac_fn_c_check_header_compile	configure	/^ac_fn_c_check_header_compile ()$/;"	f
-ac_fn_c_check_header_mongrel	configure	/^ac_fn_c_check_header_mongrel ()$/;"	f
-ac_fn_c_check_type	configure	/^ac_fn_c_check_type ()$/;"	f
-ac_fn_c_try_compile	configure	/^ac_fn_c_try_compile ()$/;"	f
-ac_fn_c_try_cpp	configure	/^ac_fn_c_try_cpp ()$/;"	f
-ac_fn_c_try_link	configure	/^ac_fn_c_try_link ()$/;"	f
-ac_fn_c_try_run	configure	/^ac_fn_c_try_run ()$/;"	f
-aix_post_process_depfile	depcomp	/^aix_post_process_depfile ()$/;"	f
-alg_clear_busflag	lst_algorithms.c	/^alg_clear_busflag(LST_Node *node, void *data)$/;"	f	file:
-alg_clear_visitors	lst_algorithms.c	/^alg_clear_visitors(LST_Node *node, void *data)$/;"	f	file:
-alg_find_deepest	lst_algorithms.c	/^alg_find_deepest(LST_Node *node, LST_LCS_Data *data)$/;"	f	file:
-alg_longest_substring	lst_algorithms.c	/^alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, int k)$/;"	f	file:
-alg_node_it_free	lst_algorithms.c	/^alg_node_it_free(LST_NodeIt *it)$/;"	f	file:
-alg_node_it_new	lst_algorithms.c	/^alg_node_it_new(LST_Node *node)$/;"	f	file:
-alg_set_visitors	lst_algorithms.c	/^alg_set_visitors(LST_Node *node, LST_LCS_Data *data)$/;"	f	file:
-all_bitstrings	lst_algorithms.c	/^  u_char        *all_bitstrings;$/;"	m	struct:lst_lcs_data	file:
-allow_duplicates	lst_structs.h	/^  int                               allow_duplicates;$/;"	m	struct:lst_stree
-am__CONFIG_DISTCLEAN_FILES	Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/;"	m
-am__aclocal_m4_deps	Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/configure.in$/;"	m
-am__can_run_installinfo	Makefile	/^am__can_run_installinfo = \\$/;"	m
-am__cd	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
-am__configure_deps	Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
-am__define_uniq_tagged_files	Makefile	/^am__define_uniq_tagged_files = \\$/;"	m
-am__depfiles_maybe	Makefile	/^am__depfiles_maybe = depfiles$/;"	m
-am__distuninstallcheck_listfiles	Makefile	/^am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \\$/;"	m
-am__include	Makefile	/^am__include = include$/;"	m
-am__installdirs	Makefile	/^am__installdirs = "$(DESTDIR)$(bindir)"$/;"	m
-am__is_gnu_make	Makefile	/^am__is_gnu_make = test -n '$(MAKEFILE_LIST)' && test -n '$(MAKELEVEL)'$/;"	m
-am__leading_dot	Makefile	/^am__leading_dot = .$/;"	m
-am__make_dryrun	Makefile	/^am__make_dryrun = (target_option=n; $(am__make_running_with_option))$/;"	m
-am__make_keepgoing	Makefile	/^am__make_keepgoing = (target_option=k; $(am__make_running_with_option))$/;"	m
-am__make_running_with_option	Makefile	/^am__make_running_with_option = \\$/;"	m
-am__mv	Makefile	/^am__mv = mv -f$/;"	m
-am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/;"	m
-am__quote	Makefile	/^am__quote = $/;"	m
-am__remove_distdir	Makefile	/^am__remove_distdir = \\$/;"	m
-am__tagged_files	Makefile	/^am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \\$/;"	m
-am__tar	Makefile	/^am__tar = $${TAR-tar} chof - "$$tardir"$/;"	m
-am__uniquify_input	Makefile	/^am__uniquify_input = $(AWK) '\\$/;"	m
-am__untar	Makefile	/^am__untar = $${TAR-tar} xf -$/;"	m
-am__v_CCLD_	Makefile	/^am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))$/;"	m
-am__v_CCLD_0	Makefile	/^am__v_CCLD_0 = @echo "  CCLD    " $@;$/;"	m
-am__v_CCLD_1	Makefile	/^am__v_CCLD_1 = $/;"	m
-am__v_CC_	Makefile	/^am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))$/;"	m
-am__v_CC_0	Makefile	/^am__v_CC_0 = @echo "  CC      " $@;$/;"	m
-am__v_CC_1	Makefile	/^am__v_CC_1 = $/;"	m
-am__v_GEN_	Makefile	/^am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))$/;"	m
-am__v_GEN_0	Makefile	/^am__v_GEN_0 = @echo "  GEN     " $@;$/;"	m
-am__v_GEN_1	Makefile	/^am__v_GEN_1 = $/;"	m
-am__v_P_	Makefile	/^am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))$/;"	m
-am__v_P_0	Makefile	/^am__v_P_0 = false$/;"	m
-am__v_P_1	Makefile	/^am__v_P_1 = :$/;"	m
-am__v_at_	Makefile	/^am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))$/;"	m
-am__v_at_0	Makefile	/^am__v_at_0 = @$/;"	m
-am__v_at_1	Makefile	/^am__v_at_1 = $/;"	m
-am_lcstext_OBJECTS	Makefile	/^am_lcstext_OBJECTS = lcstext.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/;"	m
-as_fn_append	config.status	/^  as_fn_append ()$/;"	f
-as_fn_append	configure	/^  as_fn_append ()$/;"	f
-as_fn_arith	config.status	/^  as_fn_arith ()$/;"	f
-as_fn_arith	configure	/^  as_fn_arith ()$/;"	f
-as_fn_error	config.status	/^as_fn_error ()$/;"	f
-as_fn_error	configure	/^as_fn_error ()$/;"	f
-as_fn_executable_p	config.status	/^as_fn_executable_p ()$/;"	f
-as_fn_executable_p	configure	/^as_fn_executable_p ()$/;"	f
-as_fn_exit	config.status	/^as_fn_exit ()$/;"	f
-as_fn_exit	configure	/^as_fn_exit ()$/;"	f
-as_fn_failure	configure	/^as_fn_failure () { as_fn_return 1; }$/;"	f
-as_fn_mkdir_p	config.status	/^as_fn_mkdir_p ()$/;"	f
-as_fn_mkdir_p	configure	/^as_fn_mkdir_p ()$/;"	f
-as_fn_ret_failure	configure	/^as_fn_ret_failure () { return 1; }$/;"	f
-as_fn_ret_success	configure	/^as_fn_ret_success () { return 0; }$/;"	f
-as_fn_set_status	config.status	/^as_fn_set_status ()$/;"	f
-as_fn_set_status	configure	/^as_fn_set_status ()$/;"	f
-as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
-as_fn_unset	config.status	/^as_fn_unset ()$/;"	f
-as_fn_unset	configure	/^as_fn_unset ()$/;"	f
-bin_PROGRAMS	Makefile	/^bin_PROGRAMS = lcstext$(EXEEXT)$/;"	m
-bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
-bitstrings	lst_structs.h	/^  u_char                            *bitstrings;  \/\/ add by sangyafei$/;"	m	struct:lst_stree
-bitstrings	lst_structs.h	/^  u_char                      *bitstrings;  \/\/ add by syf$/;"	m	struct:lst_node
-bitstrings_copy	lst_algorithms.c	/^static void bitstrings_copy(u_char *dst, u_char *src, int size){$/;"	f	file:
-bitstrings_size	lst_structs.h	/^  int                         bitstrings_size; \/\/ add by syf$/;"	m	struct:lst_node
-build_alias	Makefile	/^build_alias = $/;"	m
-builddir	Makefile	/^builddir = .$/;"	m
-bus_visited	lst_structs.h	/^  u_int                       bus_visited;$/;"	m	struct:lst_node
-byte_class	lst_string.c	/^static LST_StringClass byte_class = $/;"	v	file:
-cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	m	struct:lst_stringclass
-convert_bitstrings_to_int	lst_algorithms.c	/^static int convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){$/;"	f	file:
-copy_func	lst_string.h	/^  LST_StringItemCopyFunc      copy_func;$/;"	m	struct:lst_stringclass
-data	lst_string.h	/^  void                       *data;$/;"	m	struct:lst_string
-data_external	lst_string.h	/^  u_char                      data_external;$/;"	m	struct:lst_string
-datadir	Makefile	/^datadir = ${datarootdir}$/;"	m
-datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/;"	m
-deepest	lst_algorithms.c	/^  int           deepest;$/;"	m	struct:lst_lcs_data	file:
-depcomp	Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
-dirScan	utils.c	/^void dirScan(char* dirName, LST_StringSet *set){$/;"	f
-distcleancheck_listfiles	Makefile	/^distcleancheck_listfiles = find . -type f -print$/;"	m
-distdir	Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/;"	m
-distuninstallcheck_listfiles	Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/;"	m
-docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/;"	m
-dst_node	lst_structs.h	/^  LST_Node                   *dst_node;$/;"	m	struct:lst_edge
-dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
-edge	lst_stree.c	/^  LST_Edge    *edge;$/;"	m	struct:lst_path_end	file:
-edge_free	lst_stree.c	/^edge_free(LST_Edge *edge)$/;"	f	file:
-edge_leaf_new	lst_stree.c	/^edge_leaf_new(LST_STree *tree,$/;"	f	file:
-edge_new	lst_stree.c	/^edge_new(LST_Node *src_node,$/;"	f	file:
-end_index	lst_string.h	/^  u_int       *end_index;$/;"	m	struct:lst_stringindex
-end_index_local	lst_string.h	/^  u_int        end_index_local;$/;"	m	struct:lst_stringindex
-exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
-ext	lst_structs.h	/^  u_int                             ext;$/;"	m	struct:lst_stree
-extra_index	lst_string.h	/^  u_int        extra_index;$/;"	m	struct:lst_stringindex
-fileCounter	utils.c	/^int fileCounter = 0;$/;"	v
-fix_tree_cb	lst_stree.c	/^fix_tree_cb(LST_Node *node, void *data)$/;"	f	file:
-func_cl_dashL	compile	/^func_cl_dashL ()$/;"	f
-func_cl_dashl	compile	/^func_cl_dashl ()$/;"	f
-func_cl_wrapper	compile	/^func_cl_wrapper ()$/;"	f
-func_file_conv	compile	/^func_file_conv ()$/;"	f
-get_number_of_distinct_string	lst_algorithms.c	/^int get_number_of_distinct_string(LST_Node *node, int size){$/;"	f
-give_advice	missing	/^give_advice ()$/;"	f
-host_alias	Makefile	/^host_alias = $/;"	m
-htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
-id	lst_string.h	/^  int                         id;$/;"	m	struct:lst_string
-id	lst_structs.h	/^  u_int                       id;$/;"	m	struct:lst_node
-includedir	Makefile	/^includedir = ${prefix}\/include$/;"	m
-index	lst_structs.h	/^  int                         index;$/;"	m	struct:lst_node
-index	lst_structs.h	/^  int           index;$/;"	m	struct:lst_string_hash_item
-infodir	Makefile	/^infodir = ${datarootdir}\/info$/;"	m
-install_sh	Makefile	/^install_sh = ${SHELL} \/home\/sang\/klcs\/install-sh$/;"	m
-install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
-install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
-install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
-is_equal_bitstrings	lst_algorithms.c	/^static int is_equal_bitstrings(u_char * b1, u_char * b2, int len)$/;"	f	file:
-item_size	lst_string.h	/^  u_int                       item_size;$/;"	m	struct:lst_string
-items	lst_structs.h	/^  LIST_ENTRY(lst_phase_num)   items;$/;"	m	struct:lst_phase_num
-items	lst_structs.h	/^  LIST_ENTRY(lst_string_hash_item) items;$/;"	m	struct:lst_string_hash_item
-iteration	lst_structs.h	/^  TAILQ_ENTRY(lst_node)       iteration;$/;"	m	struct:lst_node
-k	lst_algorithms.c	/^  int            k; \/\/ denote longest k common substring$/;"	m	struct:lst_lcs_data	file:
-kids	lst_structs.h	/^  LIST_HEAD(elist, lst_edge)  kids;$/;"	m	struct:lst_node
-lcs	lst_algorithms.c	/^  int          lcs;$/;"	m	struct:lst_lcs_data	file:
-lcstext_DEPENDENCIES	Makefile	/^lcstext_DEPENDENCIES =$/;"	m
-lcstext_LDADD	Makefile	/^lcstext_LDADD = -lc -lm$/;"	m
-lcstext_LDFLAGS	Makefile	/^lcstext_LDFLAGS = -L\/lib $/;"	m
-lcstext_LINK	Makefile	/^lcstext_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(lcstext_LDFLAGS) \\$/;"	m
-lcstext_OBJECTS	Makefile	/^lcstext_OBJECTS = $(am_lcstext_OBJECTS)$/;"	m
-lcstext_SOURCES	Makefile	/^lcstext_SOURCES = lcstext.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c lst_debug.h lst_stree.c lst_stree.h \\$/;"	m
-leafs	lst_structs.h	/^  LIST_ENTRY(lst_node)        leafs;$/;"	m	struct:lst_node
-leafs	lst_structs.h	/^  LIST_HEAD(leaf_s, lst_node)       leafs;$/;"	m	struct:lst_stree
-libdir	Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
-libexecdir	Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
-localedir	Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
-localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
-lst_alg_bfs	lst_algorithms.c	/^lst_alg_bfs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/;"	f
-lst_alg_bus	lst_algorithms.c	/^lst_alg_bus(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/;"	f
-lst_alg_dfs	lst_algorithms.c	/^lst_alg_dfs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/;"	f
-lst_alg_k_longest_common_substring	lst_algorithms.c	/^lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k)$/;"	f
-lst_alg_leafs	lst_algorithms.c	/^lst_alg_leafs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/;"	f
-lst_alg_longest_common_substring	lst_algorithms.c	/^lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)$/;"	f
-lst_alg_longest_repeated_substring	lst_algorithms.c	/^lst_alg_longest_repeated_substring(LST_STree *tree, u_int min_len, u_int max_len)$/;"	f
-lst_alg_set_visitors	lst_algorithms.c	/^lst_alg_set_visitors(LST_STree *tree)$/;"	f
-lst_debug_print_substring	lst_debug.c	/^lst_debug_print_substring(LST_String *string,$/;"	f
-lst_debug_print_substring	lst_debug.h	92;"	d
-lst_debug_print_tree	lst_debug.c	/^lst_debug_print_tree(LST_STree *tree)$/;"	f
-lst_debug_qi_new	lst_debug.c	/^lst_debug_qi_new(LST_Node *node)$/;"	f	file:
-lst_edge	lst_structs.h	/^struct lst_edge$/;"	s
-lst_edge_get_length	lst_stree.c	/^lst_edge_get_length(LST_Edge *edge)$/;"	f
-lst_lcs_data	lst_algorithms.c	/^typedef struct lst_lcs_data$/;"	s	file:
-lst_node	lst_structs.h	/^struct lst_node$/;"	s
-lst_node_get_parent	lst_stree.c	/^lst_node_get_parent(LST_Node *node)$/;"	f
-lst_node_get_string	lst_stree.c	/^lst_node_get_string(LST_Node *node, int max_len)$/;"	f
-lst_node_get_string_length	lst_stree.c	/^lst_node_get_string_length(LST_Node *node)$/;"	f
-lst_node_is_leaf	lst_stree.c	/^lst_node_is_leaf(LST_Node *node)$/;"	f
-lst_node_is_root	lst_stree.c	/^lst_node_is_root(LST_Node *node)$/;"	f
-lst_node_it	lst_algorithms.c	/^typedef struct lst_node_it$/;"	s	file:
-lst_path_end	lst_stree.c	/^typedef struct lst_path_end$/;"	s	file:
-lst_phase_num	lst_structs.h	/^struct lst_phase_num$/;"	s
-lst_stderr	lst_debug.h	57;"	d
-lst_stree	lst_structs.h	/^struct lst_stree$/;"	s
-lst_stree_add_string	lst_stree.c	/^lst_stree_add_string(LST_STree *tree, LST_String *string)$/;"	f
-lst_stree_allow_duplicates	lst_stree.c	/^lst_stree_allow_duplicates(LST_STree *tree, int duplicates_flag)$/;"	f
-lst_stree_clear	lst_stree.c	/^lst_stree_clear(LST_STree *tree)$/;"	f
-lst_stree_free	lst_stree.c	/^lst_stree_free(LST_STree *tree)$/;"	f
-lst_stree_get_string_index	lst_stree.c	/^lst_stree_get_string_index(LST_STree *tree, LST_String *string)$/;"	f
-lst_stree_init	lst_stree.c	/^lst_stree_init(LST_STree *tree)$/;"	f
-lst_stree_new	lst_stree.c	/^lst_stree_new(LST_StringSet *strings)$/;"	f
-lst_stree_qi	lst_debug.c	/^struct lst_stree_qi$/;"	s	file:
-lst_stree_remove_string	lst_stree.c	/^lst_stree_remove_string(LST_STree *tree, LST_String *string)$/;"	f
-lst_string	lst_string.h	/^struct lst_string$/;"	s
-lst_string_eq	lst_string.c	/^lst_string_eq(LST_String *s1, u_int item1,$/;"	f
-lst_string_free	lst_string.c	/^lst_string_free(LST_String *string)$/;"	f
-lst_string_free_keep_data	lst_string.c	/^lst_string_free_keep_data(LST_String *string)$/;"	f
-lst_string_get_item	lst_string.c	/^lst_string_get_item(LST_String *string, u_int index)$/;"	f
-lst_string_get_length	lst_string.c	/^lst_string_get_length(LST_String *string)$/;"	f
-lst_string_hash_item	lst_structs.h	/^struct lst_string_hash_item$/;"	s
-lst_string_index_copy	lst_string.c	/^lst_string_index_copy(LST_StringIndex *src, LST_StringIndex *dst)$/;"	f
-lst_string_index_init	lst_string.c	/^lst_string_index_init(LST_StringIndex *index)$/;"	f
-lst_string_init	lst_string.c	/^lst_string_init(LST_String *string, void *data, u_int item_size, u_int num_items)$/;"	f
-lst_string_item_copy	lst_string.c	/^lst_string_item_copy(LST_String *src, u_int src_index,$/;"	f
-lst_string_items_common	lst_string.c	/^lst_string_items_common(LST_String *s1, u_int off1,$/;"	f
-lst_string_new	lst_string.c	/^lst_string_new(void *data, u_int item_size, u_int num_items)$/;"	f
-lst_string_print	lst_string.c	/^lst_string_print(LST_String *string)$/;"	f
-lst_string_print_hex	lst_string.c	/^lst_string_print_hex(LST_StringIndex *index)$/;"	f
-lst_string_set_class	lst_string.c	/^lst_string_set_class(LST_String *string, LST_StringClass *sclass)$/;"	f
-lst_stringclass	lst_string.h	/^struct lst_stringclass$/;"	s
-lst_stringclass_free	lst_string.c	/^lst_stringclass_free(LST_StringClass *sclass)$/;"	f
-lst_stringclass_new	lst_string.c	/^lst_stringclass_new(LST_StringItemCmpFunc cmp_func,$/;"	f
-lst_stringclass_set_defaults	lst_string.c	/^lst_stringclass_set_defaults(LST_StringItemCmpFunc cmp_func,$/;"	f
-lst_stringindex	lst_string.h	/^struct lst_stringindex$/;"	s
-lst_stringset	lst_string.h	/^struct lst_stringset$/;"	s
-lst_stringset_add	lst_string.c	/^lst_stringset_add(LST_StringSet *set, LST_String *string)$/;"	f
-lst_stringset_foreach	lst_string.c	/^lst_stringset_foreach(LST_StringSet *set,$/;"	f
-lst_stringset_free	lst_string.c	/^lst_stringset_free(LST_StringSet *set)$/;"	f
-lst_stringset_new	lst_string.c	/^lst_stringset_new(void)$/;"	f
-lst_stringset_remove	lst_string.c	/^lst_stringset_remove(LST_StringSet *set, LST_String *string)$/;"	f
-main	lcstext.c	/^main(int argc, char **argv)$/;"	f
-make_dummy_depfile	depcomp	/^make_dummy_depfile ()$/;"	f
-mandir	Makefile	/^mandir = ${datarootdir}\/man$/;"	m
-max_depth	lst_algorithms.c	/^  int           max_depth;$/;"	m	struct:lst_lcs_data	file:
-members	lst_string.h	/^  LIST_HEAD(slist, lst_string) members;  $/;"	m	struct:lst_stringset
-mkdir_p	Makefile	/^mkdir_p = $(MKDIR_P)$/;"	m
-mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
-needs_visitor_update	lst_structs.h	/^  int                               needs_visitor_update;$/;"	m	struct:lst_stree
-node	lst_algorithms.c	/^  LST_Node *node;$/;"	m	struct:lst_node_it	file:
-node	lst_debug.c	/^  LST_Node *node;$/;"	m	struct:lst_stree_qi	file:
-node	lst_stree.c	/^  LST_Node    *node;$/;"	m	struct:lst_path_end	file:
-node_cb	lcstext.c	/^node_cb(LST_Node *node, void *data)$/;"	f
-node_find_edge_with_startitem	lst_stree.c	/^node_find_edge_with_startitem(LST_Node *node, LST_String *string, u_int index)$/;"	f	file:
-node_free	lst_stree.c	/^node_free(LST_Node *node)$/;"	f	file:
-node_new	lst_stree.c	/^node_new(int index)$/;"	f	file:
-num_deepest	lst_algorithms.c	/^  int           num_deepest;$/;"	m	struct:lst_lcs_data	file:
-num_items	lst_string.h	/^  u_int                       num_items;$/;"	m	struct:lst_string
-num_kids	lst_structs.h	/^  u_int                       num_kids;$/;"	m	struct:lst_node
-num_strings	lst_structs.h	/^  u_int                             num_strings;$/;"	m	struct:lst_stree
-offset	lst_stree.c	/^  u_int        offset;$/;"	m	struct:lst_path_end	file:
-oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
-pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
-phase	lst_structs.h	/^  u_int                            *phase;$/;"	m	struct:lst_stree
-phase	lst_structs.h	/^  u_int                       phase;$/;"	m	struct:lst_phase_num
-phases	lst_structs.h	/^  LIST_HEAD(phase_s, lst_phase_num) phases;$/;"	m	struct:lst_stree
-pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/klcs$/;"	m
-pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/klcs$/;"	m
-pkglibdir	Makefile	/^pkglibdir = $(libdir)\/klcs$/;"	m
-pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/klcs$/;"	m
-prefix	Makefile	/^prefix = \/usr\/local$/;"	m
-print_bitstrings	lst_algorithms.c	/^int print_bitstrings(u_char * bitstrings, int len){$/;"	f
-print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	m	struct:lst_stringclass
-program_details	missing	/^program_details ()$/;"	f
-program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
-prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
-psdir	Makefile	/^psdir = ${docdir}$/;"	m
-range	lst_structs.h	/^  LST_StringIndex             range;$/;"	m	struct:lst_edge
-readContent	utils.c	/^void  readContent(char* pathName, LST_StringSet *set){$/;"	f
-root_node	lst_structs.h	/^  LST_Node                         *root_node;$/;"	m	struct:lst_stree
-sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
-sclass	lst_string.h	/^  LST_StringClass            *sclass;$/;"	m	struct:lst_string
-set	lst_string.h	/^  LIST_ENTRY(lst_string)      set;$/;"	m	struct:lst_string
-set_base_from	depcomp	/^set_base_from ()$/;"	f
-set_dir_from	depcomp	/^set_dir_from ()$/;"	f
-sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
-siblings	lst_structs.h	/^  LIST_ENTRY(lst_edge)        siblings;$/;"	m	struct:lst_edge
-size	lst_string.h	/^  int size;$/;"	m	struct:lst_stringset
-src_node	lst_structs.h	/^  LST_Node                   *src_node;$/;"	m	struct:lst_edge
-srcdir	Makefile	/^srcdir = .$/;"	m
-start_index	lst_string.h	/^  u_int        start_index;$/;"	m	struct:lst_stringindex
-stree_add_string_impl	lst_stree.c	/^stree_add_string_impl(LST_STree *tree, LST_String *string)$/;"	f	file:
-stree_extend_at_edge	lst_stree.c	/^stree_extend_at_edge(LST_STree *tree, LST_String *string,$/;"	f	file:
-stree_extend_at_node	lst_stree.c	/^stree_extend_at_node(LST_STree *tree, LST_String *string,$/;"	f	file:
-stree_extend_label_at_leaf	lst_stree.c	/^stree_extend_label_at_leaf(LST_Node *leaf)$/;"	f	file:
-stree_follow_string	lst_stree.c	/^stree_follow_string(LST_STree *tree, LST_Node *node,$/;"	f	file:
-stree_follow_string_slow	lst_stree.c	/^stree_follow_string_slow(LST_STree *tree, LST_Node *node,$/;"	f	file:
-stree_get_skipstring	lst_stree.c	/^stree_get_skipstring(LST_STree *tree, LST_PathEnd *end, LST_StringIndex *skipstring)$/;"	f	file:
-stree_next_phase	lst_stree.c	/^stree_next_phase(LST_STree *tree)$/;"	f	file:
-stree_path_end_advance	lst_stree.c	/^stree_path_end_advance(LST_PathEnd *end, LST_Edge *edge)$/;"	f	file:
-stree_path_end_edge	lst_stree.c	/^stree_path_end_edge(LST_PathEnd *end, LST_Edge *edge, u_int offset)$/;"	f	file:
-stree_path_end_node	lst_stree.c	/^stree_path_end_node(LST_PathEnd *end, LST_Node *node)$/;"	f	file:
-stree_remove_edge	lst_stree.c	/^stree_remove_edge(LST_STree *tree, LST_Edge *edge)$/;"	f	file:
-string	lst_string.h	/^  LST_String  *string;$/;"	m	struct:lst_stringindex
-string	lst_structs.h	/^  LST_String   *string;$/;"	m	struct:lst_string_hash_item
-string_byte_cmp_func	lst_string.c	/^string_byte_cmp_func(char *item1, char *item2)$/;"	f	file:
-string_byte_copy_func	lst_string.c	/^string_byte_copy_func(char *src, char *dst)$/;"	f	file:
-string_cb	lcstext.c	/^string_cb(LST_String *string, void *data)$/;"	f
-string_hash	lst_structs.h	/^  LST_StringHash                   *string_hash;$/;"	m	struct:lst_stree
-string_id_counter	lst_string.c	/^static int   string_id_counter;$/;"	v	file:
-string_index	lst_structs.h	/^  int                               string_index;$/;"	m	struct:lst_stree
-string_print_func	lst_string.c	/^string_print_func(LST_StringIndex *index)$/;"	f	file:
-subdir	Makefile	/^subdir = .$/;"	m
-suffix_link_node	lst_structs.h	/^  LST_Node                   *suffix_link_node;  $/;"	m	struct:lst_node
-sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
-tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | BZIP2=$${BZIP2--9} bzip2 -c >$(distdir).tar.bz2$/;"	m
-tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz$/;"	m
-tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz$/;"	m
-tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z$/;"	m
-tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/;"	m
-target_alias	Makefile	/^target_alias = $/;"	m
-test_usage	lcstext.c	/^test_usage(char *progname)$/;"	f	file:
-top_build_prefix	Makefile	/^top_build_prefix = $/;"	m
-top_builddir	Makefile	/^top_builddir = .$/;"	m
-top_distdir	Makefile	/^top_distdir = $(distdir)$/;"	m
-top_srcdir	Makefile	/^top_srcdir = .$/;"	m
-transform	Makefile	/^transform = $(program_transform_name)$/;"	m
-tree	lst_algorithms.c	/^  LST_STree    *tree;$/;"	m	struct:lst_lcs_data	file:
-up_edge	lst_structs.h	/^  LST_Edge                   *up_edge;$/;"	m	struct:lst_node
+ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing aclocal-1.14$/
+ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/
+AMTAR	Makefile	/^AMTAR = $${TAR-tar}$/
+AM_DEFAULT_VERBOSITY	Makefile	/^AM_DEFAULT_VERBOSITY = 1$/
+AM_RECURSIVE_TARGETS	Makefile	/^AM_RECURSIVE_TARGETS = cscope$/
+AM_V_CC	Makefile	/^AM_V_CC = $(am__v_CC_$(V))$/
+AM_V_CCLD	Makefile	/^AM_V_CCLD = $(am__v_CCLD_$(V))$/
+AM_V_GEN	Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/
+AM_V_P	Makefile	/^AM_V_P = $(am__v_P_$(V))$/
+AM_V_at	Makefile	/^AM_V_at = $(am__v_at_$(V))$/
+AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoconf$/
+AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoheader$/
+AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing automake-1.14$/
+AUTOMAKE_OPTIONS	Makefile	/^AUTOMAKE_OPTIONS = foreign$/
+AWK	Makefile	/^AWK = mawk$/
+CC	Makefile	/^CC = gcc$/
+CCDEPMODE	Makefile	/^CCDEPMODE = depmode=gcc3$/
+CCLD	Makefile	/^CCLD = $(CC)$/
+CFLAGS	Makefile	/^CFLAGS = -std=gnu99 -g -Wall$/
+COMPILE	Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/
+CONFIG_CLEAN_FILES	Makefile	/^CONFIG_CLEAN_FILES =$/
+CONFIG_CLEAN_VPATH_FILES	Makefile	/^CONFIG_CLEAN_VPATH_FILES =$/
+CONFIG_HEADER	Makefile	/^CONFIG_HEADER = config.h$/
+CPP	Makefile	/^CPP = gcc -E$/
+CPPFLAGS	Makefile	/^CPPFLAGS = $/
+CSCOPE	Makefile	/^CSCOPE = cscope$/
+CTAGS	Makefile	/^CTAGS = ctags$/
+CURRENTDIR	Makefile	/^CURRENTDIR = $(shell \/bin\/pwd)$/
+CYGPATH_W	Makefile	/^CYGPATH_W = echo$/
+D	lst_debug.h	69
+D	lst_debug.h	93
+DEFAULT_INCLUDES	Makefile	/^DEFAULT_INCLUDES = -I.$/
+DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/
+DEPDIR	Makefile	/^DEPDIR = .deps$/
+DISTFILES	Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/
+DIST_ARCHIVES	Makefile	/^DIST_ARCHIVES = $(distdir).tar.gz$/
+DIST_COMMON	Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.in $(srcdir)\/Makefile.am \\$/
+DIST_SOURCES	Makefile	/^DIST_SOURCES = $(lcstext_SOURCES)$/
+DIST_TARGETS	Makefile	/^DIST_TARGETS = dist-gzip$/
+D_ASSERT	lst_debug.h	79
+D_ASSERT	lst_debug.h	94
+D_ASSERT_PTR	lst_debug.h	88
+D_ASSERT_PTR	lst_debug.h	95
+D_PRINT_TREE	lst_debug.h	50
+D_PRINT_TREE	lst_debug.h	91
+ECHO_C	Makefile	/^ECHO_C = $/
+ECHO_N	Makefile	/^ECHO_N = -n$/
+ECHO_T	Makefile	/^ECHO_T = $/
+EGREP	Makefile	/^EGREP = \/bin\/grep -E$/
+ETAGS	Makefile	/^ETAGS = etags$/
+EXEEXT	Makefile	/^EXEEXT = $/
+GREP	Makefile	/^GREP = \/bin\/grep$/
+GZIP_ENV	Makefile	/^GZIP_ENV = --best$/
+HAVE_INTTYPES_H	config.h	5
+HAVE_LIMITS_H	config.h	8
+HAVE_MALLOC	config.h	12
+HAVE_MEMORY_H	config.h	15
+HAVE_MEMSET	config.h	18
+HAVE_STDINT_H	config.h	21
+HAVE_STDLIB_H	config.h	24
+HAVE_STRINGS_H	config.h	27
+HAVE_STRING_H	config.h	30
+HAVE_SYS_PARAM_H	config.h	33
+HAVE_SYS_STAT_H	config.h	36
+HAVE_SYS_TYPES_H	config.h	39
+HAVE_UNISTD_H	config.h	42
+INSTALL	Makefile	/^INSTALL = \/usr\/bin\/install -c$/
+INSTALL_DATA	Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/
+INSTALL_HEADER	Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/
+INSTALL_SCRIPT	Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/
+INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/
+LAST_UPDATE	lst_timestamp.h	28
+LDFLAGS	Makefile	/^LDFLAGS = $/
+LIBOBJS	Makefile	/^LIBOBJS = $/
+LIBS	Makefile	/^LIBS = $/
+LINK	Makefile	/^LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@$/
+LST_EMPTY_STRING	lst_string.h	37
+LST_Edge	lst_structs.h	/^typedef struct lst_edge              LST_Edge;$/
+LST_LCS_Data	lst_algorithms.c	/^} LST_LCS_Data;$/
+LST_Node	lst_structs.h	/^typedef struct lst_node              LST_Node;$/
+LST_NodeIt	lst_algorithms.c	/^} LST_NodeIt;$/
+LST_NodeVisitCB	lst_algorithms.h	/^typedef int (*LST_NodeVisitCB)(LST_Node *node, void *data);$/
+LST_PathEnd	lst_stree.c	/^} LST_PathEnd;$/
+LST_STREE_STRINGSLOTS	lst_stree.c	43
+LST_STRING_END	lst_string.h	36
+LST_STRING_HASH_SIZE	lst_structs.h	31
+LST_STree	lst_structs.h	/^typedef struct lst_stree             LST_STree;$/
+LST_String	lst_string.h	/^typedef struct lst_string            LST_String;$/
+LST_StringCB	lst_string.h	/^typedef void (*LST_StringCB) (LST_String *string, void *data);$/
+LST_StringClass	lst_string.h	/^typedef struct lst_stringclass       LST_StringClass;$/
+LST_StringHash	lst_structs.h	/^typedef struct lst_string_hash       LST_StringHash;$/
+LST_StringHashItem	lst_structs.h	/^typedef struct lst_string_hash_item  LST_StringHashItem;$/
+LST_StringIndex	lst_string.h	/^typedef struct lst_stringindex       LST_StringIndex;$/
+LST_StringItemCmpFunc	lst_string.h	/^typedef int   (*LST_StringItemCmpFunc) (void *item1, void *item2);$/
+LST_StringItemCopyFunc	lst_string.h	/^typedef void  (*LST_StringItemCopyFunc) (void *src, void *dst);$/
+LST_StringPrintFunc	lst_string.h	/^typedef char *(*LST_StringPrintFunc) (LST_StringIndex *index);$/
+LST_StringSet	lst_string.h	/^typedef struct lst_stringset         LST_StringSet;$/
+LTLIBOBJS	Makefile	/^LTLIBOBJS = $/
+MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing makeinfo$/
+MKDIR_P	Makefile	/^MKDIR_P = \/bin\/mkdir -p$/
+NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/
+NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/
+OBJEXT	Makefile	/^OBJEXT = o$/
+PACKAGE	Makefile	/^PACKAGE = klcs$/
+PACKAGE	config.h	45
+PACKAGE_BUGREPORT	Makefile	/^PACKAGE_BUGREPORT = sangyafei1026@gmail.com$/
+PACKAGE_BUGREPORT	config.h	48
+PACKAGE_NAME	Makefile	/^PACKAGE_NAME = klcs$/
+PACKAGE_NAME	config.h	51
+PACKAGE_STRING	Makefile	/^PACKAGE_STRING = klcs 1.0$/
+PACKAGE_STRING	config.h	54
+PACKAGE_TARNAME	Makefile	/^PACKAGE_TARNAME = klcs$/
+PACKAGE_TARNAME	config.h	57
+PACKAGE_URL	Makefile	/^PACKAGE_URL = $/
+PACKAGE_URL	config.h	60
+PACKAGE_VERSION	Makefile	/^PACKAGE_VERSION = 1.0$/
+PACKAGE_VERSION	config.h	63
+PATH_SEPARATOR	Makefile	/^PATH_SEPARATOR = :$/
+POST_INSTALL	Makefile	/^POST_INSTALL = :$/
+POST_UNINSTALL	Makefile	/^POST_UNINSTALL = :$/
+PRE_INSTALL	Makefile	/^PRE_INSTALL = :$/
+PRE_UNINSTALL	Makefile	/^PRE_UNINSTALL = :$/
+PROGRAMS	Makefile	/^PROGRAMS = $(bin_PROGRAMS)$/
+SET_MAKE	Makefile	/^SET_MAKE = $/
+SHELL	Makefile	/^SHELL = \/bin\/bash$/
+SOURCES	Makefile	/^SOURCES = $(lcstext_SOURCES)$/
+STDC_HEADERS	config.h	66
+STRIP	Makefile	/^STRIP = $/
+VERSION	Makefile	/^VERSION = 1.0$/
+VERSION	config.h	69
+_UTILS_H	utils.h	2
+__libstree_h	libstree.h	26
+__lst_algorithms_h	lst_algorithms.h	26
+__lst_debug_h	lst_debug.h	26
+__lst_macros_h	lst_macros.h	26
+__lst_stree_h	lst_stree.h	26
+__lst_string_h	lst_string.h	26
+__lst_structs_h	lst_structs.h	26
+__lst_timestamp_h	lst_timestamp.h	26
+abs_builddir	Makefile	/^abs_builddir = \/home\/yafei\/workspace_for_github\/klcs$/
+abs_srcdir	Makefile	/^abs_srcdir = \/home\/yafei\/workspace_for_github\/klcs$/
+abs_top_builddir	Makefile	/^abs_top_builddir = \/home\/yafei\/workspace_for_github\/klcs$/
+abs_top_srcdir	Makefile	/^abs_top_srcdir = \/home\/yafei\/workspace_for_github\/klcs$/
+ac_ct_CC	Makefile	/^ac_ct_CC = gcc$/
+ac_fn_c_check_func	configure	/^ac_fn_c_check_func ()$/
+ac_fn_c_check_header_compile	configure	/^ac_fn_c_check_header_compile ()$/
+ac_fn_c_check_header_mongrel	configure	/^ac_fn_c_check_header_mongrel ()$/
+ac_fn_c_check_type	configure	/^ac_fn_c_check_type ()$/
+ac_fn_c_try_compile	configure	/^ac_fn_c_try_compile ()$/
+ac_fn_c_try_cpp	configure	/^ac_fn_c_try_cpp ()$/
+ac_fn_c_try_link	configure	/^ac_fn_c_try_link ()$/
+ac_fn_c_try_run	configure	/^ac_fn_c_try_run ()$/
+aix_post_process_depfile	depcomp	/^aix_post_process_depfile ()$/
+alg_clear_busflag	lst_algorithms.c	/^alg_clear_busflag(LST_Node *node, void *data)$/
+alg_clear_visitors	lst_algorithms.c	/^alg_clear_visitors(LST_Node *node, void *data)$/
+alg_find_deepest	lst_algorithms.c	/^alg_find_deepest(LST_Node *node, LST_LCS_Data *data)$/
+alg_longest_substring	lst_algorithms.c	/^alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, int k)$/
+alg_node_it_free	lst_algorithms.c	/^alg_node_it_free(LST_NodeIt *it)$/
+alg_node_it_new	lst_algorithms.c	/^alg_node_it_new(LST_Node *node)$/
+alg_set_visitors	lst_algorithms.c	/^alg_set_visitors(LST_Node *node, LST_LCS_Data *data)$/
+all_bitstrings	lst_algorithms.c	/^  u_char        *all_bitstrings;$/;"	struct:lst_lcs_data	access:public
+all_bitstrings_size	lst_algorithms.c	/^  int           all_bitstrings_size;$/;"	struct:lst_lcs_data	access:public
+allow_duplicates	lst_structs.h	/^  int                               allow_duplicates;$/;"	struct:lst_stree	access:public
+am__CONFIG_DISTCLEAN_FILES	Makefile	/^am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \\$/
+am__aclocal_m4_deps	Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/configure.in$/
+am__can_run_installinfo	Makefile	/^am__can_run_installinfo = \\$/
+am__cd	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/
+am__configure_deps	Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/
+am__define_uniq_tagged_files	Makefile	/^am__define_uniq_tagged_files = \\$/
+am__depfiles_maybe	Makefile	/^am__depfiles_maybe = depfiles$/
+am__distuninstallcheck_listfiles	Makefile	/^am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \\$/
+am__include	Makefile	/^am__include = include$/
+am__installdirs	Makefile	/^am__installdirs = "$(DESTDIR)$(bindir)"$/
+am__is_gnu_make	Makefile	/^am__is_gnu_make = test -n '$(MAKEFILE_LIST)' && test -n '$(MAKELEVEL)'$/
+am__leading_dot	Makefile	/^am__leading_dot = .$/
+am__make_dryrun	Makefile	/^am__make_dryrun = (target_option=n; $(am__make_running_with_option))$/
+am__make_keepgoing	Makefile	/^am__make_keepgoing = (target_option=k; $(am__make_running_with_option))$/
+am__make_running_with_option	Makefile	/^am__make_running_with_option = \\$/
+am__mv	Makefile	/^am__mv = mv -f$/
+am__post_remove_distdir	Makefile	/^am__post_remove_distdir = $(am__remove_distdir)$/
+am__quote	Makefile	/^am__quote = $/
+am__remove_distdir	Makefile	/^am__remove_distdir = \\$/
+am__tagged_files	Makefile	/^am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) \\$/
+am__tar	Makefile	/^am__tar = $${TAR-tar} chof - "$$tardir"$/
+am__uniquify_input	Makefile	/^am__uniquify_input = $(AWK) '\\$/
+am__untar	Makefile	/^am__untar = $${TAR-tar} xf -$/
+am__v_CCLD_	Makefile	/^am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))$/
+am__v_CCLD_0	Makefile	/^am__v_CCLD_0 = @echo "  CCLD    " $@;$/
+am__v_CCLD_1	Makefile	/^am__v_CCLD_1 = $/
+am__v_CC_	Makefile	/^am__v_CC_ = $(am__v_CC_$(AM_DEFAULT_VERBOSITY))$/
+am__v_CC_0	Makefile	/^am__v_CC_0 = @echo "  CC      " $@;$/
+am__v_CC_1	Makefile	/^am__v_CC_1 = $/
+am__v_GEN_	Makefile	/^am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))$/
+am__v_GEN_0	Makefile	/^am__v_GEN_0 = @echo "  GEN     " $@;$/
+am__v_GEN_1	Makefile	/^am__v_GEN_1 = $/
+am__v_P_	Makefile	/^am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))$/
+am__v_P_0	Makefile	/^am__v_P_0 = false$/
+am__v_P_1	Makefile	/^am__v_P_1 = :$/
+am__v_at_	Makefile	/^am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))$/
+am__v_at_0	Makefile	/^am__v_at_0 = @$/
+am__v_at_1	Makefile	/^am__v_at_1 = $/
+am_lcstext_OBJECTS	Makefile	/^am_lcstext_OBJECTS = lcstext.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/
+as_fn_append	config.status	/^  as_fn_append ()$/
+as_fn_append	configure	/^  as_fn_append ()$/
+as_fn_arith	config.status	/^  as_fn_arith ()$/
+as_fn_arith	configure	/^  as_fn_arith ()$/
+as_fn_error	config.status	/^as_fn_error ()$/
+as_fn_error	configure	/^as_fn_error ()$/
+as_fn_executable_p	config.status	/^as_fn_executable_p ()$/
+as_fn_executable_p	configure	/^as_fn_executable_p ()$/
+as_fn_exit	config.status	/^as_fn_exit ()$/
+as_fn_exit	configure	/^as_fn_exit ()$/
+as_fn_failure	configure	/^as_fn_failure () { as_fn_return 1; }$/
+as_fn_mkdir_p	config.status	/^as_fn_mkdir_p ()$/
+as_fn_mkdir_p	configure	/^as_fn_mkdir_p ()$/
+as_fn_ret_failure	configure	/^as_fn_ret_failure () { return 1; }$/
+as_fn_ret_success	configure	/^as_fn_ret_success () { return 0; }$/
+as_fn_set_status	config.status	/^as_fn_set_status ()$/
+as_fn_set_status	configure	/^as_fn_set_status ()$/
+as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/
+as_fn_unset	config.status	/^as_fn_unset ()$/
+as_fn_unset	configure	/^as_fn_unset ()$/
+bin_PROGRAMS	Makefile	/^bin_PROGRAMS = lcstext$(EXEEXT)$/
+bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/
+bitstrings	lst_structs.h	/^  u_char                            *bitstrings;  \/\/ add by sangyafei$/;"	struct:lst_stree	access:public
+bitstrings	lst_structs.h	/^  u_char                      *bitstrings;  \/\/ add by syf$/;"	struct:lst_node	access:public
+bitstrings_copy	lst_algorithms.c	/^static void bitstrings_copy(u_char *dst, u_char *src, int size){$/
+bitstrings_size	lst_structs.h	/^  int                         bitstrings_size; \/\/ add by syf$/;"	struct:lst_node	access:public
+build_alias	Makefile	/^build_alias = $/
+builddir	Makefile	/^builddir = .$/
+bus_visited	lst_structs.h	/^  u_int                       bus_visited;$/;"	struct:lst_node	access:public
+byte_class	lst_string.c	/^static LST_StringClass byte_class = $/
+cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	struct:lst_stringclass	access:public
+convert_bitstrings_to_int	lst_algorithms.c	/^static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){$/
+copy_func	lst_string.h	/^  LST_StringItemCopyFunc      copy_func;$/;"	struct:lst_stringclass	access:public
+data	lst_string.h	/^  void                       *data;$/;"	struct:lst_string	access:public
+data_external	lst_string.h	/^  u_char                      data_external;$/;"	struct:lst_string	access:public
+datadir	Makefile	/^datadir = ${datarootdir}$/
+datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/
+deepest	lst_algorithms.c	/^  int           deepest;$/;"	struct:lst_lcs_data	access:public
+depcomp	Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/
+dirScan	utils.c	/^void dirScan(char* dirName, LST_StringSet *set){$/
+distcleancheck_listfiles	Makefile	/^distcleancheck_listfiles = find . -type f -print$/
+distdir	Makefile	/^distdir = $(PACKAGE)-$(VERSION)$/
+distuninstallcheck_listfiles	Makefile	/^distuninstallcheck_listfiles = find . -type f -print$/
+docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE_TARNAME}$/
+dst_node	lst_structs.h	/^  LST_Node                   *dst_node;$/;"	struct:lst_edge	access:public
+dvidir	Makefile	/^dvidir = ${docdir}$/
+edge	lst_stree.c	/^  LST_Edge    *edge;$/;"	struct:lst_path_end	access:public
+edge_free	lst_stree.c	/^edge_free(LST_Edge *edge)$/
+edge_leaf_new	lst_stree.c	/^edge_leaf_new(LST_STree *tree,$/
+edge_new	lst_stree.c	/^edge_new(LST_Node *src_node,$/
+end_index	lst_string.h	/^  u_int       *end_index;$/;"	struct:lst_stringindex	access:public
+end_index_local	lst_string.h	/^  u_int        end_index_local;$/;"	struct:lst_stringindex	access:public
+exec_prefix	Makefile	/^exec_prefix = ${prefix}$/
+ext	lst_structs.h	/^  u_int                             ext;$/;"	struct:lst_stree	access:public
+extra_index	lst_string.h	/^  u_int        extra_index;$/;"	struct:lst_stringindex	access:public
+fileCounter	utils.c	/^int fileCounter = 0;$/
+fix_tree_cb	lst_stree.c	/^fix_tree_cb(LST_Node *node, void *data)$/
+func_cl_dashL	compile	/^func_cl_dashL ()$/
+func_cl_dashl	compile	/^func_cl_dashl ()$/
+func_cl_wrapper	compile	/^func_cl_wrapper ()$/
+func_file_conv	compile	/^func_file_conv ()$/
+get_number_of_distinct_string	lst_algorithms.c	/^int get_number_of_distinct_string(LST_Node *node, int size){$/
+give_advice	missing	/^give_advice ()$/
+host_alias	Makefile	/^host_alias = $/
+htmldir	Makefile	/^htmldir = ${docdir}$/
+id	lst_string.h	/^  int                         id;$/;"	struct:lst_string	access:public
+id	lst_structs.h	/^  u_int                       id;$/;"	struct:lst_node	access:public
+includedir	Makefile	/^includedir = ${prefix}\/include$/
+index	lst_structs.h	/^  int                         index;$/;"	struct:lst_node	access:public
+index	lst_structs.h	/^  int           index;$/;"	struct:lst_string_hash_item	access:public
+infodir	Makefile	/^infodir = ${datarootdir}\/info$/
+install_sh	Makefile	/^install_sh = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/install-sh$/
+install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/
+install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/
+install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/
+is_equal_bitstrings	lst_algorithms.c	/^static int is_equal_bitstrings(u_char * b1, u_char * b2, int len)$/
+item_size	lst_string.h	/^  u_int                       item_size;$/;"	struct:lst_string	access:public
+items	lst_structs.h	/^  LIST_ENTRY(lst_phase_num)   items;$/;"	struct:lst_phase_num	access:public
+items	lst_structs.h	/^  LIST_ENTRY(lst_string_hash_item) items;$/;"	struct:lst_string_hash_item	access:public
+iteration	lst_structs.h	/^  TAILQ_ENTRY(lst_node)       iteration;$/;"	struct:lst_node	access:public
+k	lst_algorithms.c	/^  int            k; \/\/ denote longest k common substring$/;"	struct:lst_lcs_data	access:public
+kids	lst_structs.h	/^  LIST_HEAD(elist, lst_edge)  kids;$/;"	struct:lst_node	access:public
+lcs	lst_algorithms.c	/^  int          lcs;$/;"	struct:lst_lcs_data	access:public
+lcstext_DEPENDENCIES	Makefile	/^lcstext_DEPENDENCIES =$/
+lcstext_LDADD	Makefile	/^lcstext_LDADD = -lc -lm$/
+lcstext_LDFLAGS	Makefile	/^lcstext_LDFLAGS = -L\/lib $/
+lcstext_LINK	Makefile	/^lcstext_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(lcstext_LDFLAGS) \\$/
+lcstext_OBJECTS	Makefile	/^lcstext_OBJECTS = $(am_lcstext_OBJECTS)$/
+lcstext_SOURCES	Makefile	/^lcstext_SOURCES = lcstext.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c lst_debug.h lst_stree.c lst_stree.h \\$/
+leafs	lst_structs.h	/^  LIST_ENTRY(lst_node)        leafs;$/;"	struct:lst_node	access:public
+leafs	lst_structs.h	/^  LIST_HEAD(leaf_s, lst_node)       leafs;$/;"	struct:lst_stree	access:public
+libdir	Makefile	/^libdir = ${exec_prefix}\/lib$/
+libexecdir	Makefile	/^libexecdir = ${exec_prefix}\/libexec$/
+localedir	Makefile	/^localedir = ${datarootdir}\/locale$/
+localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/
+lst_alg_bfs	lst_algorithms.c	/^lst_alg_bfs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/
+lst_alg_bus	lst_algorithms.c	/^lst_alg_bus(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/
+lst_alg_dfs	lst_algorithms.c	/^lst_alg_dfs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/
+lst_alg_k_longest_common_substring	lst_algorithms.c	/^lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k)$/
+lst_alg_leafs	lst_algorithms.c	/^lst_alg_leafs(LST_STree *tree, LST_NodeVisitCB callback, void *data)$/
+lst_alg_longest_common_substring	lst_algorithms.c	/^lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)$/
+lst_alg_longest_repeated_substring	lst_algorithms.c	/^lst_alg_longest_repeated_substring(LST_STree *tree, u_int min_len, u_int max_len)$/
+lst_alg_set_visitors	lst_algorithms.c	/^lst_alg_set_visitors(LST_STree *tree)$/
+lst_debug_print_substring	lst_debug.c	/^lst_debug_print_substring(LST_String *string,$/
+lst_debug_print_substring	lst_debug.h	92
+lst_debug_print_tree	lst_debug.c	/^lst_debug_print_tree(LST_STree *tree)$/
+lst_debug_qi_new	lst_debug.c	/^lst_debug_qi_new(LST_Node *node)$/
+lst_edge	lst_structs.h	/^struct lst_edge$/
+lst_edge::dst_node	lst_structs.h	/^  LST_Node                   *dst_node;$/;"	struct:lst_edge	access:public
+lst_edge::range	lst_structs.h	/^  LST_StringIndex             range;$/;"	struct:lst_edge	access:public
+lst_edge::siblings	lst_structs.h	/^  LIST_ENTRY(lst_edge)        siblings;$/;"	struct:lst_edge	access:public
+lst_edge::src_node	lst_structs.h	/^  LST_Node                   *src_node;$/;"	struct:lst_edge	access:public
+lst_edge_get_length	lst_stree.c	/^lst_edge_get_length(LST_Edge *edge)$/
+lst_lcs_data	lst_algorithms.c	/^typedef struct lst_lcs_data$/
+lst_lcs_data::all_bitstrings	lst_algorithms.c	/^  u_char        *all_bitstrings;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::all_bitstrings_size	lst_algorithms.c	/^  int           all_bitstrings_size;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::deepest	lst_algorithms.c	/^  int           deepest;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::k	lst_algorithms.c	/^  int            k; \/\/ denote longest k common substring$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::lcs	lst_algorithms.c	/^  int          lcs;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::max_depth	lst_algorithms.c	/^  int           max_depth;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::num_deepest	lst_algorithms.c	/^  int           num_deepest;$/;"	struct:lst_lcs_data	access:public
+lst_lcs_data::tree	lst_algorithms.c	/^  LST_STree    *tree;$/;"	struct:lst_lcs_data	access:public
+lst_node	lst_structs.h	/^struct lst_node$/
+lst_node::bitstrings	lst_structs.h	/^  u_char                      *bitstrings;  \/\/ add by syf$/;"	struct:lst_node	access:public
+lst_node::bitstrings_size	lst_structs.h	/^  int                         bitstrings_size; \/\/ add by syf$/;"	struct:lst_node	access:public
+lst_node::bus_visited	lst_structs.h	/^  u_int                       bus_visited;$/;"	struct:lst_node	access:public
+lst_node::id	lst_structs.h	/^  u_int                       id;$/;"	struct:lst_node	access:public
+lst_node::index	lst_structs.h	/^  int                         index;$/;"	struct:lst_node	access:public
+lst_node::iteration	lst_structs.h	/^  TAILQ_ENTRY(lst_node)       iteration;$/;"	struct:lst_node	access:public
+lst_node::kids	lst_structs.h	/^  LIST_HEAD(elist, lst_edge)  kids;$/;"	struct:lst_node	access:public
+lst_node::leafs	lst_structs.h	/^  LIST_ENTRY(lst_node)        leafs;$/;"	struct:lst_node	access:public
+lst_node::num_kids	lst_structs.h	/^  u_int                       num_kids;$/;"	struct:lst_node	access:public
+lst_node::suffix_link_node	lst_structs.h	/^  LST_Node                   *suffix_link_node;  $/;"	struct:lst_node	access:public
+lst_node::up_edge	lst_structs.h	/^  LST_Edge                   *up_edge;$/;"	struct:lst_node	access:public
+lst_node_get_parent	lst_stree.c	/^lst_node_get_parent(LST_Node *node)$/
+lst_node_get_string	lst_stree.c	/^lst_node_get_string(LST_Node *node, int max_len)$/
+lst_node_get_string_length	lst_stree.c	/^lst_node_get_string_length(LST_Node *node)$/
+lst_node_is_leaf	lst_stree.c	/^lst_node_is_leaf(LST_Node *node)$/
+lst_node_is_root	lst_stree.c	/^lst_node_is_root(LST_Node *node)$/
+lst_node_it	lst_algorithms.c	/^typedef struct lst_node_it$/
+lst_node_it::node	lst_algorithms.c	/^  LST_Node *node;$/;"	struct:lst_node_it	access:public
+lst_path_end	lst_stree.c	/^typedef struct lst_path_end$/
+lst_path_end::edge	lst_stree.c	/^  LST_Edge    *edge;$/;"	struct:lst_path_end	access:public
+lst_path_end::node	lst_stree.c	/^  LST_Node    *node;$/;"	struct:lst_path_end	access:public
+lst_path_end::offset	lst_stree.c	/^  u_int        offset;$/;"	struct:lst_path_end	access:public
+lst_phase_num	lst_structs.h	/^struct lst_phase_num$/
+lst_phase_num::items	lst_structs.h	/^  LIST_ENTRY(lst_phase_num)   items;$/;"	struct:lst_phase_num	access:public
+lst_phase_num::phase	lst_structs.h	/^  u_int                       phase;$/;"	struct:lst_phase_num	access:public
+lst_stderr	lst_debug.h	57
+lst_stree	lst_structs.h	/^struct lst_stree$/
+lst_stree::allow_duplicates	lst_structs.h	/^  int                               allow_duplicates;$/;"	struct:lst_stree	access:public
+lst_stree::bitstrings	lst_structs.h	/^  u_char                            *bitstrings;  \/\/ add by sangyafei$/;"	struct:lst_stree	access:public
+lst_stree::ext	lst_structs.h	/^  u_int                             ext;$/;"	struct:lst_stree	access:public
+lst_stree::leafs	lst_structs.h	/^  LIST_HEAD(leaf_s, lst_node)       leafs;$/;"	struct:lst_stree	access:public
+lst_stree::needs_visitor_update	lst_structs.h	/^  int                               needs_visitor_update;$/;"	struct:lst_stree	access:public
+lst_stree::num_strings	lst_structs.h	/^  u_int                             num_strings;$/;"	struct:lst_stree	access:public
+lst_stree::phase	lst_structs.h	/^  u_int                            *phase;$/;"	struct:lst_stree	access:public
+lst_stree::phases	lst_structs.h	/^  LIST_HEAD(phase_s, lst_phase_num) phases;$/;"	struct:lst_stree	access:public
+lst_stree::root_node	lst_structs.h	/^  LST_Node                         *root_node;$/;"	struct:lst_stree	access:public
+lst_stree::string_hash	lst_structs.h	/^  LST_StringHash                   *string_hash;$/;"	struct:lst_stree	access:public
+lst_stree::string_index	lst_structs.h	/^  int                               string_index;$/;"	struct:lst_stree	access:public
+lst_stree_add_string	lst_stree.c	/^lst_stree_add_string(LST_STree *tree, LST_String *string)$/
+lst_stree_allow_duplicates	lst_stree.c	/^lst_stree_allow_duplicates(LST_STree *tree, int duplicates_flag)$/
+lst_stree_clear	lst_stree.c	/^lst_stree_clear(LST_STree *tree)$/
+lst_stree_free	lst_stree.c	/^lst_stree_free(LST_STree *tree)$/
+lst_stree_get_string_index	lst_stree.c	/^lst_stree_get_string_index(LST_STree *tree, LST_String *string)$/
+lst_stree_init	lst_stree.c	/^lst_stree_init(LST_STree *tree)$/
+lst_stree_new	lst_stree.c	/^lst_stree_new(LST_StringSet *strings)$/
+lst_stree_qi	lst_debug.c	/^struct lst_stree_qi$/
+lst_stree_qi::node	lst_debug.c	/^  LST_Node *node;$/;"	struct:lst_stree_qi	access:public
+lst_stree_remove_string	lst_stree.c	/^lst_stree_remove_string(LST_STree *tree, LST_String *string)$/
+lst_string	lst_string.h	/^struct lst_string$/
+lst_string::data	lst_string.h	/^  void                       *data;$/;"	struct:lst_string	access:public
+lst_string::data_external	lst_string.h	/^  u_char                      data_external;$/;"	struct:lst_string	access:public
+lst_string::id	lst_string.h	/^  int                         id;$/;"	struct:lst_string	access:public
+lst_string::item_size	lst_string.h	/^  u_int                       item_size;$/;"	struct:lst_string	access:public
+lst_string::num_items	lst_string.h	/^  u_int                       num_items;$/;"	struct:lst_string	access:public
+lst_string::sclass	lst_string.h	/^  LST_StringClass            *sclass;$/;"	struct:lst_string	access:public
+lst_string::set	lst_string.h	/^  LIST_ENTRY(lst_string)      set;$/;"	struct:lst_string	access:public
+lst_string_eq	lst_string.c	/^lst_string_eq(LST_String *s1, u_int item1,$/
+lst_string_free	lst_string.c	/^lst_string_free(LST_String *string)$/
+lst_string_free_keep_data	lst_string.c	/^lst_string_free_keep_data(LST_String *string)$/
+lst_string_get_item	lst_string.c	/^lst_string_get_item(LST_String *string, u_int index)$/
+lst_string_get_length	lst_string.c	/^lst_string_get_length(LST_String *string)$/
+lst_string_hash_item	lst_structs.h	/^struct lst_string_hash_item$/
+lst_string_hash_item::index	lst_structs.h	/^  int           index;$/;"	struct:lst_string_hash_item	access:public
+lst_string_hash_item::items	lst_structs.h	/^  LIST_ENTRY(lst_string_hash_item) items;$/;"	struct:lst_string_hash_item	access:public
+lst_string_hash_item::string	lst_structs.h	/^  LST_String   *string;$/;"	struct:lst_string_hash_item	access:public
+lst_string_index_copy	lst_string.c	/^lst_string_index_copy(LST_StringIndex *src, LST_StringIndex *dst)$/
+lst_string_index_init	lst_string.c	/^lst_string_index_init(LST_StringIndex *index)$/
+lst_string_init	lst_string.c	/^lst_string_init(LST_String *string, void *data, u_int item_size, u_int num_items)$/
+lst_string_item_copy	lst_string.c	/^lst_string_item_copy(LST_String *src, u_int src_index,$/
+lst_string_items_common	lst_string.c	/^lst_string_items_common(LST_String *s1, u_int off1,$/
+lst_string_new	lst_string.c	/^lst_string_new(void *data, u_int item_size, u_int num_items)$/
+lst_string_print	lst_string.c	/^lst_string_print(LST_String *string)$/
+lst_string_print_hex	lst_string.c	/^lst_string_print_hex(LST_StringIndex *index)$/
+lst_string_set_class	lst_string.c	/^lst_string_set_class(LST_String *string, LST_StringClass *sclass)$/
+lst_stringclass	lst_string.h	/^struct lst_stringclass$/
+lst_stringclass::cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	struct:lst_stringclass	access:public
+lst_stringclass::copy_func	lst_string.h	/^  LST_StringItemCopyFunc      copy_func;$/;"	struct:lst_stringclass	access:public
+lst_stringclass::print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	struct:lst_stringclass	access:public
+lst_stringclass_free	lst_string.c	/^lst_stringclass_free(LST_StringClass *sclass)$/
+lst_stringclass_new	lst_string.c	/^lst_stringclass_new(LST_StringItemCmpFunc cmp_func,$/
+lst_stringclass_set_defaults	lst_string.c	/^lst_stringclass_set_defaults(LST_StringItemCmpFunc cmp_func,$/
+lst_stringindex	lst_string.h	/^struct lst_stringindex$/
+lst_stringindex::end_index	lst_string.h	/^  u_int       *end_index;$/;"	struct:lst_stringindex	access:public
+lst_stringindex::end_index_local	lst_string.h	/^  u_int        end_index_local;$/;"	struct:lst_stringindex	access:public
+lst_stringindex::extra_index	lst_string.h	/^  u_int        extra_index;$/;"	struct:lst_stringindex	access:public
+lst_stringindex::start_index	lst_string.h	/^  u_int        start_index;$/;"	struct:lst_stringindex	access:public
+lst_stringindex::string	lst_string.h	/^  LST_String  *string;$/;"	struct:lst_stringindex	access:public
+lst_stringset	lst_string.h	/^struct lst_stringset$/
+lst_stringset::members	lst_string.h	/^  LIST_HEAD(slist, lst_string) members;  $/;"	struct:lst_stringset	access:public
+lst_stringset::size	lst_string.h	/^  int size;$/;"	struct:lst_stringset	access:public
+lst_stringset_add	lst_string.c	/^lst_stringset_add(LST_StringSet *set, LST_String *string)$/
+lst_stringset_foreach	lst_string.c	/^lst_stringset_foreach(LST_StringSet *set,$/
+lst_stringset_free	lst_string.c	/^lst_stringset_free(LST_StringSet *set)$/
+lst_stringset_new	lst_string.c	/^lst_stringset_new(void)$/
+lst_stringset_remove	lst_string.c	/^lst_stringset_remove(LST_StringSet *set, LST_String *string)$/
+main	lcstext.c	/^main(int argc, char **argv)$/
+make_dummy_depfile	depcomp	/^make_dummy_depfile ()$/
+mandir	Makefile	/^mandir = ${datarootdir}\/man$/
+max_depth	lst_algorithms.c	/^  int           max_depth;$/;"	struct:lst_lcs_data	access:public
+members	lst_string.h	/^  LIST_HEAD(slist, lst_string) members;  $/;"	struct:lst_stringset	access:public
+mkdir_p	Makefile	/^mkdir_p = $(MKDIR_P)$/
+mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/
+needs_visitor_update	lst_structs.h	/^  int                               needs_visitor_update;$/;"	struct:lst_stree	access:public
+node	lst_algorithms.c	/^  LST_Node *node;$/;"	struct:lst_node_it	access:public
+node	lst_debug.c	/^  LST_Node *node;$/;"	struct:lst_stree_qi	access:public
+node	lst_stree.c	/^  LST_Node    *node;$/;"	struct:lst_path_end	access:public
+node_cb	lcstext.c	/^node_cb(LST_Node *node, void *data)$/
+node_find_edge_with_startitem	lst_stree.c	/^node_find_edge_with_startitem(LST_Node *node, LST_String *string, u_int index)$/
+node_free	lst_stree.c	/^node_free(LST_Node *node)$/
+node_new	lst_stree.c	/^node_new(int index)$/
+num_deepest	lst_algorithms.c	/^  int           num_deepest;$/;"	struct:lst_lcs_data	access:public
+num_items	lst_string.h	/^  u_int                       num_items;$/;"	struct:lst_string	access:public
+num_kids	lst_structs.h	/^  u_int                       num_kids;$/;"	struct:lst_node	access:public
+num_strings	lst_structs.h	/^  u_int                             num_strings;$/;"	struct:lst_stree	access:public
+offset	lst_stree.c	/^  u_int        offset;$/;"	struct:lst_path_end	access:public
+oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/
+pdfdir	Makefile	/^pdfdir = ${docdir}$/
+phase	lst_structs.h	/^  u_int                            *phase;$/;"	struct:lst_stree	access:public
+phase	lst_structs.h	/^  u_int                       phase;$/;"	struct:lst_phase_num	access:public
+phases	lst_structs.h	/^  LIST_HEAD(phase_s, lst_phase_num) phases;$/;"	struct:lst_stree	access:public
+pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/klcs$/
+pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/klcs$/
+pkglibdir	Makefile	/^pkglibdir = $(libdir)\/klcs$/
+pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/klcs$/
+prefix	Makefile	/^prefix = \/usr\/local$/
+print_bitstrings	lst_algorithms.c	/^int print_bitstrings(u_char * bitstrings, int len){$/
+print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	struct:lst_stringclass	access:public
+program_details	missing	/^program_details ()$/
+program_transform_name	Makefile	/^program_transform_name = s,x,x,$/
+prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/
+psdir	Makefile	/^psdir = ${docdir}$/
+range	lst_structs.h	/^  LST_StringIndex             range;$/;"	struct:lst_edge	access:public
+readContent	utils.c	/^void  readContent(char* pathName, LST_StringSet *set){$/
+root_node	lst_structs.h	/^  LST_Node                         *root_node;$/;"	struct:lst_stree	access:public
+sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/
+sclass	lst_string.h	/^  LST_StringClass            *sclass;$/;"	struct:lst_string	access:public
+set	lst_string.h	/^  LIST_ENTRY(lst_string)      set;$/;"	struct:lst_string	access:public
+set_base_from	depcomp	/^set_base_from ()$/
+set_dir_from	depcomp	/^set_dir_from ()$/
+sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/
+siblings	lst_structs.h	/^  LIST_ENTRY(lst_edge)        siblings;$/;"	struct:lst_edge	access:public
+size	lst_string.h	/^  int size;$/;"	struct:lst_stringset	access:public
+src_node	lst_structs.h	/^  LST_Node                   *src_node;$/;"	struct:lst_edge	access:public
+srcdir	Makefile	/^srcdir = .$/
+start_index	lst_string.h	/^  u_int        start_index;$/;"	struct:lst_stringindex	access:public
+stree_add_string_impl	lst_stree.c	/^stree_add_string_impl(LST_STree *tree, LST_String *string)$/
+stree_extend_at_edge	lst_stree.c	/^stree_extend_at_edge(LST_STree *tree, LST_String *string,$/
+stree_extend_at_node	lst_stree.c	/^stree_extend_at_node(LST_STree *tree, LST_String *string,$/
+stree_extend_label_at_leaf	lst_stree.c	/^stree_extend_label_at_leaf(LST_Node *leaf)$/
+stree_follow_string	lst_stree.c	/^stree_follow_string(LST_STree *tree, LST_Node *node,$/
+stree_follow_string_slow	lst_stree.c	/^stree_follow_string_slow(LST_STree *tree, LST_Node *node,$/
+stree_get_skipstring	lst_stree.c	/^stree_get_skipstring(LST_STree *tree, LST_PathEnd *end, LST_StringIndex *skipstring)$/
+stree_next_phase	lst_stree.c	/^stree_next_phase(LST_STree *tree)$/
+stree_path_end_advance	lst_stree.c	/^stree_path_end_advance(LST_PathEnd *end, LST_Edge *edge)$/
+stree_path_end_edge	lst_stree.c	/^stree_path_end_edge(LST_PathEnd *end, LST_Edge *edge, u_int offset)$/
+stree_path_end_node	lst_stree.c	/^stree_path_end_node(LST_PathEnd *end, LST_Node *node)$/
+stree_remove_edge	lst_stree.c	/^stree_remove_edge(LST_STree *tree, LST_Edge *edge)$/
+string	lst_string.h	/^  LST_String  *string;$/;"	struct:lst_stringindex	access:public
+string	lst_structs.h	/^  LST_String   *string;$/;"	struct:lst_string_hash_item	access:public
+string_byte_cmp_func	lst_string.c	/^string_byte_cmp_func(char *item1, char *item2)$/
+string_byte_copy_func	lst_string.c	/^string_byte_copy_func(char *src, char *dst)$/
+string_cb	lcstext.c	/^string_cb(LST_String *string, void *data)$/
+string_hash	lst_structs.h	/^  LST_StringHash                   *string_hash;$/;"	struct:lst_stree	access:public
+string_id_counter	lst_string.c	/^static int   string_id_counter;$/
+string_index	lst_structs.h	/^  int                               string_index;$/;"	struct:lst_stree	access:public
+string_print_func	lst_string.c	/^string_print_func(LST_StringIndex *index)$/
+subdir	Makefile	/^subdir = .$/
+suffix_link_node	lst_structs.h	/^  LST_Node                   *suffix_link_node;  $/;"	struct:lst_node	access:public
+sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | BZIP2=$${BZIP2--9} bzip2 -c >$(distdir).tar.bz2$/
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz$/
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz$/
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z$/
+tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/
+target_alias	Makefile	/^target_alias = $/
+test_usage	lcstext.c	/^test_usage(char *progname)$/
+top_build_prefix	Makefile	/^top_build_prefix = $/
+top_builddir	Makefile	/^top_builddir = .$/
+top_distdir	Makefile	/^top_distdir = $(distdir)$/
+top_srcdir	Makefile	/^top_srcdir = .$/
+transform	Makefile	/^transform = $(program_transform_name)$/
+tree	lst_algorithms.c	/^  LST_STree    *tree;$/;"	struct:lst_lcs_data	access:public
+up_edge	lst_structs.h	/^  LST_Edge                   *up_edge;$/;"	struct:lst_node	access:public

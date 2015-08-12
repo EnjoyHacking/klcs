@@ -273,8 +273,8 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
       node->up_edge->src_node->bitstrings[block] |= node->bitstrings[block];
     }
 
-  printf ("node int : %ld\n", convert_bitstrings_to_int(node->up_edge->src_node->bitstrings, node->bitstrings_size)) ;
-  printf ("data int : %ld\n", convert_bitstrings_to_int(data->all_bitstrings, data->all_bitstrings_size));
+  //printf ("node int : %ld\n", convert_bitstrings_to_int(node->up_edge->src_node->bitstrings, node->bitstrings_size)) ;
+ // printf ("data int : %ld\n", convert_bitstrings_to_int(data->all_bitstrings, data->all_bitstrings_size));
   if (convert_bitstrings_to_int(node->up_edge->src_node->bitstrings, node->bitstrings_size) > convert_bitstrings_to_int(data->all_bitstrings, data->all_bitstrings_size))
     //data->all_bitstrings[block] = node->up_edge->src_node->bitstrings[block];
     bitstrings_copy(data->all_bitstrings, node->up_edge->src_node->bitstrings, node->bitstrings_size);
@@ -308,9 +308,9 @@ lst_alg_set_visitors(LST_STree *tree)
   tree->needs_visitor_update = 0;
   bitstrings_copy(tree->bitstrings, data.all_bitstrings, data.all_bitstrings_size);
   //tree->visitors = data.all_visitors;
-  printf("In set visitors function . data.bitstrings : \n");
-  print_bitstrings(data.all_bitstrings, data.all_bitstrings_size);
-  printf ("Int : %ld\n", convert_bitstrings_to_int(data.all_bitstrings, data.all_bitstrings_size));
+  //printf("In set visitors function . data.bitstrings : \n");
+  //print_bitstrings(data.all_bitstrings, data.all_bitstrings_size);
+  //printf ("Int : %ld\n", convert_bitstrings_to_int(data.all_bitstrings, data.all_bitstrings_size));
 
 
   return data.all_bitstrings;
@@ -431,10 +431,11 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 {
   LST_NodeIt *it;
   int depth = lst_node_get_string_length(node);
-  printf("node->bitstrings : \n");
+  /*printf("node->bitstrings : \n");
   print_bitstrings(node->bitstrings, node->bitstrings_size);
   printf("data->bitstrings : \n");
   print_bitstrings(data->all_bitstrings, node->bitstrings_size);
+*/
   
 
   if (data->lcs == 1)  // denote longest common substring
@@ -451,7 +452,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
   else if (data->lcs == 2) // denote longest k common substring
   {
 	  int counter = get_number_of_distinct_string(node, ceil((double)data->tree->num_strings / 8));
-	  printf("%d < %d : \n", counter, data->k);
+	  //printf("%d < %d : \n", counter, data->k);
 	  if ( counter < data->k){
           	return 0;
 	  }
@@ -462,15 +463,15 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
        return 0;
     }
 
-/*
-	printf("============\n");
-	print_bitstrings(node->bitstrings, node->bitstrings_size);
-	printf("%s \n",lst_string_print(lst_node_get_string(node, data->max_depth)));
 
-	printf("depth : %d \n", depth);
-	printf("deepest : %d \n", data->deepest);
+//	printf("============\n");
+//	print_bitstrings(node->bitstrings, node->bitstrings_size);
+//	printf("%s \n",lst_string_print(lst_node_get_string(node, data->max_depth)));
 
-*/
+
+
+	printf("if depth : %d \n", depth);
+	printf("if deepest : %d \n", data->deepest);
   if (data->deepest <= data->max_depth)
     {
       if (depth >= data->deepest)
@@ -485,6 +486,9 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  
 	  data->num_deepest++;
 	  TAILQ_INSERT_HEAD(&data->nodes, it, items);
+	printf("depth : %d \n", depth);
+	printf("deepest : %d \n", data->deepest);
+	printf("--------------------\n");
 	}
     }
   else if (depth >= data->max_depth)
