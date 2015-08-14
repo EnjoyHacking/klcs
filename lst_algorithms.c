@@ -41,7 +41,7 @@ void
 str_cb(LST_String *string, void *data)
 {
   printf("%s ", lst_string_print(string));
-  printf("%s ", data);
+  printf("%s", data);
 }
 
 
@@ -75,13 +75,13 @@ alg_node_it_free(LST_NodeIt *it)
 static void 
 alg_node_it_set_visited(LST_NodeIt *it)
 {
-	it->node->lcs_visited = 1;
-/*	LST_Node * tmp_node = it->node;
+	//it->node->lcs_visited = 1;
+	LST_Node * tmp_node = it->node;
 	while(!lst_node_is_root(tmp_node)){
 		tmp_node->lcs_visited = 1;	
 		tmp_node = tmp_node->up_edge->src_node;
 	}
-*/
+
 	return ;
 }
 
@@ -467,9 +467,6 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 		  return 0;
 	  } 
 
-	  if (node->lcs_visited == 1){
-	  	  return 0;
-	  }
     }
   else if (data->lcs == 2) // denote longest k common substring
   {
@@ -479,9 +476,6 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
           	return 0;
 	  }
 
-	  if (node->lcs_visited == 1){
-	  	  return 0;
-	  }
   }
   else
     {
@@ -500,7 +494,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	//printf("if deepest : %d \n", data->deepest);
   if (data->deepest <= data->max_depth)
     {
-      if (depth >= data->deepest && depth <= data->max_depth)
+      if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
 	{
 	  it = alg_node_it_new(node);
 	  
@@ -513,7 +507,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  data->num_deepest++;
 	  TAILQ_INSERT_HEAD(&data->nodes, it, items);
 
-          alg_node_it_set_visited(it); // add by syf
+        //alg_node_it_set_visited(it); // add by syf
 	//printf("depth : %d \n", depth);
 	//printf("deepest : %d \n", data->deepest);
 	//printf("--------------------\n");
@@ -525,7 +519,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
       it = alg_node_it_new(node);
       data->num_deepest++;
       TAILQ_INSERT_HEAD(&data->nodes, it, items);
-      alg_node_it_set_visited(it); // add by syf
+      //alg_node_it_set_visited(it); // add by syf
     }
 
 
@@ -572,7 +566,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
    * depth that has all strings as visitors.
    */
 
-  while(data.max_depth > 3){
+  while(data.max_depth >= min_len){
 
   printf("max_depth : %d\n", data.max_depth);
   lst_alg_dfs(tree, (LST_NodeVisitCB) alg_find_deepest, &data);
@@ -613,7 +607,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	if (result)
     {
         printf("result size : %d \n", result->size);
-        lst_stringset_foreach(result, str_cb, "\n=============\n");
+        lst_stringset_foreach(result, str_cb, "\t");
         printf("\n");
     }
 

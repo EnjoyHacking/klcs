@@ -61,7 +61,7 @@ void
 string_cb(LST_String *string, void *data)
 {
   printf("%s ", lst_string_print(string));
-  printf("%s ", data);
+  printf("%s", data);
 }
 
 int
@@ -109,12 +109,12 @@ main(int argc, char **argv)
  	printf("result is null.\n"); 
   }
   
+  fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
   /* Print them out, if any. */
   if (result)
     {
   	printf("result size : %d \n", result->size);
-  	fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
-      	lst_stringset_foreach(result, string_cb, "\n=============\n");
+      	lst_stringset_foreach(result, string_cb, "\t");
       	printf("\n");
     }
    
