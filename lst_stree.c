@@ -141,6 +141,8 @@ node_new(int index)
   node->index = index;
   node->id = id++;
 
+  node->lcs_visited = 0;
+
   return node;
 }
 

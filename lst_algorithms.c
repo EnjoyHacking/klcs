@@ -36,6 +36,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 static void bitstrings_copy(u_char *dst, u_char *src, int size);
 static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size);
+// add by syf
+void
+str_cb(LST_String *string, void *data)
+{
+  printf("%s ", lst_string_print(string));
+  printf("%s ", data);
+}
 
 
 typedef struct lst_node_it
@@ -63,6 +70,19 @@ alg_node_it_free(LST_NodeIt *it)
     return;
   
   free(it);
+}
+
+static void 
+alg_node_it_set_visited(LST_NodeIt *it)
+{
+	it->node->lcs_visited = 1;
+/*	LST_Node * tmp_node = it->node;
+	while(!lst_node_is_root(tmp_node)){
+		tmp_node->lcs_visited = 1;	
+		tmp_node = tmp_node->up_edge->src_node;
+	}
+*/
+	return ;
 }
 
 void         
@@ -445,8 +465,10 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  	//printf("bitstrings is not equal....\n");
 	  	
 		  return 0;
-	  } else {
-	  	//printf("bitstrings equal....\n");
+	  } 
+
+	  if (node->lcs_visited == 1){
+	  	  return 0;
 	  }
     }
   else if (data->lcs == 2) // denote longest k common substring
@@ -455,6 +477,10 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  //printf("%d < %d : \n", counter, data->k);
 	  if ( counter < data->k){
           	return 0;
+	  }
+
+	  if (node->lcs_visited == 1){
+	  	  return 0;
 	  }
   }
   else
@@ -470,11 +496,11 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 
 
 
-	printf("if depth : %d \n", depth);
-	printf("if deepest : %d \n", data->deepest);
+	//printf("if depth : %d \n", depth);
+	//printf("if deepest : %d \n", data->deepest);
   if (data->deepest <= data->max_depth)
     {
-      if (depth >= data->deepest)
+      if (depth >= data->deepest && depth <= data->max_depth)
 	{
 	  it = alg_node_it_new(node);
 	  
@@ -486,17 +512,22 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  
 	  data->num_deepest++;
 	  TAILQ_INSERT_HEAD(&data->nodes, it, items);
-	printf("depth : %d \n", depth);
-	printf("deepest : %d \n", data->deepest);
-	printf("--------------------\n");
+
+          alg_node_it_set_visited(it); // add by syf
+	//printf("depth : %d \n", depth);
+	//printf("deepest : %d \n", data->deepest);
+	//printf("--------------------\n");
 	}
     }
+
   else if (depth >= data->max_depth)
     {
       it = alg_node_it_new(node);
       data->num_deepest++;
       TAILQ_INSERT_HEAD(&data->nodes, it, items);
+      alg_node_it_set_visited(it); // add by syf
     }
+
 
   return 1;
 }
@@ -540,13 +571,17 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
   /* Now do a DSF finding the node with the largest string-
    * depth that has all strings as visitors.
    */
-  //printf("dfs before here....\n");
+
+  while(data.max_depth > 3){
+
+  printf("max_depth : %d\n", data.max_depth);
   lst_alg_dfs(tree, (LST_NodeVisitCB) alg_find_deepest, &data);
 
-  //printf("dfs after here....\n");
 
   D(("Deepest nodes found -- we have %u longest substring(s) at depth %u.\n",
      data.num_deepest, data.deepest));
+  printf("we have %u longest substring(s) at depth %u.\n",data.num_deepest, data.deepest);
+
   
   /* Now, data.num_deepest tells us how many largest substrings
    * we have, and the first num_deepest items in data.nodes are
@@ -564,7 +599,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	  if ((u_int) lst_node_get_string_length(it->node) >= min_len)
 	    {
 	      string = lst_node_get_string(it->node, (int) max_len);
-	      
+
 	      if (!result)
 		result = lst_stringset_new();
 	      
@@ -575,7 +610,31 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
       TAILQ_REMOVE(&data.nodes, it, items);
       alg_node_it_free(it);
     }
+	if (result)
+    {
+        printf("result size : %d \n", result->size);
+        lst_stringset_foreach(result, str_cb, "\n=============\n");
+        printf("\n");
+    }
+
+   data.max_depth = data.deepest - 1;
+   data.num_deepest = 0;
+   data.deepest = 0;
+
+	printf("-------------------------\n");
+	}
   return result;
+}
+
+/*
+ * add
+ * @author sangyafei
+ * @brief extract first k longest common substring (even, all common substrings) among the given multiple strings
+ * */
+LST_StringSet *
+lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
+{
+  return alg_longest_substring(tree, min_len, max_len, 1, 0);
 }
 
 LST_StringSet *
@@ -585,6 +644,7 @@ lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
 }
 
 /*
+ * add
  * @author sangyafei
  * */
 LST_StringSet *
