@@ -140,6 +140,13 @@ LST_StringSet  *lst_alg_k_longest_common_substring(LST_STree *tree,
 						 u_int max_len, int k);
 
 /**
+ * suffix tree for substring check
+ * @author sangyafei
+ * 
+ */
+int lst_alg_substring_check(LST_STree *tree, LST_String *string);
+
+/**
  * lst_alg_longest_repeated_substring - computes the lrs for a suffix tree.
  * @tree: tree to use in computation.
  * @min_len: minimum length that repeated substrings must have to be returned.

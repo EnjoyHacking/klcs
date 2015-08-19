@@ -637,6 +637,8 @@ lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
   return alg_longest_substring(tree, min_len, max_len, 1, 0);
 }
 
+
+
 /*
  * add
  * @author sangyafei
@@ -647,6 +649,15 @@ lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len
   return alg_longest_substring(tree, min_len, max_len, 2, k);
 }
 
+static int alg_substring_check(LST_STree *tree, LST_String *string)
+{
+
+}
+
+int lst_alg_substring_check(LST_STree *tree, LST_String *string)
+{
+	return alg_substring_check(tree, string);
+}
 
 
 LST_StringSet *
