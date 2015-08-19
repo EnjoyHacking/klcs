@@ -565,6 +565,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
   /* Now do a DSF finding the node with the largest string-
    * depth that has all strings as visitors.
    */
+  LST_STree * lcs_tree = NULL; 
 
   while(data.max_depth >= min_len){
 
@@ -597,7 +598,11 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	      if (!result)
 		result = lst_stringset_new();
 	      
-	      lst_stringset_add(result, string);
+	      // add by syf 
+	      if(1 != lst_alg_substring_check(lcs_tree, string)) {
+		      lst_stringset_add(result, string);
+	      }
+
 	    }
 	}
       
@@ -609,6 +614,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
         printf("result size : %d \n", result->size);
         lst_stringset_foreach(result, str_cb, "\t");
         printf("\n");
+	lcs_tree = lst_stree_new(result);
     }
 
    data.max_depth = data.deepest - 1;
@@ -649,14 +655,94 @@ lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len
   return alg_longest_substring(tree, min_len, max_len, 2, k);
 }
 
-static int alg_substring_check(LST_STree *tree, LST_String *string)
+
+static int alg_edge_length(LST_Node *node) 
 {
+	if(lst_node_is_root(node)) {
+		return 0;
+	}
+
+	if(!node){
+		return 0;
+	}
+
+	return *(node->up_edge->range.end_index) - node->up_edge->range.start_index + 1;
+}
+
+static LST_Node* alg_find_child(LST_Node *node, char ch)
+{
+ 	LST_Edge *edge;
+	char *val;
+	for (edge = node->kids.lh_first; edge; edge = edge->siblings.le_next) {
+		val = (char *) lst_string_get_item(edge->range.string, edge->range.start_index);
+		if(*val == ch){
+			return edge->dst_node;
+		}
+	}
+	return NULL;
+
+	
+}
+
+static int alg_traverse_edge(LST_Edge *edge, LST_String *string, int idx, int start, int end) 
+{
+	int k = 0;
+	/*Traverse the edge with character by character matching*/
+	char * edge_ch;
+	char * need_match_ch;
+	for(k = start; k <= end && idx < lst_string_get_length(string); k++, idx++) {
+		char * edge_ch = (char *) lst_string_get_item(edge->range.string, k);
+		char * need_match_ch = (char *) lst_string_get_item(string, idx);
+		if(*edge_ch != *need_match_ch) {
+			return -1;	
+		}
+	}
+	need_match_ch = (char *) lst_string_get_item(string, idx);
+	if(*need_match_ch == '\0') {
+		return 1; // match
+	}
+
+	return 0; // more charachers yet to match
+
+}
+
+static int alg_substring_check(LST_Node *node, LST_String *string, int idx)
+{
+
+	int res = -1;
+	if(!node){
+		return -1; // no match
+	}
+
+	/* If node n is not root node, then traverse edge from node n's parent to node n.*/
+	if(!lst_node_is_root(node)){
+		res = alg_traverse_edge(node->up_edge, string, idx, node->up_edge->range.start_index, *(node->up_edge->range.end_index)); 
+		if(res != 0){
+			return res; // match (res = 1) or no match (res = -1)
+		}
+	}
+	/* Get the character index to search*/
+	idx += lst_edge_get_length(node->up_edge);
+
+	/* If there is an edge from node n going out with current character ch, travrse that edge */
+	char *ch = lst_string_get_item(string, idx);
+	LST_Node * child_node = NULL;
+	if((child_node = alg_find_child(node, *ch)) != NULL) {
+		return alg_substring_check(child_node, string, idx);
+	} else {
+		return -1; // no match
+	}
 
 }
 
 int lst_alg_substring_check(LST_STree *tree, LST_String *string)
 {
-	return alg_substring_check(tree, string);
+
+	if(!tree || !string || !(tree->root_node)) {
+		return -1;
+	}
+
+	return alg_substring_check(tree->root_node, string, 0);
 }
 
 

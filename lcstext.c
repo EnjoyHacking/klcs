@@ -57,12 +57,24 @@ node_cb(LST_Node *node, void *data)
 	   lst_stree_get_string_index((LST_STree *) data, node->up_edge->range.string));
 }
 
+
 void
 string_cb(LST_String *string, void *data)
 {
   printf("%s ", lst_string_print(string));
   printf("%s", data);
 }
+
+void checkForSubString(LST_STree *tree, LST_String  *string)
+{
+    int res = lst_alg_substring_check(tree, string);
+    if(res == 1)
+	    printf("Pattern <%s> is a Substring\n", lst_string_print(string));
+    else
+	    printf("Pattern <%s> is NOT a Substring\n", lst_string_print(string));
+}
+
+
 
 int
 main(int argc, char **argv)
@@ -117,7 +129,22 @@ main(int argc, char **argv)
       	lst_stringset_foreach(result, string_cb, "\t");
       	printf("\n");
     }
-   
+
+   /* Testing suffix tree for substring check */
+
+   LST_String *substr1 = lst_string_new("hello", 1, 5);
+   LST_String *substr2 = lst_string_new("ello", 1, 4);
+   LST_String *substr3 = lst_string_new("ell", 1, 3);
+   LST_String *substr4 = lst_string_new("china", 1, 5);
+   LST_String *substr5 = lst_string_new("welcom", 1, 6);
+
+   checkForSubString(tree, substr1);
+   checkForSubString(tree, substr2);
+   checkForSubString(tree, substr3);
+   checkForSubString(tree, substr4);
+   checkForSubString(tree, substr5);
+
+      
 
   /* Free suffix tree: */
   lst_stree_free(tree);
