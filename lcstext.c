@@ -36,6 +36,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "lst_string.h"
 #include "lst_algorithms.h"
 
+#define ASSUMPTION_NUM_DISTINCT_STRINGS 256
+
 #include "utils.h"
 extern int fileCounter;
 static void
@@ -114,7 +116,10 @@ main(int argc, char **argv)
   printf("2. result finished! \n");
   //result = lst_alg_longest_common_substring(tree, min_len, max_len);
   //printf("3. lcs finished! \n");
-  result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k);
+  
+  u_int *num_distinct_strings = (u_int *) malloc(sizeof(u_int) * ASSUMPTION_NUM_DISTINCT_STRINGS);
+  memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
+  result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
   printf("3. klcs finished! \n");
 
   if(result == NULL){
@@ -124,11 +129,16 @@ main(int argc, char **argv)
   fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
   /* Print them out, if any. */
   if (result)
-    {
-  	printf("result size : %d \n", result->size);
-      	lst_stringset_foreach(result, string_cb, "\t");
-      	printf("\n");
-    }
+  {
+	  printf("result size : %d \n", result->size);
+	  lst_stringset_foreach(result, string_cb, "\t");
+	  printf("\n");
+  }
+
+  for(int i = 0; i < result->size; i++)
+	  printf("%u\t", num_distinct_strings[i]);	
+
+  printf("\n");
 
    /* Testing suffix tree for substring check */
 

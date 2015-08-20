@@ -71,6 +71,7 @@ struct lst_node
   u_char                      *bitstrings;  // add by syf
   int                         bitstrings_size; // add by syf
   u_int                       lcs_visited; // add by syf
+  u_int                       num_distinct_strings;
 
   u_int                       bus_visited;
 };

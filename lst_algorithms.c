@@ -34,6 +34,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "lst_debug.h"
 #include "lst_algorithms.h"
 
+
 static void bitstrings_copy(u_char *dst, u_char *src, int size);
 static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size);
 // add by syf
@@ -471,6 +472,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
   else if (data->lcs == 2) // denote longest k common substring
   {
 	  int counter = get_number_of_distinct_string(node, ceil((double)data->tree->num_strings / 8));
+	  node->num_distinct_strings = counter;
 	  //printf("%d < %d : \n", counter, data->k);
 	  if ( counter < data->k){
           	return 0;
@@ -507,7 +509,6 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  data->num_deepest++;
 	  TAILQ_INSERT_HEAD(&data->nodes, it, items);
 
-        //alg_node_it_set_visited(it); // add by syf
 	//printf("depth : %d \n", depth);
 	//printf("deepest : %d \n", data->deepest);
 	//printf("--------------------\n");
@@ -519,7 +520,6 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
       it = alg_node_it_new(node);
       data->num_deepest++;
       TAILQ_INSERT_HEAD(&data->nodes, it, items);
-      //alg_node_it_set_visited(it); // add by syf
     }
 
 
@@ -527,7 +527,7 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 }
 
 static LST_StringSet *
-alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, int k)
+alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, int k, u_int *num_distinct_strings)
 {
   LST_StringSet *result = NULL;
   LST_String *string;
@@ -566,6 +566,8 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
    * depth that has all strings as visitors.
    */
   LST_STree * lcs_tree = NULL; 
+  u_int idx = 0;
+
 
   while(data.max_depth >= min_len){
 
@@ -601,6 +603,8 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	      // add by syf 
 	      if(1 != lst_alg_substring_check(lcs_tree, string)) {
 		      lst_stringset_add(result, string);
+		      if(num_distinct_strings != NULL)
+			      num_distinct_strings[idx++] = it->node->num_distinct_strings;
 	      }
 
 	    }
@@ -632,15 +636,15 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
  * @brief extract first k longest common substring (even, all common substrings) among the given multiple strings
  * */
 LST_StringSet *
-lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
+lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, u_int * extension)
 {
-  return alg_longest_substring(tree, min_len, max_len, 1, 0);
+  return alg_longest_substring(tree, min_len, max_len, 1, 0, extension);
 }
 
 LST_StringSet *
-lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
+lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, u_int * extension)
 {
-  return alg_longest_substring(tree, min_len, max_len, 1, 0);
+  return alg_longest_substring(tree, min_len, max_len, 1, 0, extension);
 }
 
 
@@ -650,9 +654,9 @@ lst_alg_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len)
  * @author sangyafei
  * */
 LST_StringSet *
-lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k)
+lst_alg_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k, u_int  *extension)
 {
-  return alg_longest_substring(tree, min_len, max_len, 2, k);
+  return alg_longest_substring(tree, min_len, max_len, 2, k, extension);
 }
 
 
@@ -747,8 +751,8 @@ int lst_alg_substring_check(LST_STree *tree, LST_String *string)
 
 
 LST_StringSet *
-lst_alg_longest_repeated_substring(LST_STree *tree, u_int min_len, u_int max_len)
+lst_alg_longest_repeated_substring(LST_STree *tree, u_int min_len, u_int max_len, u_int *extension)
 {
-  return alg_longest_substring(tree, min_len, max_len, 0, 0);
+  return alg_longest_substring(tree, min_len, max_len, 0, 0, extension);
 }
 

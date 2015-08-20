@@ -132,12 +132,15 @@ int print_bitstrings(u_char * bitstrings, int len); // added by sangyafei
  */
 LST_StringSet  *lst_alg_longest_common_substring(LST_STree *tree,
 						 u_int min_len,
-						 u_int max_len);
+						 u_int max_len,
+						 u_int *extension);
 
 /*add by sangyafei*/
 LST_StringSet  *lst_alg_k_longest_common_substring(LST_STree *tree,
 						 u_int min_len,
-						 u_int max_len, int k);
+						 u_int max_len, 
+						 int k,
+						 u_int *extension);
 
 /**
  * suffix tree for substring check
@@ -165,6 +168,7 @@ int lst_alg_substring_check(LST_STree *tree, LST_String *string);
  */
 LST_StringSet  *lst_alg_longest_repeated_substring(LST_STree *tree,
                                                   u_int min_len,
-                                                  u_int max_len);
+                                                  u_int max_len,
+						  u_int *extension);
 
 #endif
