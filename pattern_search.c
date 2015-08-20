@@ -25,7 +25,7 @@ void build_lps_array(char *pattern, int M, int *lps) {
 
 }
 
-void kmp_search(char *pattern, char *target) {
+int*  kmp_search(char *pattern, char *target) {
 
 	if(!pattern || !target) {
 		return ;
@@ -33,6 +33,13 @@ void kmp_search(char *pattern, char *target) {
 
 	int M = strlen(pattern);
 	int N = strlen(target);
+
+	int *indices = (int *) malloc (sizeof(int) * N);
+	int index;
+	for(index = 0; index < N; index++){
+		indices[index] = -1;
+	}
+	index = 0;
 
 	/* create lps array that will hold the longest prefix suffix values for pattern*/
 
@@ -52,6 +59,7 @@ void kmp_search(char *pattern, char *target) {
 
 		if (j == M) {
 			printf("Info: Found pattern <%s> at index '%d' of <%s> \n", pattern, i-j+1, target);	
+			indices[index++] = i - j + 1;
 			j = lps[j - 1];
 		} else if (i < N && pattern[j] != target[i]) { // mismatch after j matches
 
@@ -65,13 +73,27 @@ void kmp_search(char *pattern, char *target) {
 	}
 
 	free(lps); // to avoid memory leak
+
+	return indices;
 }
 
+
+/*
 
 int main() {
 	char *target = "ABABDABACDABABCABAB";
 	char *pattern = "AB";
-	kmp_search(pattern, target);
+	int *indices = kmp_search(pattern, target);
+
+	int index = 0;
+	while(indices[index] != -1 && index < strlen(target)) {
+		printf("%d \t", indices[index++]);
+	}	
+
+	printf("\n");
+
+	free(indices);
 
 	return 0;
 }
+*/

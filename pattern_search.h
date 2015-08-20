@@ -3,6 +3,6 @@
 
 void build_lps_array(char *pattern, int M, int *lps);
 
-void kmp_search(char *pattern, char *target);
+int* kmp_search(char *pattern, char *target);
 
 #endif
