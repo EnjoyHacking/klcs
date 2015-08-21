@@ -45,8 +45,7 @@ struct _token_t {
 struct _offset_t {
 	u_int offset;
 	u_int num_variants; 
-
-	LIST_HEAD(token_list, _token_t) token_head;
+	LIST_HEAD(token_list, lst_string) token_head;
 };
 
 

@@ -601,7 +601,7 @@ unsigned int trie_num_entries(Trie *trie)
 /**
  * @author sangyafei
  */
-void trie_dfs(Trie *trie, Trie_node_callback cb) {
+void trie_dfs(Trie *trie, Trie_node_callback cb, void *extension) {
 	if (!trie) {
 		printf("Error: trie is null\n");
 		return;
@@ -611,7 +611,7 @@ void trie_dfs(Trie *trie, Trie_node_callback cb) {
 		return;
 	}
 
-	trie_alg_dfs(trie->root_node, cb);
+	trie_alg_dfs(trie->root_node, cb, extension);
 	printf("\n");
 
 	return;

@@ -107,6 +107,7 @@ void token_add(token_t *t, int offset) {
 
 }
 
+
 void token_print(token_t *t){
 
 	if(!t){
@@ -131,10 +132,42 @@ void token_print(token_t *t){
 		++count;
 	}
 	printf("\n");
+
+	if(count == 1) {
+		t->position_specific = 1;
+	}
 	return;
 
 }
 
+void offset_get_variants(token_t *t){
+
+	if(!t){
+		return ;
+	}
+
+	HashTable *hash_table;
+	HashTableIterator iterator;
+	int count;
+
+	hash_table = t->offset_occurrence;
+	count = 0;
+
+	/* Iterate over all values in the table */
+	hash_table_iterate(hash_table, &iterator);
+	
+	printf("<%s> : ", lst_string_print(t->token));	
+
+	while (hash_table_iter_has_more(&iterator)) {
+		HashTablePair pair = hash_table_iter_next(&iterator);
+		printf("%d(%d) \t", *((int *)pair.key), *((int *)pair.value));
+		++count;
+	}
+	printf("\n");
+
+	return;
+
+}
 void token_free(token_t *t){
 
 	if(!t) {
@@ -199,7 +232,7 @@ void flow_set_free(flow_set_t *flow_set){
  * @param flow_set	the all flows, each flow is a instance of @flow_t
  * @return a trie of storing the variables of token_t data type
  */
-Trie*  flow_set_traverse(flow_set_t *flow_set) {
+Trie*  flow_set_traverse_token(flow_set_t *flow_set) {
 
 	if(!flow_set) {
 		return NULL;
@@ -228,7 +261,7 @@ Trie*  flow_set_traverse(flow_set_t *flow_set) {
 
 }
 
-static void print_callback(TrieNode *node) {
+static void print_callback(TrieNode *node, void * extension) {
 
 	if(!node){
 		return;
@@ -242,6 +275,20 @@ static void print_callback(TrieNode *node) {
 	token_print(token);
 
 	return ;
+}
+
+static void search_callback(Trie *node, void * extension) {
+
+	if(!node){
+		return;
+	}
+	if(!node->data){
+		return;
+	}
+	token_t  *token = (token_t *) node->data;	
+
+	
+
 }
 
 
@@ -274,8 +321,12 @@ int main(int argc, char * argv[]) {
 	flow_set_add(flow_set, flow1);
 	flow_set_add(flow_set, flow2);
 
-	Trie *trie = flow_set_traverse(flow_set);
-	trie_dfs(trie, print_callback);
+	/* The first round search, return a trie of tokens*/
+	Trie *trie = flow_set_traverse_token(flow_set);
+	trie_dfs(trie, print_callback, (void *)NULL);
+	/* The second round search, return a trie of offsets*/
+
+	printf(".....\n");
 
 	trie_free(trie);
 	flow_free(flow1);

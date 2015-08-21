@@ -64,7 +64,7 @@ struct _Trie {
 	TrieNode *root_node;
 };
 
-typedef void (* Trie_node_callback) (TrieNode * node);
+typedef void (* Trie_node_callback) (TrieNode * node, void *extension);
 
 /**
  * A trie structure.
@@ -196,7 +196,7 @@ unsigned int trie_num_entries(Trie *trie);
  * @author sangyafei
  * @param trie        The trie
 */
-void trie_dfs(Trie *trie, Trie_node_callback cb); 
+void trie_dfs(Trie *trie, Trie_node_callback cb, void *extension); 
 
 #ifdef __cplusplus
 }
