@@ -11,3 +11,7 @@ lcstext_LDADD = -lc -lm
 lcstext_LDFLAGS = -L/lib 
 
 
+
+#bin_PROGRAMS = position_constraints
+
+#position_constraints_SOURCES = position_constraints.c position_constraints.h pattern_search.c pattern_search.h lst_string.c lst_string.h

@@ -1,11 +1,16 @@
-#ifdef _POSITION_CONSTRAINTS
+#ifndef _POSITION_CONSTRAINTS
 #define _POSITION_CONSTRAINTS
 
 #include "lst_string.h"
-#include "queue.h"
+#include <sys/queue.h>
+#include "hash-table.h"
 
 
-/* flow vector:= {<token_1, offset_1>, <token_2, offset_2, ...>}, where we call the <token_i, offset_i> as a element*/
+typedef struct _token_t 	token_t;
+typedef struct _offset_t	offset_t; 
+typedef struct _element_t 	element_t;
+typedef struct _flow_t 		flow_t;
+typedef struct _flow_set_t	flow_set_t;
 
 struct _element_t {
 	LST_String *token;
@@ -13,21 +18,27 @@ struct _element_t {
 	LIST_ENTRY(_element_t) entry;
 };
 
+/* flow vector:= {<token_1, offset_1>, <token_2, offset_2>, ...}, where we call the <token_i, offset_i> as a element*/
 struct _flow_t {
-	LIST_HEAD(element_list, element_t) element_head;
+	LIST_HEAD(element_list, _element_t) element_head;
+	LIST_ENTRY(_flow_t) entry;
+};
+
+
+struct _flow_set_t {
+	LIST_HEAD(flow_list, _flow_t) flow_head;	
+	int size ; 	// the size of flow set
 };
 
 struct _token_t {
 
 	LST_String *token;
 
-	LIST_HEAD(offset_list, offset_t) offset_head; // store all occur offset positions 
-
-	u_int positon_specific; 
+	u_int position_specific; 
 
 	u_int begin_of_flow;
 
-	LIST_ENTRY(_token_t) entry;
+	HashTable * offset_occurrence;
 
 };
 
@@ -35,12 +46,8 @@ struct _offset_t {
 	u_int offset;
 	u_int num_variants; 
 
-	LIST_HEAD(token_list, token_t) token_head;
+	LIST_HEAD(token_list, _token_t) token_head;
 };
 
-typedef struct _token_t 	token_t;
-typedef struct _offset_t	offset_t; 
-typedef struct _element_t 	element_t;
-typedef struct _flow_t 		flow_t;
 
 #endif

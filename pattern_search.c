@@ -1,4 +1,6 @@
 #include "pattern_search.h"
+#include <string.h>
+#include <malloc.h>
 
 void build_lps_array(char *pattern, int M, int *lps) {
 
@@ -58,8 +60,8 @@ int*  kmp_search(char *pattern, char *target) {
 		}
 
 		if (j == M) {
-			printf("Info: Found pattern <%s> at index '%d' of <%s> \n", pattern, i-j+1, target);	
-			indices[index++] = i - j + 1;
+			printf("Info: Found pattern <%s> at index '%d' of <%s> \n", pattern, i - j, target);	
+			indices[index++] = i - j;
 			j = lps[j - 1];
 		} else if (i < N && pattern[j] != target[i]) { // mismatch after j matches
 
