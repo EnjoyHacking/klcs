@@ -11,6 +11,14 @@ typedef struct _offset_t	offset_t;
 typedef struct _element_t 	element_t;
 typedef struct _flow_t 		flow_t;
 typedef struct _flow_set_t	flow_set_t;
+typedef struct _offset_variants_t offset_variants_t; 
+
+struct _offset_variants_t {
+	int beta_merge;
+	int k_offset;       // we only consider the offsets with occurrence greater than or equal to the given threshold 
+	/* The hash table @offset_variants store the key-value pair of offset(int) and offset_t.*/
+	HashTable *offset_variants; 
+};
 
 struct _element_t {
 	LST_String *token;
@@ -45,7 +53,8 @@ struct _token_t {
 struct _offset_t {
 	u_int offset;
 	u_int num_variants; 
-	LIST_HEAD(token_list, lst_string) token_head;
+
+	LST_StringSet * variants;
 };
 
 

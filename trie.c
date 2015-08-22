@@ -22,6 +22,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "trie.h"
 
@@ -65,7 +66,7 @@ static TrieNode *trie_free_list_pop(TrieNode **list)
 /**
  * @author sangyafei
 */
-static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb) {
+static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb, void *extension) {
 	int i;
 	int *val;
 
@@ -74,11 +75,11 @@ static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb) {
 	}
 	for(i = 0; i < 256; ++i) {
 		if (subtrie->next[i] != NULL) {
-			trie_alg_dfs(subtrie->next[i], cb);
+			trie_alg_dfs(subtrie->next[i], cb, extension);
 		} 
 	}
 	
-	cb(subtrie);
+	cb(subtrie, extension);
 
 	/*
 	if(subtrie->data != NULL) {

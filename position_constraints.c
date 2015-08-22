@@ -140,34 +140,48 @@ void token_print(token_t *t){
 
 }
 
-void offset_get_variants(token_t *t){
+offset_t *offset_new(LST_String *token){
 
-	if(!t){
-		return ;
+	if (!token) {
+		return NULL;	
 	}
 
-	HashTable *hash_table;
-	HashTableIterator iterator;
-	int count;
+	offset_t * o = (offset_t *) malloc(sizeof(offset_t));
 
-	hash_table = t->offset_occurrence;
-	count = 0;
+	o->variants = lst_stringset_new();
+	lst_stringset_add(o->variants, token);
+	o->num_variants = o->variants->size;
 
-	/* Iterate over all values in the table */
-	hash_table_iterate(hash_table, &iterator);
-	
-	printf("<%s> : ", lst_string_print(t->token));	
+	return o;
+}
 
-	while (hash_table_iter_has_more(&iterator)) {
-		HashTablePair pair = hash_table_iter_next(&iterator);
-		printf("%d(%d) \t", *((int *)pair.key), *((int *)pair.value));
-		++count;
+void offset_add(offset_t *o, LST_String *token) {
+
+	if (!o || !token) {
+		return;
 	}
-	printf("\n");
+
+	if(o->variants != NULL) {
+		lst_stringset_add(o->variants, token);
+		o->num_variants = o->variants->size;
+	}
 
 	return;
-
 }
+
+void offset_free(offset_t * o) {
+
+	if(!o){
+		return;
+	}
+
+	if(o->variants != NULL) {
+		lst_stringset_free(o->variants);
+	}
+
+	return;
+}
+
 void token_free(token_t *t){
 
 	if(!t) {
@@ -277,21 +291,122 @@ static void print_callback(TrieNode *node, void * extension) {
 	return ;
 }
 
-static void search_callback(Trie *node, void * extension) {
+static void search_callback(TrieNode *node, void * extension) {
 
-	if(!node){
+	if(!node || ! extension){
 		return;
 	}
 	if(!node->data){
 		return;
 	}
-	token_t  *token = (token_t *) node->data;	
-
 	
+
+	token_t  *token = (token_t *) node->data;	
+	
+	offset_variants_t * ov = (offset_variants_t *)extension;
+
+	HashTable *offset_variants = ov->offset_variants; // for return
+
+	HashTableIterator iterator;
+	hash_table_iterate(token->offset_occurrence, &iterator);
+
+	while(hash_table_iter_has_more(&iterator)) {
+		HashTablePair pair = hash_table_iter_next(&iterator);
+		int *key = (int *)pair.key;  // a offset
+		int *value = (int *)pair.value; // the corresponding ocurrence of the token in the offset
+		if(*value >= ov->k_offset) {
+			HashTableValue result_value;
+			if ((result_value = hash_table_lookup(offset_variants, key)) != HASH_TABLE_NULL) {
+				offset_add((offset_t *)result_value, token->token);
+			} else {
+				offset_t *t = offset_new(token->token);
+				hash_table_insert(offset_variants, key, t);	
+			}
+		}
+	}	
+
+	return ;
 
 }
 
 
+void variant_callback(LST_String *string, void *data)
+{
+  printf("%s", lst_string_print(string));
+  printf("%s", (char *)data);
+}
+
+void set_position_specific_by_offset_occurrence(token_t *t) {
+
+}
+
+void set_position_specific_by_offset_variants(token_t *t) {
+
+}
+
+
+/* This callback function for lst_stringset_foreach is to remove the string */
+void remove_callback(LST_String *string, void *data) {
+	if(!string || !data) {
+		return;
+	}
+
+	LST_StringSet * set = (LST_StringSet *)data;
+	lst_stringset_remove(string);
+	return;
+}
+
+/* This callback function for lst_stringset_foreach is to merge some strings and return data */
+void merge_callback(LST_String *string, void *data) {
+	if(!string || !data) {
+		return;
+	}
+	char * tmp = (char *) data;
+	strcat(tmp, "|");	
+	strcat(tmp, lst_string_print(string));	
+	return ;
+}
+
+void merge_by_position_speific_with_offset_variants(LST_StringSet *tokens, offset_variants_t *ov) {
+	if(!tokens || !ov) {
+		return;
+	}
+
+	HashTableIterator iterator;
+	hash_table_iterate(o->offset_variants, &iterator);
+	while(hash_table_iter_has_more(&iterator)) {
+		HashTablePair pair = hash_table_iter_next(&iterator);	
+		int * key = (int *)pair.key;
+		offset_t * value = (offset_t *)pair.value;
+		if( value->num_variants < ov->beta_merge) {
+			char * str = (char *)malloc(sizeof(char) * 20); // need to modify
+			lst_stringset_foreach(value->variants, merge_callback, str);
+			LST_String * merge_token = lst_string_new(str, 1, strlen(str));
+			lst_stringset_add(tokens, merge_token);
+			lst_stringset_foreach(value->variants, merge_callback, tokens);
+		}
+	}
+
+}
+
+
+void offset_variants_traverse(offset_variants_t *o) {
+	if(!o) {
+		return;
+	}
+
+	HashTableIterator iterator;
+	hash_table_iterate(o->offset_variants, &iterator);
+	while(hash_table_iter_has_more(&iterator)) {
+		HashTablePair pair = hash_table_iter_next(&iterator);	
+		int * key = (int *)pair.key;
+		offset_t * value = (offset_t *)pair.value;
+		printf("%d : ", *key);
+		lst_stringset_foreach(value->variants, variant_callback, "\n");
+	}
+	return;
+
+}
 
 
 int main(int argc, char * argv[]) {
@@ -326,13 +441,22 @@ int main(int argc, char * argv[]) {
 	trie_dfs(trie, print_callback, (void *)NULL);
 	/* The second round search, return a trie of offsets*/
 
-	printf(".....\n");
+
+	offset_variants_t * res = (offset_variants_t *)malloc(sizeof(offset_variants_t));	
+	res->k_offset = 1;
+	res->beta_merge = 5;
+	res->offset_variants = hash_table_new(int_hash, int_equal);
+	trie_dfs(trie, search_callback, res);	
+
+
+	/* print offset -> variants*/
+	printf("********************\n");
+	offset_variants_traverse(res);
 
 	trie_free(trie);
 	flow_free(flow1);
 	flow_free(flow2);
-	lst_stringset_free(tokens);
-
-
+	hash_table_free(res->offset_variants);
+	free(res);
 	return 0;
 }
