@@ -198,6 +198,8 @@ unsigned int trie_num_entries(Trie *trie);
 */
 void trie_dfs(Trie *trie, Trie_node_callback cb, void *extension); 
 
+
+
 #ifdef __cplusplus
 }
 #endif

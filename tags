@@ -6,6 +6,10 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing aclocal-1.14$/;"	m
 ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+ALGORITHM_COMPARE_INT_H	compare-int.h	33;"	d
+ALGORITHM_COMPARE_STRING_H	compare-string.h	35;"	d
+ALGORITHM_HASH_INT_H	hash-int.h	28;"	d
+ALGORITHM_HASH_STRING_H	hash-string.h	29;"	d
 ALGORITHM_HASH_TABLE_H	hash-table.h	46;"	d
 ALGORITHM_TRIE_H	trie.h	41;"	d
 AMTAR	Makefile	/^AMTAR = $${TAR-tar}$/;"	m
@@ -151,7 +155,7 @@ TRIE_NULL	trie.h	80;"	d
 Trie	trie.h	/^typedef struct _Trie Trie;$/;"	t	typeref:struct:_Trie
 TrieNode	trie.h	/^typedef struct _TrieNode TrieNode;$/;"	t	typeref:struct:_TrieNode
 TrieValue	trie.h	/^typedef void *TrieValue;$/;"	t
-Trie_node_callback	trie.h	/^typedef void (* Trie_node_callback) (TrieNode * node);$/;"	t
+Trie_node_callback	trie.h	/^typedef void (* Trie_node_callback) (TrieNode * node, void *extension);$/;"	t
 VERSION	Makefile	/^VERSION = 1.0$/;"	m
 VERSION	config.h	69;"	d
 _HashTable	hash-table.c	/^struct _HashTable {$/;"	s	file:
@@ -160,6 +164,7 @@ _HashTableIterator	hash-table.h	/^struct _HashTableIterator {$/;"	s
 _HashTablePair	hash-table.h	/^typedef struct _HashTablePair{$/;"	s
 _PATTERN_SEARCH_H	pattern_search.h	2;"	d
 _POSITION_CONSTRAINTS	position_constraints.h	2;"	d
+_PRODUCT_DISTRIBUTION_MODEL_H	product_distribution_model.h	2;"	d
 _Trie	trie.h	/^struct _Trie {$/;"	s
 _TrieNode	trie.h	/^struct _TrieNode {$/;"	s
 _UTILS_H	utils.h	2;"	d
@@ -171,10 +176,13 @@ __lst_stree_h	lst_stree.h	26;"	d
 __lst_string_h	lst_string.h	26;"	d
 __lst_structs_h	lst_structs.h	26;"	d
 __lst_timestamp_h	lst_timestamp.h	26;"	d
+_byte_distribution_t	product_distribution_model.h	/^struct _byte_distribution_t {$/;"	s
 _element_t	position_constraints.h	/^struct _element_t {$/;"	s
 _flow_set_t	position_constraints.h	/^struct _flow_set_t {$/;"	s
 _flow_t	position_constraints.h	/^struct _flow_t {$/;"	s
 _offset_t	position_constraints.h	/^struct _offset_t {$/;"	s
+_offset_variants_t	position_constraints.h	/^struct _offset_variants_t {$/;"	s
+_product_distribution_t	product_distribution_model.h	/^struct _product_distribution_t {$/;"	s
 _token_t	position_constraints.h	/^struct _token_t {$/;"	s
 abs_builddir	Makefile	/^abs_builddir = \/home\/yafei\/workspace_for_github\/klcs$/;"	m
 abs_srcdir	Makefile	/^abs_srcdir = \/home\/yafei\/workspace_for_github\/klcs$/;"	m
@@ -265,6 +273,7 @@ as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
 as_fn_unset	config.status	/^as_fn_unset ()$/;"	f
 as_fn_unset	configure	/^as_fn_unset ()$/;"	f
 begin_of_flow	position_constraints.h	/^	u_int begin_of_flow;$/;"	m	struct:_token_t
+beta_merge	position_constraints.h	/^	int beta_merge;$/;"	m	struct:_offset_variants_t
 bin_PROGRAMS	Makefile	/^bin_PROGRAMS = lcstext$(EXEEXT)$/;"	m
 bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
 bitstrings	lst_structs.h	/^  u_char                            *bitstrings;  \/\/ add by sangyafei$/;"	m	struct:lst_stree
@@ -276,6 +285,10 @@ build_lps_array	pattern_search.c	/^void build_lps_array(char *pattern, int M, in
 builddir	Makefile	/^builddir = .$/;"	m
 bus_visited	lst_structs.h	/^  u_int                       bus_visited;$/;"	m	struct:lst_node
 byte_class	lst_string.c	/^static LST_StringClass byte_class = $/;"	v	file:
+byte_distribution_add	product_distribution_model.c	/^void byte_distribution_add(byte_distribution_t *bd, LST_String *nbytes, int offset){$/;"	f
+byte_distribution_new	product_distribution_model.c	/^byte_distribution_t * byte_distribution_new(LST_String *nbytes, int offset) {$/;"	f
+byte_distribution_t	product_distribution_model.h	/^typedef struct _byte_distribution_t byte_distribution_t;$/;"	t	typeref:struct:_byte_distribution_t
+calculate_product_distribution_callback	product_distribution_model.c	/^void calculate_product_distribution_callback(LST_String *nbytes, void *data) {$/;"	f
 checkForSubString	lcstext.c	/^void checkForSubString(LST_STree *tree, LST_String  *string)$/;"	f
 cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	m	struct:lst_stringclass
 convert_bitstrings_to_int	lst_algorithms.c	/^static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){$/;"	f	file:
@@ -310,6 +323,7 @@ exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
 ext	lst_structs.h	/^  u_int                             ext;$/;"	m	struct:lst_stree
 extra_index	lst_string.h	/^  u_int        extra_index;$/;"	m	struct:lst_stringindex
 fileCounter	utils.c	/^int fileCounter = 0;$/;"	v
+first_bytes	product_distribution_model.h	/^	int first_bytes;$/;"	m	struct:_product_distribution_t
 fix_tree_cb	lst_stree.c	/^fix_tree_cb(LST_Node *node, void *data)$/;"	f	file:
 flow_free	position_constraints.c	/^void flow_free(flow_t *flow){$/;"	f
 flow_head	position_constraints.h	/^	LIST_HEAD(flow_list, _flow_t) flow_head;	$/;"	m	struct:_flow_set_t
@@ -319,7 +333,7 @@ flow_set_add	position_constraints.c	/^void flow_set_add(flow_set_t *flow_set, fl
 flow_set_free	position_constraints.c	/^void flow_set_free(flow_set_t *flow_set){$/;"	f
 flow_set_new	position_constraints.c	/^flow_set_t* flow_set_new(void){$/;"	f
 flow_set_t	position_constraints.h	/^typedef struct _flow_set_t	flow_set_t;$/;"	t	typeref:struct:_flow_set_t
-flow_set_traverse	position_constraints.c	/^Trie*  flow_set_traverse(flow_set_t *flow_set) {$/;"	f
+flow_set_traverse_token	position_constraints.c	/^Trie*  flow_set_traverse_token(flow_set_t *flow_set) {$/;"	f
 flow_t	position_constraints.h	/^typedef struct _flow_t 		flow_t;$/;"	t	typeref:struct:_flow_t
 func_cl_dashL	compile	/^func_cl_dashL ()$/;"	f
 func_cl_dashl	compile	/^func_cl_dashl ()$/;"	f
@@ -356,16 +370,21 @@ install_sh	Makefile	/^install_sh = ${SHELL} \/home\/yafei\/workspace_for_github\
 install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
 install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
 install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+int_compare	compare-int.c	/^int int_compare(void *vlocation1, void *vlocation2)$/;"	f
+int_equal	compare-int.c	/^int int_equal(void *vlocation1, void *vlocation2)$/;"	f
+int_hash	hash-int.c	/^unsigned int int_hash(void *vlocation)$/;"	f
 is_equal_bitstrings	lst_algorithms.c	/^static int is_equal_bitstrings(u_char * b1, u_char * b2, int len)$/;"	f	file:
 item_size	lst_string.h	/^  u_int                       item_size;$/;"	m	struct:lst_string
 items	lst_structs.h	/^  LIST_ENTRY(lst_phase_num)   items;$/;"	m	struct:lst_phase_num
 items	lst_structs.h	/^  LIST_ENTRY(lst_string_hash_item) items;$/;"	m	struct:lst_string_hash_item
 iteration	lst_structs.h	/^  TAILQ_ENTRY(lst_node)       iteration;$/;"	m	struct:lst_node
 k	lst_algorithms.c	/^  int            k; \/\/ denote longest k common substring$/;"	m	struct:lst_lcs_data	file:
+k_offset	position_constraints.h	/^	int k_offset;       \/\/ we only consider the offsets with occurrence greater than or equal to the given threshold $/;"	m	struct:_offset_variants_t
 key	hash-table.h	/^	HashTableKey key;$/;"	m	struct:_HashTablePair
 key_free_func	hash-table.c	/^	HashTableKeyFreeFunc key_free_func;$/;"	m	struct:_HashTable	file:
 kids	lst_structs.h	/^  LIST_HEAD(elist, lst_edge)  kids;$/;"	m	struct:lst_node
 kmp_search	pattern_search.c	/^int*  kmp_search(char *pattern, char *target) {$/;"	f
+last_bytes	product_distribution_model.h	/^	int last_bytes;$/;"	m	struct:_product_distribution_t
 lcs	lst_algorithms.c	/^  int          lcs;$/;"	m	struct:lst_lcs_data	file:
 lcs_visited	lst_structs.h	/^  u_int                       lcs_visited; \/\/ add by syf$/;"	m	struct:lst_node
 lcstext_DEPENDENCIES	Makefile	/^lcstext_DEPENDENCIES =$/;"	m
@@ -446,10 +465,13 @@ lst_stringset_new	lst_string.c	/^lst_stringset_new(void)$/;"	f
 lst_stringset_remove	lst_string.c	/^lst_stringset_remove(LST_StringSet *set, LST_String *string)$/;"	f
 main	lcstext.c	/^main(int argc, char **argv)$/;"	f
 main	position_constraints.c	/^int main(int argc, char * argv[]) {$/;"	f
+main	product_distribution_model.c	/^int main(int arg, char *argv) {$/;"	f
 make_dummy_depfile	depcomp	/^make_dummy_depfile ()$/;"	f
 mandir	Makefile	/^mandir = ${datarootdir}\/man$/;"	m
 max_depth	lst_algorithms.c	/^  int           max_depth;$/;"	m	struct:lst_lcs_data	file:
 members	lst_string.h	/^  LIST_HEAD(slist, lst_string) members;  $/;"	m	struct:lst_stringset
+merge_by_position_speific_with_offset_variants	position_constraints.c	/^void merge_by_position_speific_with_offset_variants(LST_StringSet *tokens, offset_variants_t *ov) {$/;"	f
+merge_callback	position_constraints.c	/^void merge_callback(LST_String *string, void *data) {$/;"	f
 mkdir_p	Makefile	/^mkdir_p = $(MKDIR_P)$/;"	m
 mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 needs_visitor_update	lst_structs.h	/^  int                               needs_visitor_update;$/;"	m	struct:lst_stree
@@ -464,17 +486,27 @@ node_cb	lcstext.c	/^node_cb(LST_Node *node, void *data)$/;"	f
 node_find_edge_with_startitem	lst_stree.c	/^node_find_edge_with_startitem(LST_Node *node, LST_String *string, u_int index)$/;"	f	file:
 node_free	lst_stree.c	/^node_free(LST_Node *node)$/;"	f	file:
 node_new	lst_stree.c	/^node_new(int index)$/;"	f	file:
+num_bytes	product_distribution_model.h	/^	int num_bytes;$/;"	m	struct:_product_distribution_t
 num_deepest	lst_algorithms.c	/^  int           num_deepest;$/;"	m	struct:lst_lcs_data	file:
 num_distinct_strings	lst_structs.h	/^  u_int                       num_distinct_strings;$/;"	m	struct:lst_node
 num_items	lst_string.h	/^  u_int                       num_items;$/;"	m	struct:lst_string
 num_kids	lst_structs.h	/^  u_int                       num_kids;$/;"	m	struct:lst_node
 num_strings	lst_structs.h	/^  u_int                             num_strings;$/;"	m	struct:lst_stree
+num_values	product_distribution_model.h	/^	int num_values;$/;"	m	struct:_byte_distribution_t
 num_variants	position_constraints.h	/^	u_int num_variants; $/;"	m	struct:_offset_t
 offset	lst_stree.c	/^  u_int        offset;$/;"	m	struct:lst_path_end	file:
 offset	position_constraints.h	/^	u_int offset;$/;"	m	struct:_element_t
 offset	position_constraints.h	/^	u_int offset;$/;"	m	struct:_offset_t
+offset	product_distribution_model.h	/^	int offset;	$/;"	m	struct:_byte_distribution_t
+offset_add	position_constraints.c	/^void offset_add(offset_t *o, LST_String *token) {$/;"	f
+offset_distribution	product_distribution_model.h	/^	HashTable *offset_distribution;$/;"	m	struct:_product_distribution_t
+offset_free	position_constraints.c	/^void offset_free(offset_t * o) {$/;"	f
+offset_new	position_constraints.c	/^offset_t *offset_new(LST_String *token){$/;"	f
 offset_occurrence	position_constraints.h	/^	HashTable * offset_occurrence;$/;"	m	struct:_token_t
 offset_t	position_constraints.h	/^typedef struct _offset_t	offset_t; $/;"	t	typeref:struct:_offset_t
+offset_variants	position_constraints.h	/^	HashTable *offset_variants; $/;"	m	struct:_offset_variants_t
+offset_variants_t	position_constraints.h	/^typedef struct _offset_variants_t offset_variants_t; $/;"	t	typeref:struct:_offset_variants_t
+offset_variants_traverse	position_constraints.c	/^void offset_variants_traverse(offset_variants_t *o) {$/;"	f
 oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
 pair	hash-table.c	/^	HashTablePair pair;$/;"	m	struct:_HashTableEntry	file:
 pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
@@ -485,25 +517,32 @@ pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/klcs$/;"	m
 pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/klcs$/;"	m
 pkglibdir	Makefile	/^pkglibdir = $(libdir)\/klcs$/;"	m
 pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/klcs$/;"	m
-positon_specific	position_constraints.h	/^	u_int positon_specific; $/;"	m	struct:_token_t
+position_specific	position_constraints.h	/^	u_int position_specific; $/;"	m	struct:_token_t
 prefix	Makefile	/^prefix = \/usr\/local$/;"	m
 prime_index	hash-table.c	/^	unsigned int prime_index;$/;"	m	struct:_HashTable	file:
 print_bitstrings	lst_algorithms.c	/^int print_bitstrings(u_char * bitstrings, int len){$/;"	f
-print_callback	position_constraints.c	/^static void print_callback(TrieNode *node) {$/;"	f	file:
+print_callback	position_constraints.c	/^static void print_callback(TrieNode *node, void * extension) {$/;"	f	file:
 print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	m	struct:lst_stringclass
+product_distribution_free	product_distribution_model.c	/^void product_distribution_free(product_distribution_t * pd) {$/;"	f
+product_distribution_new	product_distribution_model.c	/^product_distribution_t * product_distribution_new(LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes){$/;"	f
+product_distribution_t	product_distribution_model.h	/^typedef struct _product_distribution_t product_distribution_t;$/;"	t	typeref:struct:_product_distribution_t
 program_details	missing	/^program_details ()$/;"	f
 program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
 prototypes	configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
 psdir	Makefile	/^psdir = ${docdir}$/;"	m
 range	lst_structs.h	/^  LST_StringIndex             range;$/;"	m	struct:lst_edge
 readContent	utils.c	/^void  readContent(char* pathName, LST_StringSet *set){$/;"	f
+remove_callback	position_constraints.c	/^void remove_callback(LST_String *string, void *data) {$/;"	f
 root_node	lst_structs.h	/^  LST_Node                         *root_node;$/;"	m	struct:lst_stree
 root_node	trie.h	/^	TrieNode *root_node;$/;"	m	struct:_Trie
 sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
 sclass	lst_string.h	/^  LST_StringClass            *sclass;$/;"	m	struct:lst_string
+search_callback	position_constraints.c	/^static void search_callback(TrieNode *node, void * extension) {$/;"	f	file:
 set	lst_string.h	/^  LIST_ENTRY(lst_string)      set;$/;"	m	struct:lst_string
 set_base_from	depcomp	/^set_base_from ()$/;"	f
 set_dir_from	depcomp	/^set_dir_from ()$/;"	f
+set_position_specific_by_offset_occurrence	position_constraints.c	/^void set_position_specific_by_offset_occurrence(token_t *t) {$/;"	f
+set_position_specific_by_offset_variants	position_constraints.c	/^void set_position_specific_by_offset_variants(token_t *t) {$/;"	f
 sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
 siblings	lst_structs.h	/^  LIST_ENTRY(lst_edge)        siblings;$/;"	m	struct:lst_edge
 size	lst_string.h	/^  int size;$/;"	m	struct:lst_stringset
@@ -529,9 +568,15 @@ string	lst_structs.h	/^  LST_String   *string;$/;"	m	struct:lst_string_hash_item
 string_byte_cmp_func	lst_string.c	/^string_byte_cmp_func(char *item1, char *item2)$/;"	f	file:
 string_byte_copy_func	lst_string.c	/^string_byte_copy_func(char *src, char *dst)$/;"	f	file:
 string_cb	lcstext.c	/^string_cb(LST_String *string, void *data)$/;"	f
+string_compare	compare-string.c	/^int string_compare(void *string1, void *string2)$/;"	f
+string_equal	compare-string.c	/^int string_equal(void *string1, void *string2)$/;"	f
+string_hash	hash-string.c	/^unsigned int string_hash(void *string)$/;"	f
 string_hash	lst_structs.h	/^  LST_StringHash                   *string_hash;$/;"	m	struct:lst_stree
 string_id_counter	lst_string.c	/^static int   string_id_counter;$/;"	v	file:
 string_index	lst_structs.h	/^  int                               string_index;$/;"	m	struct:lst_stree
+string_nocase_compare	compare-string.c	/^int string_nocase_compare(void *string1, void *string2)$/;"	f
+string_nocase_equal	compare-string.c	/^int string_nocase_equal(void *string1, void *string2)$/;"	f
+string_nocase_hash	hash-string.c	/^unsigned int string_nocase_hash(void *string)$/;"	f
 string_print_func	lst_string.c	/^string_print_func(LST_StringIndex *index)$/;"	f	file:
 subdir	Makefile	/^subdir = .$/;"	m
 suffix_link_node	lst_structs.h	/^  LST_Node                   *suffix_link_node;  $/;"	m	struct:lst_node
@@ -549,7 +594,6 @@ token	position_constraints.h	/^	LST_String *token;$/;"	m	struct:_element_t
 token	position_constraints.h	/^	LST_String *token;$/;"	m	struct:_token_t
 token_add	position_constraints.c	/^void token_add(token_t *t, int offset) {$/;"	f
 token_free	position_constraints.c	/^void token_free(token_t *t){$/;"	f
-token_head	position_constraints.h	/^	LIST_HEAD(token_list, _token_t) token_head;$/;"	m	struct:_offset_t
 token_new	position_constraints.c	/^token_t * token_new(LST_String *token, int offset){$/;"	f
 token_print	position_constraints.c	/^void token_print(token_t *t){$/;"	f
 token_t	position_constraints.h	/^typedef struct _token_t 	token_t;$/;"	t	typeref:struct:_token_t
@@ -559,8 +603,8 @@ top_distdir	Makefile	/^top_distdir = $(distdir)$/;"	m
 top_srcdir	Makefile	/^top_srcdir = .$/;"	m
 transform	Makefile	/^transform = $(program_transform_name)$/;"	m
 tree	lst_algorithms.c	/^  LST_STree    *tree;$/;"	m	struct:lst_lcs_data	file:
-trie_alg_dfs	trie.c	/^static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb) {$/;"	f	file:
-trie_dfs	trie.c	/^void trie_dfs(Trie *trie, Trie_node_callback cb) {$/;"	f
+trie_alg_dfs	trie.c	/^static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb, void *extension) {$/;"	f	file:
+trie_dfs	trie.c	/^void trie_dfs(Trie *trie, Trie_node_callback cb, void *extension) {$/;"	f
 trie_find_end	trie.c	/^static TrieNode *trie_find_end(Trie *trie, char *key)$/;"	f	file:
 trie_find_end_binary	trie.c	/^static TrieNode *trie_find_end_binary(Trie *trie, unsigned char *key,$/;"	f	file:
 trie_free	trie.c	/^void trie_free(Trie *trie)$/;"	f
@@ -579,3 +623,6 @@ up_edge	lst_structs.h	/^  LST_Edge                   *up_edge;$/;"	m	struct:lst_
 use_count	trie.h	/^	unsigned int use_count;$/;"	m	struct:_TrieNode
 value	hash-table.h	/^	HashTableValue value;$/;"	m	struct:_HashTablePair
 value_free_func	hash-table.c	/^	HashTableValueFreeFunc value_free_func;$/;"	m	struct:_HashTable	file:
+value_frequency	product_distribution_model.h	/^	HashTable *value_frequency; $/;"	m	struct:_byte_distribution_t
+variant_callback	position_constraints.c	/^void variant_callback(LST_String *string, void *data)$/;"	f
+variants	position_constraints.h	/^	LST_StringSet * variants;$/;"	m	struct:_offset_t
