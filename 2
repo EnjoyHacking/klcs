@@ -1,0 +1,28 @@
+#ifndef _PRODUCT_DISTRIBUTION_MODEL_H
+#define _PRODUCT_DISTRIBUTION_MODEL_H
+
+
+typedef struct _product_distribution_t product_distribution_t;
+typedef struct _byte_distribtuion_t byte_distribution_t;
+
+
+struct _product_distribution_t {
+
+	
+
+	LIST_HEAD(byte_distribution_list, _byte_distribution_t) byte_distribution_head;
+};
+
+
+struct _byte_distribution_t {
+
+	int offset;	
+	int num_values;
+	HashTable * value_frequency; 
+
+	LIST_ENTRY(_byte_distribution_t) entry;
+
+};
+
+
+#endif
