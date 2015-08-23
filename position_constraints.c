@@ -383,7 +383,6 @@ void merge_by_position_speific_with_offset_variants(LST_StringSet *tokens, offse
 			lst_stringset_foreach(value->variants, merge_callback, str);
 			LST_String * merge_token = lst_string_new(str, 1, strlen(str));
 			lst_stringset_add(tokens, merge_token);
-			lst_stringset_foreach(value->variants, merge_callback, tokens);
 		}
 	}
 
