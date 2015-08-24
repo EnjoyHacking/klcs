@@ -63,7 +63,7 @@ void lookup_trie(Trie * trie){
 	return ;
 
 }
-
+/*
 void trie_node_merge_callback(TrieNode *node, void *extension){
 
 	merge_common_prefix_t * mcp = (merge_common_prefix_t *)extension;	
@@ -84,6 +84,7 @@ void trie_node_merge_callback(TrieNode *node, void *extension){
 		node->data = new_data;
 	}
 }
+*/
 
 
 static void int_callback(TrieNode *node, void *extension) {
