@@ -77,7 +77,7 @@ void checkForSubString(LST_STree *tree, LST_String  *string)
 }
 
 
-#if 1
+#if 0
 
 int main(int argc, char **argv) {
 	LST_STree     *tree;
@@ -140,7 +140,7 @@ int main(int argc, char **argv) {
 
 
 
-#if 0 
+#if 1 
 
 int
 main(int argc, char **argv)
@@ -199,7 +199,7 @@ main(int argc, char **argv)
 	  printf("\n");
   }
 
-  for(int i = 0; i < result->size; i++)
+  for(int i = result->size - 1; i >= 0; i--)
 	  printf("%u\t", num_distinct_strings[i]);	
 
   printf("\n");
