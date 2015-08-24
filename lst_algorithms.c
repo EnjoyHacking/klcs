@@ -271,13 +271,13 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
   
   int string_index = lst_stree_get_string_index(data->tree, node->up_edge->range.string);
   //printf("%d : %s \n", string_index, lst_string_print(lst_node_get_string(node, 0)) );
-  printf("%d\n", string_index);
+  //printf("%d\n", string_index);
 
 
   int block =  node->bitstrings_size - (int) ((double)string_index / 8) - 1;
   int offset = string_index % 8;
 
-  printf("%d ---- %d \n", block, offset);
+  //printf("%d ---- %d \n", block, offset);
 
   if (lst_node_is_leaf(node))
     {

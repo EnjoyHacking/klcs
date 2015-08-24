@@ -1,7 +1,0 @@
-EHLO mail-bw0-f45.google.com
-MAIL FROM:<tzchen+caf_=tzchen=zju.edu.cn@gmail.com>
-RCPT TO:<tzchen@zju.edu.cn>
-DATA
-Received: by bkbzv15 with SMTP id zv15so2867586bkb.32
-        for <tzchen@zju.edu.cn>; Wed, 21 Sep 2011 23:38:06 -0700 (PDT)
-Received: b

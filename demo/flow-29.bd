@@ -1,8 +1,0 @@
-HELO chdmc.cn
-MAIL FROM: <huangqian@cmc.edu.cn>
-RCPT TO:<szhadm@ao.kwe.com>
-DATA
-Received: (eyou send program); Thu, 22 Sep 2011 14:49:56 +0800
-Message-ID: <516674196.20684@chdmc.cn>
-X-EYOUMAIL-SMTPAUTH: huangqian@cmc.edu.cn
-Received: from unknown (

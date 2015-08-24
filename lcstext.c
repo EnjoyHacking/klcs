@@ -77,6 +77,70 @@ void checkForSubString(LST_STree *tree, LST_String  *string)
 }
 
 
+#if 1
+
+int main(int argc, char **argv) {
+	LST_STree     *tree;
+	LST_StringSet *set, *result;
+	u_int min_len, max_len;
+	int k;
+	char* dirName;
+
+	if (argc <  5)
+		test_usage(argv[0]);
+
+	min_len = atoi(argv[1]);
+	max_len = atoi(argv[2]);
+	k = atoi(argv[3]);
+	dirName = argv[4];
+
+	
+	/* Create a string set to conveniently hold all our strings from a given directory */
+	set = lst_stringset_new();
+	dirScan(dirName, set);
+	fprintf(stdout, "string set size : %d \n", set->size);
+	fprintf(stdout, "fileCounter : %d \n", fileCounter);
+
+	/* Create a suffix tree for all strings in the set */
+	tree = lst_stree_new(set);
+	fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
+
+	/* Find k longest common substring(s) */
+	u_int *num_distinct_strings = (u_int *) malloc(sizeof(u_int) * ASSUMPTION_NUM_DISTINCT_STRINGS);
+
+	memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
+
+	result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+
+	if(result == NULL){
+		printf("result is null.\n"); 
+		return 0;
+	}
+
+	/* Print them out, if any. */
+	if (result)
+	{
+		printf("result size : %d \n", result->size);
+		lst_stringset_foreach(result, string_cb, "\t");
+		printf("\n");
+	}
+
+	for(int i = 0; i < result->size; i++)
+		printf("%u\t", num_distinct_strings[i]);	
+	printf("\n");
+
+	/* Free suffix tree: */
+	lst_stree_free(tree);
+
+	return 0;
+}
+
+#endif
+
+
+
+
+#if 0 
 
 int
 main(int argc, char **argv)
@@ -161,3 +225,4 @@ main(int argc, char **argv)
 
   return 0;
 }
+#endif

@@ -1,9 +1,0 @@
-HELO mars.ahu.edu.cn
-MAIL FROM: <Info@un.org>
-RCPT TO: <jolandahines@yahoo.com>
-DATA
-X-EYOU-SPAMVALUE:0
-X-EYOU-DEALDRC:
-X-EMDG-VER:2009-11-28
-Received: (eyou anti_spam gateway 3.0); Thu, 22 Sep 2011 14:47:59 +0800
-Message-ID: <516674079.13672@mars.

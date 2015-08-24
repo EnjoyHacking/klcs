@@ -747,6 +747,10 @@ uninstall-am: uninstall-binPROGRAMS
 	uninstall-am uninstall-binPROGRAMS
 
 
+#bin_PROGRAMS = position_constraints
+
+#position_constraints_SOURCES = position_constraints.c position_constraints.h pattern_search.c pattern_search.h lst_string.c lst_string.h
+
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
