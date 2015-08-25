@@ -268,8 +268,10 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
 	  printf("This is the root node. \n");
       return 1;
     }
-  
+ 
+  /* strubg_index takes value from 0 to num_strings - 1*/ 
   int string_index = lst_stree_get_string_index(data->tree, node->up_edge->range.string);
+  //int string_index = node->bitstrings_size - 1 - lst_stree_get_string_index(data->tree, node->up_edge->range.string);
   //printf("%d : %s \n", string_index, lst_string_print(lst_node_get_string(node, 0)) );
   //printf("%d\n", string_index);
 
@@ -282,16 +284,27 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
   if (lst_node_is_leaf(node))
     {
 
-	  //printf("This is the leaf node. \n");
       u_char index = ((u_char)(1)) << offset;
       
       node->bitstrings[block] = index;
       node->up_edge->src_node->bitstrings[block] |= index;
+      printf("--------------------------\n");
+      printf("This is the leaf node. \n");
+      printf("string index : %d --->  %s \n", string_index, lst_string_print(lst_node_get_string(node, 0)) );
+      printf ("node int : %ld\n", convert_bitstrings_to_int(node->bitstrings, node->bitstrings_size)) ;
+      print_bitstrings(node->bitstrings, node->bitstrings_size);
+      printf("--------------------------\n");
+
     }
   else
     {
-	  //printf("This is the internel node. \n");
       node->up_edge->src_node->bitstrings[block] |= node->bitstrings[block];
+      printf("--------------------------\n");
+      printf("This is the internel node. \n");
+      printf("string index : %d --->  %s \n", string_index, lst_string_print(lst_node_get_string(node, 0)) );
+      printf ("node int : %ld\n", convert_bitstrings_to_int(node->bitstrings, node->bitstrings_size)) ;
+      print_bitstrings(node->bitstrings, node->bitstrings_size);
+      printf("--------------------------\n");
     }
 
   //printf ("node int : %ld\n", convert_bitstrings_to_int(node->up_edge->src_node->bitstrings, node->bitstrings_size)) ;
@@ -365,7 +378,7 @@ static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){
 		}
 */
 		
-			res += (int)bitstrings[block]* (long)pow(2, 8 * (bitstrings_size - block - 1));
+			res += (u_int)bitstrings[block]* (u_long)pow(2, 8 * (bitstrings_size - block - 1));
 	}
 	return res;
 
@@ -474,11 +487,12 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
   {
 	  int counter = get_number_of_distinct_string(node, ceil((double)data->tree->num_strings / 8));
 	  //node->num_distinct_strings = counter;
-  	  //print_bitstrings(node->bitstrings, node->bitstrings_size);
-	  printf("counter : %d -- k : %d  \n", counter, data->k);
 	  if ( counter < data->k){
           	return 0;
 	  }
+
+  	  print_bitstrings(node->bitstrings, node->bitstrings_size);
+	  printf("counter : %d -- k : %d  \n", counter, data->k);
 
   }
   else
@@ -553,6 +567,8 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 
   if (lcs)
     data.all_bitstrings = lst_alg_set_visitors(tree);
+
+ // exit(1); // for test lst_alg_set_visitors 
 
   if (lcs == 2)
 	  data.k = k;

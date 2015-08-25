@@ -1,1407 +1,751 @@
 1. tree finished! 
 2. result finished! 
-31
-0 ---- 7 
-This is the leaf node. 
-31
-0 ---- 7 
-This is the leaf node. 
-31
-0 ---- 7 
-This is the leaf node. 
-31
-0 ---- 7 
-This is the leaf node. 
-31
-0 ---- 7 
-This is the leaf node. 
-31
-0 ---- 7 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-30
-0 ---- 6 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-29
-0 ---- 5 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-28
-0 ---- 4 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-27
-0 ---- 3 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-26
-0 ---- 2 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-25
-0 ---- 1 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-24
-0 ---- 0 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-23
-1 ---- 7 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-22
-1 ---- 6 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-21
-1 ---- 5 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-20
-1 ---- 4 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-19
-1 ---- 3 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-18
-1 ---- 2 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-17
-1 ---- 1 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-16
-1 ---- 0 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-15
-2 ---- 7 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-14
-2 ---- 6 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-13
-2 ---- 5 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-12
-2 ---- 4 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-11
-2 ---- 3 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-10
-2 ---- 2 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-9
-2 ---- 1 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-8
-2 ---- 0 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-7
-3 ---- 7 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-6
-3 ---- 6 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-5
-3 ---- 5 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-4
-3 ---- 4 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-3
-3 ---- 3 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-2
-3 ---- 2 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-1
-3 ---- 1 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
-This is the leaf node. 
-0
-3 ---- 0 
+--------------------------
+This is the leaf node. 
+string index : 8 --->  <eos> 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  e 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  me 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  ome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  come 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  lcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  elcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  welcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  awelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  oawelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  loawelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  lloawelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  elloawelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 8 --->  helloawelcome 
+node int : 256
+bitstrings : 00000001 00000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  <eos> 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  o 
+node int : 128
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  lo 
+node int : 128
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  llo 
+node int : 128
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  ello 
+node int : 128
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  hello 
+node int : 128
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  bhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  ebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  mebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  omebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  comebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  lcomebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  elcomebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 7 --->  welcomebhello 
+node int : 384
+bitstrings : 00000000 10000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  <eos> 
+node int : 448
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  o 
+node int : 192
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  lo 
+node int : 192
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  llo 
+node int : 192
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  ello 
+node int : 192
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 6 --->  hello 
+node int : 192
+bitstrings : 00000000 01000000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  <eos> 
+node int : 480
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  a 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  oa 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  loa 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  lloa 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  elloa 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  helloa 
+node int : 288
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  ehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  mehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  omehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  comehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  lcomehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  elcomehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 5 --->  welcomehelloa 
+node int : 32
+bitstrings : 00000000 00100000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  <eos> 
+node int : 496
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  o 
+node int : 208
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  lo 
+node int : 208
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  llo 
+node int : 208
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  ello 
+node int : 208
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  hello 
+node int : 208
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  ehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  mehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  omehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  comehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  lcomehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  elcomehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 4 --->  welcomehello 
+node int : 48
+bitstrings : 00000000 00010000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 3 --->  <eos> 
+node int : 504
+bitstrings : 00000000 00001000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 3 --->  e 
+node int : 392
+bitstrings : 00000000 00001000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 3 --->  ce 
+node int : 8
+bitstrings : 00000000 00001000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 3 --->  ice 
+node int : 8
+bitstrings : 00000000 00001000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 3 --->  nice 
+node int : 8
+bitstrings : 00000000 00001000 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 2 --->  <eos> 
+node int : 508
+bitstrings : 00000000 00000100 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 2 --->  e 
+node int : 396
+bitstrings : 00000000 00000100 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 2 --->  ce 
+node int : 12
+bitstrings : 00000000 00000100 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 2 --->  ice 
+node int : 12
+bitstrings : 00000000 00000100 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 2 --->  nice 
+node int : 12
+bitstrings : 00000000 00000100 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 1 --->  <eos> 
+node int : 510
+bitstrings : 00000000 00000010 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 1 --->  e 
+node int : 398
+bitstrings : 00000000 00000010 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 1 --->  ce 
+node int : 14
+bitstrings : 00000000 00000010 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 1 --->  ice 
+node int : 14
+bitstrings : 00000000 00000010 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 1 --->  nice 
+node int : 14
+bitstrings : 00000000 00000010 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 0 --->  <eos> 
+node int : 511
+bitstrings : 00000000 00000001 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 0 --->  e 
+node int : 399
+bitstrings : 00000000 00000001 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 0 --->  ce 
+node int : 15
+bitstrings : 00000000 00000001 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 0 --->  ice 
+node int : 15
+bitstrings : 00000000 00000001 
+--------------------------
+--------------------------
+This is the leaf node. 
+string index : 0 --->  nice 
+node int : 15
+bitstrings : 00000000 00000001 
+--------------------------
+--------------------------
 This is the internel node. 
-0
-3 ---- 0 
+string index : 5 --->  a 
+node int : 511
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
 This is the internel node. 
-0
-3 ---- 0 
+string index : 5 --->  oa 
+node int : 240
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
 This is the internel node. 
-0
-3 ---- 0 
+string index : 5 --->  loa 
+node int : 240
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
 This is the internel node. 
-0
-3 ---- 0 
+string index : 5 --->  lloa 
+node int : 240
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
 This is the internel node. 
-0
-3 ---- 0 
+string index : 5 --->  elloa 
+node int : 240
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
 This is the internel node. 
+string index : 5 --->  helloa 
+node int : 240
+bitstrings : 00000001 00100000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  lo 
+node int : 240
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  llo 
+node int : 240
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  ello 
+node int : 240
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  hello 
+node int : 511
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  ehello 
+node int : 447
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  mehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  omehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  comehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  lcomehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  elcomehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  welcomehello 
+node int : 432
+bitstrings : 00000000 00110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 0 --->  ce 
+node int : 15
+bitstrings : 00000000 00001111 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 0 --->  ice 
+node int : 511
+bitstrings : 00000000 00001111 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 0 --->  nice 
+node int : 511
+bitstrings : 00000000 00001111 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  me 
+node int : 511
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  ome 
+node int : 240
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  come 
+node int : 191
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  lcome 
+node int : 240
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  elcome 
+node int : 240
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  welcome 
+node int : 511
+bitstrings : 00000001 10110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  o 
+node int : 511
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  l 
+node int : 511
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 4 --->  el 
+node int : 511
+bitstrings : 00000000 11110000 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 0 --->  c 
+node int : 511
+bitstrings : 00000000 10111111 
+--------------------------
+--------------------------
+This is the internel node. 
+string index : 0 --->  e 
+node int : 511
+bitstrings : 00000001 11111111 
+--------------------------
 This is the root node. 
-1 run here....
-run here....
-lst_alg_set_visitors finished!
-dfs before here....
-node : 
-bitstrings : 11111111 11111111 11111111 11111111 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings equal....
-node : 
-bitstrings : 11111111 11111111 11111111 11111111 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000001 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000010 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000100 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00001000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00010000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00100000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 01000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 10000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000001 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000010 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000100 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00001000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00010000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00100000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 01000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 10000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000001 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000010 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000100 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00001000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00010000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00100000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 01000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 10000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000001 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000010 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000100 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00001000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00010000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00100000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 01000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 10000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 11111111 11111111 11111111 11111111 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000001 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000010 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000100 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00001000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00010000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00100000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 01000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 10000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000001 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000010 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000100 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00001000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00010000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00100000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 01000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 10000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000001 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000010 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000100 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00001000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00010000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00100000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 01000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 10000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000001 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000010 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000100 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00001000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00010000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00100000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 01000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 10000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 11111111 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 11111111 11111111 11111111 11111111 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000001 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000010 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000100 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00001000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00010000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00100000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 01000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 10000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000001 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000010 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000100 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00001000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00010000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00100000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 01000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 10000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000001 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000010 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000100 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00001000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00010000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00100000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 01000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 10000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000001 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000010 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000100 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00001000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00010000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00100000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 01000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 10000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000001 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000010 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00000100 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00001000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00010000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 00100000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 01000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000000 10000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000001 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000010 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00000100 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00001000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00010000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 00100000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 01000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000000 10000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000001 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000010 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00000100 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00001000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00010000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 00100000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 01000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000000 10000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000001 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000010 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00000100 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00001000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00010000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 00100000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 01000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-node : 
-bitstrings : 10000000 00000000 00000000 00000000 
-data : 
-bitstrings : 11111111 11111111 11111111 11111111 
-lcs is 1...
-bitstrings is not equal....
-dfs after here....
-return here....
-3. lcs finished! 
+bitstrings : 00000001 11111111 
+Int : 511
+max_depth : 10
+bitstrings : 00000001 11111111 
+counter : 9 -- k : 3  
+(null)(9) ---> bitstrings : 00000001 11111111 
+bitstrings : 00000000 00001111 
+counter : 4 -- k : 3  
+nice(4) ---> bitstrings : 00000000 00001111 
+bitstrings : 00000000 00001111 
+counter : 4 -- k : 3  
+ice(4) ---> bitstrings : 00000000 00001111 
+bitstrings : 00000000 10111111 
+counter : 7 -- k : 3  
+c(7) ---> bitstrings : 00000000 10111111 
+bitstrings : 00000000 00001111 
+counter : 4 -- k : 3  
+ce(4) ---> bitstrings : 00000000 00001111 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+come(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000001 11111111 
+counter : 9 -- k : 3  
+e(9) ---> bitstrings : 00000001 11111111 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+el(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+elcome(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+ello(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+welcome(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+l(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+lcome(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+llo(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+lo(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+o(4) ---> bitstrings : 00000000 11110000 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+ome(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000001 10110000 
+counter : 4 -- k : 3  
+me(4) ---> bitstrings : 00000001 10110000 
+bitstrings : 00000000 11110000 
+counter : 4 -- k : 3  
+hello(4) ---> bitstrings : 00000000 11110000 
+we have 1 longest substring(s) at depth 7.
+-------------------------
 result size : 1 
-tree.string_index : 32 
-hello 
-=============
- 
+welcome 	
+-------------------------
+
+3. klcs finished! 
+tree.string_index : 9 
+result size : 1 
+welcome 	
+4	
+Pattern <hello> is a Substring
+Pattern <ello> is a Substring
+Pattern <ell> is a Substring
+Pattern <china> is NOT a Substring
+Pattern <welcom> is a Substring
