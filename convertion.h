@@ -8,17 +8,18 @@ typedef struct _convertion_data_single_t 	convertion_data_single_t;
 
 struct _convertion_data_set_t {
 
-	LST_StringSet *flows_converted;
+	LST_StringSet 	*flows_converted;
 
-	LST_StringSet *tokens;
+	LST_StringSet 	*tokens;
 
 };
 
 
 struct _convertion_data_single_t {
 
-	LST_String * flow;
-	LST_String * flow_converted;
+	LST_String 	*flow;
+	LST_String 	*flow_converted;
+	int 		*replacement;
 };
 
 #endif
