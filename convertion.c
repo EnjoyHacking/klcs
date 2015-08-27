@@ -16,28 +16,39 @@ void convertion_data_single_free(convertion_data_single_t * data){
 
 }
 
+int * string_replace(const char *src, const char *pattern, int replacement) {
 
-void * string_replace(const char *src, const void *pattern, const void *replacement, size_t item_size) {
-
-	void * dst = (void *) malloc (sizeof(char) * strlen(src) * item_size);
+	int * dst = (int *) malloc (sizeof(int) * strlen(src));
 
 	char * src_p = (char *)src;	
 
 	char * pos = NULL;
 
+	int idx = 0;
+
 	while ((pos = strstr(src_p, pattern)) != NULL)	{
 
 		size_t len = (size_t) (pos - src_p);
-		strncat(dst, src_p, len);	
-		strncat(dst, replacement, strlen(replacement));
+
+		for(int i = 0; i < len; i++) {
+			dst[idx++] = (int) (*(src_p + i));
+		}
+		
+		for(int j = 0; j < strlen(pattern); j++) {
+			dst[idx++] = replacement; 
+		}
+
 		src_p = pos + strlen(pattern);
 	}
 
-	strncat(dst, src_p, strlen(src) - (size_t)(src_p - src));
+	for(int k = 0; k < strlen(src) - (size_t)(src_p - src); k++) {
+		dst[idx++] = (int)*(src_p + k); 
+	}
 
 	return dst;
 
 }
+
 
 
 void convert_token_cb(LST_String *token, void *data) {
@@ -138,9 +149,24 @@ int main(int argc, char **argv) {
 	convertion_data_set_free(data);
 	*/
 	
-	
-	char * merge = string_replace("This is just for test, for testing.", "test", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+	char * src = "This is just for test, for testing.";
+	char * pattern = "test";
 
-	printf("%s\n", merge);
+	int replacement = 300;
+	
+	int * merge = string_replace(src, pattern, replacement);
+
+
+	for(int i = 0; i < strlen(src); i++) {
+
+		if( merge[i] > 255 || merge[i] < 0) {
+			printf(" %d", merge[i]);
+		} else {
+			printf("%c", (char) merge[i]);	
+		}
+	}
+	
+	printf("\n");
+
 	return 0;
 }
