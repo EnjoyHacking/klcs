@@ -3,7 +3,7 @@
 
 
 
-typedef struct _convertion_data_set_t 	convertion_data_set_t;
+typedef struct _convertion_data_set_t 		convertion_data_set_t;
 typedef struct _convertion_data_single_t 	convertion_data_single_t;
 
 struct _convertion_data_set_t {

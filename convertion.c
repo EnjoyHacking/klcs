@@ -3,10 +3,23 @@
 
 #include <string.h>
 
+convertion_data_single_t * convertion_data_single_new() {
 
-char * string_replace(const char *src, const char *pattern, const char *replacement) {
+	convertion_data_single_t * single = (convertion_data_single_t *) malloc(sizeof(convertion_data_single_t));
 
-	char * dst = (char *) malloc (sizeof(char) * strlen(src));
+	return single;
+}
+
+
+void convertion_data_single_free(convertion_data_single_t * data){
+
+
+}
+
+
+void * string_replace(const char *src, const void *pattern, const void *replacement, size_t item_size) {
+
+	void * dst = (void *) malloc (sizeof(char) * strlen(src) * item_size);
 
 	char * src_p = (char *)src;	
 
@@ -16,7 +29,7 @@ char * string_replace(const char *src, const char *pattern, const char *replacem
 
 		size_t len = (size_t) (pos - src_p);
 		strncat(dst, src_p, len);	
-		strncat(dst, replacement, strlen(pattern));
+		strncat(dst, replacement, strlen(replacement));
 		src_p = pos + strlen(pattern);
 	}
 
@@ -25,36 +38,6 @@ char * string_replace(const char *src, const char *pattern, const char *replacem
 	return dst;
 
 }
-/*
-char * string_replace(const char * src, char * dst, size_t dst_size, const char * search, const char * replace_with) {
-
-	char * replace_buf = (char *) malloc (dst_size);
-
-	if (replace_buf) {
-
-		replace_buf[0] = 0;
-		char * p = (char *) src;
-		char * pos = NULL;
-
-		while ( (pos = strstr(p, search)) != NULL ) {
-
-			size_t n = (size_t) (pos - p);
-
-			strncat(replace_buf, p, n > dst_size ? dst_size : n);
-
-			strncat(replace_buf, replace_with, dst_size - strlen(replace_buf) - 1);
-
-			p = pos + strlen(search);
-		}
-
-		snprintf(dst, dst_size, "%s%s", replace_buf, p);
-
-		free(replace_buf);
-	}
-
-	return dst;
-}
-*/
 
 
 void convert_token_cb(LST_String *token, void *data) {
@@ -63,6 +46,8 @@ void convert_token_cb(LST_String *token, void *data) {
 
 	LST_String * flow = single->flow;
 	LST_String * flow_converted = single->flow_converted;
+
+	
 
 	return;
 
@@ -88,12 +73,6 @@ void convert_flow_cb(LST_String *flow, void *data) {
 }
 
 
-convertion_data_single_t * convertion_data_single_new() {
-
-	convertion_data_single_t * single = (convertion_data_single_t *) malloc(sizeof(convertion_data_single_t));
-
-	return single;
-}
 
 
 convertion_data_set_t * convertion_data_set_new() {
@@ -160,7 +139,7 @@ int main(int argc, char **argv) {
 	*/
 	
 	
-	char * merge = string_replace("This is just for test, for testing.", "test", "aaaa");
+	char * merge = string_replace("This is just for test, for testing.", "test", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
 	printf("%s\n", merge);
 	return 0;
