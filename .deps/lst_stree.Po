@@ -35,7 +35,7 @@ lst_stree.o: lst_stree.c /usr/include/stdc-predef.h config.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h lst_algorithms.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h set.h lst_algorithms.h \
  lst_debug.h
 
 /usr/include/stdc-predef.h:
@@ -141,6 +141,8 @@ lst_string.h:
 /usr/include/linux/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+set.h:
 
 lst_algorithms.h:
 

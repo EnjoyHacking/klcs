@@ -1,0 +1,5 @@
+hash-int.o: hash-int.c /usr/include/stdc-predef.h hash-int.h
+
+/usr/include/stdc-predef.h:
+
+hash-int.h:

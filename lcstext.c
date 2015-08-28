@@ -80,6 +80,7 @@ void checkForSubString(LST_STree *tree, LST_String  *string)
 #if 0
 
 int main(int argc, char **argv) {
+
 	LST_STree     *tree;
 	LST_StringSet *set, *result;
 	u_int min_len, max_len;

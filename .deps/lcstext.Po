@@ -34,7 +34,7 @@ lcstext.o: lcstext.c /usr/include/stdc-predef.h config.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h lst_stree.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h set.h lst_stree.h \
  lst_algorithms.h utils.h /usr/include/dirent.h \
  /usr/include/x86_64-linux-gnu/bits/dirent.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
@@ -141,6 +141,8 @@ lst_string.h:
 /usr/include/linux/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+set.h:
 
 lst_stree.h:
 

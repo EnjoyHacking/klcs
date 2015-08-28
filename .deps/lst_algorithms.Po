@@ -42,7 +42,7 @@ lst_algorithms.o: lst_algorithms.c /usr/include/stdc-predef.h config.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/sys/queue.h lst_stree.h lst_structs.h \
- lst_debug.h lst_algorithms.h
+ set.h lst_debug.h lst_algorithms.h hash-int.h compare-int.h
 
 /usr/include/stdc-predef.h:
 
@@ -164,6 +164,12 @@ lst_stree.h:
 
 lst_structs.h:
 
+set.h:
+
 lst_debug.h:
 
 lst_algorithms.h:
+
+hash-int.h:
+
+compare-int.h:

@@ -1,0 +1,5 @@
+compare-int.o: compare-int.c /usr/include/stdc-predef.h compare-int.h
+
+/usr/include/stdc-predef.h:
+
+compare-int.h:

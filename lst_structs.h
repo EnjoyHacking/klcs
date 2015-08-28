@@ -28,6 +28,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <sys/queue.h>
 #include "lst_string.h"
 
+#include "set.h"
+
 #define LST_STRING_HASH_SIZE         199
 
 typedef struct lst_stree             LST_STree;
@@ -72,6 +74,8 @@ struct lst_node
   int                         bitstrings_size; // add by syf
   u_int                       lcs_visited; // add by syf
   u_int                       num_distinct_strings;
+
+  Set 			      * string_indices; // add by syf
 
   u_int                       bus_visited;
 };
@@ -147,6 +151,8 @@ struct lst_stree
    */
   //u_int                             visitors;
   u_char                            *bitstrings;  // add by sangyafei
+
+  Set 				    *string_indices;
 };
 
 

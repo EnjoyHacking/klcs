@@ -95,7 +95,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_lcstext_OBJECTS = lcstext.$(OBJEXT) lst_algorithms.$(OBJEXT) \
 	lst_debug.$(OBJEXT) lst_stree.$(OBJEXT) lst_string.$(OBJEXT) \
-	utils.$(OBJEXT)
+	utils.$(OBJEXT) hash-int.$(OBJEXT) compare-int.$(OBJEXT) \
+	set.$(OBJEXT)
 lcstext_OBJECTS = $(am_lcstext_OBJECTS)
 lcstext_DEPENDENCIES =
 lcstext_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(lcstext_LDFLAGS) \
@@ -264,7 +265,8 @@ top_srcdir = .
 AUTOMAKE_OPTIONS = foreign
 CURRENTDIR = $(shell /bin/pwd)
 lcstext_SOURCES = lcstext.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c lst_debug.h lst_stree.c lst_stree.h \
-		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h
+		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
+		compare-int.c compare-int.h set.h set.c
 
 lcstext_LDADD = -lc -lm
 lcstext_LDFLAGS = -L/lib 
@@ -375,11 +377,14 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/compare-int.Po
+include ./$(DEPDIR)/hash-int.Po
 include ./$(DEPDIR)/lcstext.Po
 include ./$(DEPDIR)/lst_algorithms.Po
 include ./$(DEPDIR)/lst_debug.Po
 include ./$(DEPDIR)/lst_stree.Po
 include ./$(DEPDIR)/lst_string.Po
+include ./$(DEPDIR)/set.Po
 include ./$(DEPDIR)/utils.Po
 
 .c.o:
