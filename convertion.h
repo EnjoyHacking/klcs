@@ -20,6 +20,8 @@ struct _convertion_data_single_t {
 	LST_String 	*flow;
 	LST_String 	*flow_converted;
 	int 		*replacement;
+	int 		first_flag;
+	int 		replacement_len;
 };
 
 #endif
