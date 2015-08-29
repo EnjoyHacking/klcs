@@ -593,7 +593,8 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	//printf("if deepest : %d \n", data->deepest);
   if (data->deepest <= data->max_depth)
     {
-      if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
+      //if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
+      if (depth >= data->deepest)
 	{
 	  it = alg_node_it_new(node);
 	  
@@ -680,7 +681,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	u_int idx = 0;
 
 
-	while(data.max_depth >= min_len){
+	//while(data.max_depth >= min_len){
 
 		printf("max_depth : %d\n", data.max_depth);
 		lst_alg_dfs(tree, (LST_NodeVisitCB) alg_find_deepest, &data);
@@ -725,6 +726,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 			TAILQ_REMOVE(&data.nodes, it, items);
 			alg_node_it_free(it);
 		}
+/*
 		if (result)
 		{
 			printf("-------------------------\n");
@@ -740,6 +742,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 
 		printf("-------------------------\n\n");
 	}
+*/
 	return result;
 }
 
