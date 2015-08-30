@@ -544,35 +544,25 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 {
   LST_NodeIt *it;
   int depth = lst_node_get_string_length(node);
-  /*printf("node->bitstrings : \n");
-  print_bitstrings(node->bitstrings, node->bitstrings_size);
-  printf("data->bitstrings : \n");
-  print_bitstrings(data->all_bitstrings, node->bitstrings_size);
-*/
-  
 
   if (data->lcs == 1)  // denote longest common substring
     { 
+	printf("lcs == 1 ... \n");
 	
-	  if ( !is_equal_bitstrings(node->bitstrings, data->all_bitstrings, ceil((double)data->tree->num_strings / 8))){
-	  	//printf("bitstrings is not equal....\n");
-	  	
+	  if ( set_num_entries(node->string_indices) != set_num_entries(data->all_string_indices)){
 		  return 0;
 	  } 
 
     }
   else if (data->lcs == 2) // denote longest k common substring
   {
-	  //int counter = get_number_of_distinct_string(node, ceil((double)data->tree->num_strings / 8));
-	  //node->num_distinct_strings = counter;
 
 	  int counter = set_num_entries(node->string_indices);
 	  if ( counter < data->k){
           	return 0;
 	  }
 
-  	  //print_bitstrings(node->bitstrings, node->bitstrings_size);
-	  printf("counter : %d -- k : %d  \n", counter, data->k);
+	  //printf("counter : %d -- k : %d  \n", counter, data->k);
 
   }
   else
@@ -581,16 +571,8 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
        return 0;
     }
 
-	/*
-	printf("%s(%d) ---> ",lst_string_print(lst_node_get_string(node, data->max_depth)), get_number_of_distinct_string(node, ceil((double)data->tree->num_strings / 8)));
-	print_bitstrings(node->bitstrings, node->bitstrings_size);
-*/
-	
 
 
-
-	//printf("if depth : %d \n", depth);
-	//printf("if deepest : %d \n", data->deepest);
   if (data->deepest <= data->max_depth)
     {
       //if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
@@ -644,21 +626,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	tree->string_indices = set_new(int_hash, int_equal);
 
 
-	//data.tree->root_node->bitstrings =(u_char *)malloc(sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	//memset(data.tree->root_node->bitstrings, (u_char)0, sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	/*
-	   data.all_bitstrings = (u_char *)malloc(sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	   memset(data.all_bitstrings, (u_char)0, sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	   data.all_bitstrings_size = ceil((double)(data.tree)->num_strings / 8);
-
-	   tree->bitstrings = (u_char *)malloc(sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	   memset(tree->bitstrings, (u_char)0, sizeof(u_char) * ceil((double)(data.tree)->num_strings / 8));
-	 */
-
-
-
 	if (lcs) {
-		//data.all_bitstrings = lst_alg_set_visitors(tree);
 		data.all_string_indices = lst_alg_set_indices(tree);
 	}
 
@@ -677,13 +645,14 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	/* Now do a DSF finding the node with the largest string-
 	 * depth that has all strings as visitors.
 	 */
-	LST_STree * lcs_tree = NULL; 
-	u_int idx = 0;
+//	LST_STree * lcs_tree = NULL; 
+//	u_int idx = 0;
 
 
-	//while(data.max_depth >= min_len){
+//	while(data.max_depth >= min_len){
 
-		printf("max_depth : %d\n", data.max_depth);
+//		printf("max_depth : %d\n", data.max_depth);
+
 		lst_alg_dfs(tree, (LST_NodeVisitCB) alg_find_deepest, &data);
 
 
@@ -711,14 +680,17 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 
 					if (!result)
 						result = lst_stringset_new();
+					lst_stringset_add(result, string);
+					num_distinct_strings[idx++] = set_num_entries(it->node->string_indices); 
 
 					// add by syf 
-					if(1 != lst_alg_substring_check(lcs_tree, string)) {
+					/*if(1 != lst_alg_substring_check(lcs_tree, string)) {
 						lst_stringset_add(result, string);
 						if(num_distinct_strings != NULL)
-							//num_distinct_strings[idx++] = get_number_of_distinct_string(it->node, data.all_bitstrings_size);;
 							num_distinct_strings[idx++] = set_num_entries(it->node->string_indices); 
 					}
+					 */
+					 
 
 				}
 			}
@@ -726,6 +698,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 			TAILQ_REMOVE(&data.nodes, it, items);
 			alg_node_it_free(it);
 		}
+
 /*
 		if (result)
 		{
@@ -742,6 +715,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 
 		printf("-------------------------\n\n");
 	}
+
 */
 	return result;
 }

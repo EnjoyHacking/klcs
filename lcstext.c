@@ -185,6 +185,9 @@ main(int argc, char **argv)
   u_int *num_distinct_strings = (u_int *) malloc(sizeof(u_int) * ASSUMPTION_NUM_DISTINCT_STRINGS);
   memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
   result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+
+  //result = lst_alg_longest_common_substring(tree, min_len, max_len, num_distinct_strings);
+
   printf("3. klcs finished! \n");
 
   if(result == NULL){
