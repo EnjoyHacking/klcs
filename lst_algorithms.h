@@ -142,6 +142,13 @@ LST_StringSet  *lst_alg_k_longest_common_substring(LST_STree *tree,
 						 int k,
 						 u_int *extension);
 
+/*
+ * add
+ * @author sangyafei
+ * @brief extract first k longest common substring (even, all common substrings) among the given multiple strings
+ * */
+LST_StringSet *
+lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k, u_int * extension);
 /**
  * suffix tree for substring check
  * @author sangyafei

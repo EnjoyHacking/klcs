@@ -44,7 +44,7 @@ static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size);
 void
 str_cb(LST_String *string, void *data)
 {
-  printf("%s ", lst_string_print(string));
+  printf("%s", lst_string_print(string));
   printf("%s", data);
 }
 
@@ -333,23 +333,34 @@ static int alg_set_indices(LST_Node *node, LST_LCS_Data *data){
 		return 1;
 	}
 
-	int string_index = lst_stree_get_string_index(data->tree, node->up_edge->range.string);
-
 	if (lst_node_is_leaf(node))
 	{
-		set_insert(node->string_indices, &string_index);
-		set_insert(node->up_edge->src_node->string_indices, &string_index);
-		printf("This is the leaf node. \n");
+		int index = lst_stree_get_string_index(data->tree, node->up_edge->range.string);
+		
+		int * string_index = (int *) malloc (sizeof(int));
+		*string_index = index;
+
+	
+		set_insert(node->string_indices, string_index);
+
+		node->up_edge->src_node->string_indices = set_union(node->up_edge->src_node->string_indices, \
+								node->string_indices);	
+
+		//printf("This is the leaf node. \n");
 		
 	} else {
-		set_insert(node->up_edge->src_node->string_indices, &string_index);
-		printf("This is the internel node. \n");
+		node->up_edge->src_node->string_indices = set_union(node->up_edge->src_node->string_indices, \
+								node->string_indices);	
+		//printf("This is the internel node. \n");
 	}
 
+	data->all_string_indices = set_union(data->all_string_indices, node->up_edge->src_node->string_indices);
+	/*
 	if(!set_query(data->all_string_indices, &string_index)) {
 		set_insert(data->all_string_indices, &string_index);
 	
 	}
+	*/
 
 	return 1;
 
@@ -362,6 +373,7 @@ static int alg_clear_indices(LST_Node *node, void *data)
 {
 	node->string_indices = set_new(int_hash, int_equal);
 	return 1;
+	data = NULL;
 }
 /*
  * @author 	sangyafei
@@ -381,9 +393,7 @@ Set * lst_alg_set_indices(LST_STree *tree) {
 	/* First, establish the string indices in the tree. */
 	lst_alg_bus(tree, alg_clear_indices, &data);
 
-	printf("1. ------------------------\n");
 	lst_alg_bus(tree, (LST_NodeVisitCB) alg_set_indices, &data);
-	printf("2. ------------------------\n");
 
 	tree->needs_visitor_update = 0;
 	tree->string_indices = data.all_string_indices;
@@ -547,9 +557,11 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 
   if (data->lcs == 1)  // denote longest common substring
     { 
-	printf("lcs == 1 ... \n");
+	//printf("%d : %s \n", set_num_entries(node->string_indices), lst_string_print(lst_node_get_string(node, 0)) );
 	
+//	printf("data indices : %d \n", set_num_entries(data->all_string_indices));
 	  if ( set_num_entries(node->string_indices) != set_num_entries(data->all_string_indices)){
+
 		  return 0;
 	  } 
 
@@ -622,8 +634,8 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	data.lcs = lcs;
 
 
-	data.all_string_indices = set_new(int_hash, int_equal);
-	tree->string_indices = set_new(int_hash, int_equal);
+	//data.all_string_indices = set_new(int_hash, int_equal);
+	//tree->string_indices = set_new(int_hash, int_equal);
 
 
 	if (lcs) {
@@ -646,7 +658,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	 * depth that has all strings as visitors.
 	 */
 //	LST_STree * lcs_tree = NULL; 
-//	u_int idx = 0;
+	u_int idx = 0;
 
 
 //	while(data.max_depth >= min_len){
@@ -658,7 +670,7 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 
 		D(("Deepest nodes found -- we have %u longest substring(s) at depth %u.\n",
 					data.num_deepest, data.deepest));
-		printf("we have %u longest substring(s) at depth %u.\n",data.num_deepest, data.deepest);
+		//printf("we have %u longest substring(s) at depth %u.\n",data.num_deepest, data.deepest);
 
 
 		/* Now, data.num_deepest tells us how many largest substrings
@@ -720,15 +732,64 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 	return result;
 }
 
+typedef struct _user_data_t {
+	LST_StringSet *result;
+	LST_STree *lcs_tree;
+
+} user_data_t;
+
+void add_substring_cb(LST_String * string, void *data) {
+
+
+	if(!string || !data) {
+		return;
+	}
+
+	user_data_t * ud = (user_data_t *) data;
+
+	if(1 != lst_alg_substring_check(ud->lcs_tree, string)) {
+		lst_stringset_add(ud->result, string);
+	}
+
+	return;
+
+}
+
 /*
  * add
  * @author sangyafei
  * @brief extract first k longest common substring (even, all common substrings) among the given multiple strings
  * */
 LST_StringSet *
-lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, u_int * extension)
+lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int max_len, int k, u_int * extension)
 {
-  return alg_longest_substring(tree, min_len, max_len, 1, 0, extension);
+
+
+	user_data_t *ud = (user_data_t *) malloc (sizeof(user_data_t));
+	ud->result = NULL;
+	ud->lcs_tree = NULL;
+
+
+	int tmp_max_len = max_len;
+	while(tmp_max_len >= min_len){
+		LST_StringSet *tmp_result = alg_longest_substring(tree, min_len, tmp_max_len, 2, k, extension);
+
+		lst_stringset_foreach(tmp_result, str_cb, "\t");
+		printf("\n");
+
+		if(ud->result == NULL) {
+			ud->result = tmp_result;	
+			ud->lcs_tree = lst_stree_new(ud->result);
+			tmp_max_len--;
+			continue;
+		}
+
+		lst_stringset_foreach(tmp_result, add_substring_cb, ud);
+		ud->lcs_tree = lst_stree_new(ud->result);
+		tmp_max_len--;
+	}	
+
+	return ud->result;
 }
 
 LST_StringSet *

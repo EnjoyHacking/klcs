@@ -184,6 +184,8 @@ main(int argc, char **argv)
   
   u_int *num_distinct_strings = (u_int *) malloc(sizeof(u_int) * ASSUMPTION_NUM_DISTINCT_STRINGS);
   memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
+  //result = lst_alg_first_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+
   result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
 
   //result = lst_alg_longest_common_substring(tree, min_len, max_len, num_distinct_strings);
@@ -203,10 +205,9 @@ main(int argc, char **argv)
 	  printf("\n");
   }
 
-  for(int i = result->size - 1; i >= 0; i--)
-	  printf("%u\t", num_distinct_strings[i]);	
-
-  printf("\n");
+  //for(int i = result->size - 1; i >= 0; i--)
+//	  printf("%u\t", num_distinct_strings[i]);	
+ // printf("\n");
 
    /* Testing suffix tree for substring check */
 
