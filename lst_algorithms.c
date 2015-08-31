@@ -325,7 +325,7 @@ alg_set_visitors(LST_Node *node, LST_LCS_Data *data)
 
 static int alg_set_indices(LST_Node *node, LST_LCS_Data *data){
 
-	printf("into alg_set_indices ... \n");
+	//printf("into alg_set_indices ... \n");
 
 	if (lst_node_is_root(node))
 	{
@@ -573,8 +573,8 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  if ( counter < data->k){
           	return 0;
 	  }
-
-	  //printf("counter : %d -- k : %d  \n", counter, data->k);
+	  printf("%d : %s \n", set_num_entries(node->string_indices), lst_string_print(lst_node_get_string(node, 0)) );
+	  printf("counter : %d -- k : %d  \n", counter, data->k);
 
   }
   else
@@ -587,8 +587,8 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 
   if (data->deepest <= data->max_depth)
     {
-      //if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
-      if (depth >= data->deepest)
+      if (depth >= data->deepest && depth <= data->max_depth) // modify by syf
+      //if (depth >= data->deepest)
 	{
 	  it = alg_node_it_new(node);
 	  
