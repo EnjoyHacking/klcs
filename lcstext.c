@@ -77,7 +77,7 @@ void checkForSubString(LST_STree *tree, LST_String  *string)
 }
 
 
-#if 0
+#if 2
 
 int main(int argc, char **argv) {
 
@@ -113,6 +113,12 @@ int main(int argc, char **argv) {
 
 	result = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
 
+	//result = lst_alg_first_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+
+	//result = lst_alg_longest_common_substring(tree, min_len, max_len, num_distinct_strings);
+
+
+
 	if(result == NULL){
 		printf("result is null.\n"); 
 		return 0;
@@ -126,9 +132,11 @@ int main(int argc, char **argv) {
 		printf("\n");
 	}
 
+	/*
 	for(int i = 0; i < result->size; i++)
 		printf("%u\t", num_distinct_strings[i]);	
 	printf("\n");
+	*/
 
 	/* Free suffix tree: */
 	lst_stree_free(tree);
@@ -141,7 +149,7 @@ int main(int argc, char **argv) {
 
 
 
-#if 1 
+#if 0 
 
 int
 main(int argc, char **argv)

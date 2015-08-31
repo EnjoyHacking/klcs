@@ -7,6 +7,9 @@
 #include "compare-int.h"
 
 
+
+#define MERGE_TOKEN_MAX_LEN 50
+
 void flow_print(flow_t *flow) {
 
 	element_t *element;
@@ -40,11 +43,7 @@ flow_t *flow_new(LST_String *string, LST_StringSet *tokens){
 	
 }
 
-void flow_free(flow_t *flow){
-
-	if(!flow)
-		return;
-	while(flow->element_head.lh_first != NULL) {
+void flow_free(flow_t *flow){ if(!flow) return; while(flow->element_head.lh_first != NULL) {
 		element_t *element = flow->element_head.lh_first;
 		LIST_REMOVE(flow->element_head.lh_first, entry);	
 		free(element);
@@ -275,7 +274,7 @@ Trie*  flow_set_traverse_token(flow_set_t *flow_set) {
 
 }
 
-static void print_callback(TrieNode *node, void * extension) {
+ void print_callback(TrieNode *node, void * extension) {
 
 	if(!node){
 		return;
@@ -291,7 +290,7 @@ static void print_callback(TrieNode *node, void * extension) {
 	return ;
 }
 
-static void search_callback(TrieNode *node, void * extension) {
+void search_callback(TrieNode *node, void * extension) {
 
 	if(!node || ! extension){
 		return;
@@ -336,16 +335,9 @@ void variant_callback(LST_String *string, void *data)
   printf("%s", (char *)data);
 }
 
-void set_position_specific_by_offset_occurrence(token_t *t) {
-
-}
-
-void set_position_specific_by_offset_variants(token_t *t) {
-
-}
-
 
 /* This callback function for lst_stringset_foreach is to remove the string */
+/*
 void remove_callback(LST_String *string, void *data) {
 	if(!string || !data) {
 		return;
@@ -355,6 +347,7 @@ void remove_callback(LST_String *string, void *data) {
 	lst_stringset_remove(string);
 	return;
 }
+*/
 
 /* This callback function for lst_stringset_foreach is to merge some strings and return data */
 void merge_callback(LST_String *string, void *data) {
@@ -362,31 +355,43 @@ void merge_callback(LST_String *string, void *data) {
 		return;
 	}
 	char * tmp = (char *) data;
-	strcat(tmp, "|");	
 	strcat(tmp, lst_string_print(string));	
+	strcat(tmp, "|");	
 	return ;
 }
 
-void merge_by_position_speific_with_offset_variants(LST_StringSet *tokens, offset_variants_t *ov) {
+void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variants_t *ov) {
 	if(!tokens || !ov) {
 		return;
 	}
 
 	HashTableIterator iterator;
-	hash_table_iterate(o->offset_variants, &iterator);
+	hash_table_iterate(ov->offset_variants, &iterator);
 	while(hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);	
 		int * key = (int *)pair.key;
 		offset_t * value = (offset_t *)pair.value;
 		if( value->num_variants < ov->beta_merge) {
-			char * str = (char *)malloc(sizeof(char) * 20); // need to modify
+			char * str = (char *)malloc(sizeof(char) * MERGE_TOKEN_MAX_LEN); // need to modify
+
+			if(*key == 0) {
+				strcat(str, "^");
+			}
+
 			lst_stringset_foreach(value->variants, merge_callback, str);
+
+			str[strlen(str) - 1] = '\0';
+
 			LST_String * merge_token = lst_string_new(str, 1, strlen(str));
-			lst_stringset_add(tokens, merge_token);
+
+			token_t *t = token_new(merge_token, *key);
+
+			trie_insert(tokens, (char *)merge_token->data, t);			
 		}
 	}
 
 }
+
 
 
 void offset_variants_traverse(offset_variants_t *o) {
@@ -408,54 +413,192 @@ void offset_variants_traverse(offset_variants_t *o) {
 }
 
 
-int main(int argc, char * argv[]) {
 
-	char *str1 = "HTTP1.1 index.html 200 a HTTP";
-	char *str2 = "HTTP1.0 index.html HTTP b 200";
 
-	LST_String * payload1 = lst_string_new(str1, 1, strlen(str1));
-	LST_String * payload2 = lst_string_new(str2, 1, strlen(str2));
+void flow_new_cb(LST_String *string, void *data) {
 
-	LST_StringSet *tokens = lst_stringset_new();
+	if(!string || !data) {
+		return;
+	}
 
-	char *token1 = "HTTP";
-	char *token2 = "200";
-	lst_stringset_add(tokens, lst_string_new(token1, 1, strlen(token1)));
-	lst_stringset_add(tokens, lst_string_new(token2, 1, strlen(token2)));
+	data_for_flow_new_t * dffn = (data_for_flow_new_t *)data;
 
-	flow_t *flow1 = flow_new(payload1, tokens);
-	flow_print(flow1);
-	printf("----------------------------\n");
+	flow_t * flow = flow_new(string, dffn->tokens);
 
-	flow_t *flow2 = flow_new(payload2, tokens);
-	flow_print(flow2);
-	printf("----------------------------\n");
+	flow_set_add(dffn->flow_set, flow);
+
+	return;
+
+}
+
+
+Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens){
+
 	
-	flow_set_t * flow_set = flow_set_new();
-	flow_set_add(flow_set, flow1);
-	flow_set_add(flow_set, flow2);
+	if(!payloads || !tokens) {
+		return;
+	}
+
+	data_for_flow_new_t * dffn = (data_for_flow_new_t *) malloc (sizeof(data_for_flow_new_t));
+
+	dffn->flow_set = flow_set_new();
+	dffn->tokens = tokens;
+
+	lst_stringset_foreach(payloads, flow_new_cb, dffn);
+
+	flow_set_t * flow_set = dffn->flow_set;
 
 	/* The first round search, return a trie of tokens*/
 	Trie *trie = flow_set_traverse_token(flow_set);
 	trie_dfs(trie, print_callback, (void *)NULL);
-	/* The second round search, return a trie of offsets*/
 
-
+	/* The second round search, return a hash table of offsets*/
 	offset_variants_t * res = (offset_variants_t *)malloc(sizeof(offset_variants_t));	
-	res->k_offset = 1;
+	res->k_offset = 2;
+	res->beta_merge = 5;
+	res->offset_variants = hash_table_new(int_hash, int_equal);
+	trie_dfs(trie, search_callback, res);	
+
+	/* print offset -> variants*/
+	offset_variants_traverse(res);
+
+	merge_by_position_speific_with_offset_variants(trie, res) ;
+
+	trie_dfs(trie, print_callback, (void *)NULL);
+
+	/* free allocated memory */
+	hash_table_free(res->offset_variants);
+	free(res);
+
+	return trie;
+}
+
+
+
+
+#if 0
+
+int main(int argc, char * argv[]) {
+	char *str1 = "HTTP1.1 index.html 200 a HTTP";
+	char *str2 = "HTTP1.0 index.html HTTP b 200";
+	char *str3 = "GET index.html";
+	char *str4 = "POST index.html";
+	char *str5 = "GET login.html";
+	char *str6 = "POST logout.html";
+
+	LST_String * payload1 = lst_string_new(str1, 1, strlen(str1));
+	LST_String * payload2 = lst_string_new(str2, 1, strlen(str2));
+	LST_String * payload3 = lst_string_new(str3, 1, strlen(str3));
+	LST_String * payload4 = lst_string_new(str4, 1, strlen(str4));
+	LST_String * payload5 = lst_string_new(str5, 1, strlen(str5));
+	LST_String * payload6 = lst_string_new(str6, 1, strlen(str6));
+
+	LST_StringSet *payloads = lst_stringset_new();
+	lst_stringset_add(payloads, payload1);
+	lst_stringset_add(payloads, payload2);
+	lst_stringset_add(payloads, payload3);
+	lst_stringset_add(payloads, payload4);
+	lst_stringset_add(payloads, payload5);
+	lst_stringset_add(payloads, payload6);
+
+	char *token1 = "HTTP";
+	char *token2 = "200";
+	char *token3 = "GET";
+	char *token4 = "POST";
+	LST_StringSet *tokens = lst_stringset_new();
+	lst_stringset_add(tokens, lst_string_new(token1, 1, strlen(token1)));
+	lst_stringset_add(tokens, lst_string_new(token2, 1, strlen(token2)));
+	lst_stringset_add(tokens, lst_string_new(token3, 1, strlen(token3)));
+	lst_stringset_add(tokens, lst_string_new(token4, 1, strlen(token4)));
+
+	position_constraints_main(payloads, tokens);
+
+	return 0;
+
+}
+#endif
+
+
+
+
+
+#if 0
+
+int main(int argc, char * argv[]) {
+
+	char *str1 = "HTTP1.1 index.html 200 a HTTP";
+	char *str2 = "HTTP1.0 index.html HTTP b 200";
+	char *str3 = "GET index.html";
+	char *str4 = "POST index.html";
+	char *str5 = "GET login.html";
+	char *str6 = "POST logout.html";
+
+	LST_String * payload1 = lst_string_new(str1, 1, strlen(str1));
+	LST_String * payload2 = lst_string_new(str2, 1, strlen(str2));
+	LST_String * payload3 = lst_string_new(str3, 1, strlen(str3));
+	LST_String * payload4 = lst_string_new(str4, 1, strlen(str4));
+	LST_String * payload5 = lst_string_new(str5, 1, strlen(str5));
+	LST_String * payload6 = lst_string_new(str6, 1, strlen(str6));
+
+	LST_StringSet *tokens = lst_stringset_new();
+	char *token1 = "HTTP";
+	char *token2 = "200";
+	char *token3 = "GET";
+	char *token4 = "POST";
+	lst_stringset_add(tokens, lst_string_new(token1, 1, strlen(token1)));
+	lst_stringset_add(tokens, lst_string_new(token2, 1, strlen(token2)));
+	lst_stringset_add(tokens, lst_string_new(token3, 1, strlen(token3)));
+	lst_stringset_add(tokens, lst_string_new(token4, 1, strlen(token4)));
+
+	flow_t *flow1 = flow_new(payload1, tokens);
+	//flow_print(flow1);
+	//printf("----------------------------\n");
+
+	flow_t *flow2 = flow_new(payload2, tokens);
+	//flow_print(flow2);
+	//printf("----------------------------\n");
+
+	flow_t *flow3 = flow_new(payload3, tokens);
+	flow_t *flow4 = flow_new(payload4, tokens);
+	flow_t *flow5 = flow_new(payload5, tokens);
+	flow_t *flow6 = flow_new(payload6, tokens);
+	
+	flow_set_t * flow_set = flow_set_new();
+	flow_set_add(flow_set, flow1);
+	flow_set_add(flow_set, flow2);
+	flow_set_add(flow_set, flow3);
+	flow_set_add(flow_set, flow4);
+	flow_set_add(flow_set, flow5);
+	flow_set_add(flow_set, flow6);
+
+	/* The first round search, return a trie of tokens*/
+	Trie *trie = flow_set_traverse_token(flow_set);
+	trie_dfs(trie, print_callback, (void *)NULL);
+
+	/* The second round search, return a hash table of offsets*/
+	offset_variants_t * res = (offset_variants_t *)malloc(sizeof(offset_variants_t));	
+	res->k_offset = 2;
 	res->beta_merge = 5;
 	res->offset_variants = hash_table_new(int_hash, int_equal);
 	trie_dfs(trie, search_callback, res);	
 
 
 	/* print offset -> variants*/
-	printf("********************\n");
 	offset_variants_traverse(res);
+
+	merge_by_position_speific_with_offset_variants(trie, res) ;
+	trie_dfs(trie, print_callback, (void *)NULL);
 
 	trie_free(trie);
 	flow_free(flow1);
 	flow_free(flow2);
+	flow_free(flow3);
+	flow_free(flow4);
+	flow_free(flow5);
+	flow_free(flow6);
 	hash_table_free(res->offset_variants);
 	free(res);
 	return 0;
 }
+
+#endif
