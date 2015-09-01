@@ -3,6 +3,7 @@
 
 #include "lst_string.h"
 #include "hash-table.h"
+#include "trie.h"
 
 
 typedef struct _product_distribution_t product_distribution_t;
@@ -40,6 +41,6 @@ void product_distribution_free(product_distribution_t * pd) ;
 /**
  * @param set	a set of flow with the data type of LST_String 
  */
-int product_distribution_main(LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge);
+int product_distribution_main(Trie *trie, LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge);
 
 #endif

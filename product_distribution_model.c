@@ -4,6 +4,8 @@
 #include "compare-int.h"
 #include "hash-table.h"
 
+#include "position_constraints.h"
+
 
 
 
@@ -118,7 +120,7 @@ byte_distribution_t * byte_distribution_new(LST_String *nbytes, int offset) {
 	return bd;
 }
 
-int product_distribution_main(LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge){
+int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge){
 
 	//int first_bytes = 8;
 	//int last_bytes = 10;
@@ -149,13 +151,21 @@ int product_distribution_main(LST_StringSet * set, int first_bytes, int last_byt
 			char *key2 = (char *) pair2.key;
 			int *value2 = (int *) pair2.value;
 			//printf("<%c, %d>\t", key2[0], *value2);
+			char * single_token = (char *) malloc (sizeof(char) * 3);
+			memset(single_token, '\0', 3);
 			if (0 == *key1) {
 				printf("^%s\t", key2);
+				sprintf(single_token, "^%s", key2);
 			} else if (num_bytes - 1 == *key1) {
 				printf("%s$\t", key2);
+				sprintf(single_token, "%s$", key2);
 			} else {
 				printf("%s\t", key2);
+				sprintf(single_token, "%s", key2);
 			}
+
+			token_t * t = token_new(lst_string_new(single_token, 1, strlen(single_token)), *key1);
+			trie_insert(trie, (char *)t->token->data, t); 
 		}
 		printf("\n");
 	}

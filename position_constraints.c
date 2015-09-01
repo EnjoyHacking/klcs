@@ -68,8 +68,8 @@ token_t * token_new(LST_String *token, int offset){
 	
 	t->position_specific = 0;
 	t->begin_of_flow = 0;
-
 	t->offset_occurrence = hash_table_new(int_hash, int_equal);
+	t->merge_token = NULL;
 
 	int * key = (int *) malloc (sizeof(int));
 	*key = offset;
@@ -138,7 +138,8 @@ void token_print(token_t *t){
 	/* Iterate over all values in the table */
 	hash_table_iterate(hash_table, &iterator);
 	
-	printf("<%s, %d> : ", lst_string_print(t->token), t->position_specific);	
+	printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
+				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
 
 	while (hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);
@@ -204,6 +205,10 @@ void token_free(token_t *t){
 
 	if(t->offset_occurrence){
 		hash_table_free(t->offset_occurrence);
+	}
+
+	if(t->merge_token) {
+		lst_string_free(t->merge_token);
 	}
 
 	free(t);
@@ -386,6 +391,12 @@ void merge_callback(LST_String *string, void *data) {
 	return ;
 }
 
+void associate_callback(LST_String *string, void *data) {
+
+	Trie *tokens = (Trie *) data;
+
+}
+
 void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variants_t *ov) {
 	if(!tokens || !ov) {
 		return;
@@ -410,14 +421,24 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 
 			LST_String * merge_token = lst_string_new(str, 1, strlen(str));
 
-			token_t *t = token_new(merge_token, *key);
-
-			trie_insert(tokens, (char *)merge_token->data, t);			
+			
+			LST_String * string;
+			LST_StringSet * set = value->variants;
+			for (string = set->members.lh_first; string; string = string->set.le_next){
+				TrieValue * find_value = NULL;
+				if( (find_value = trie_lookup(tokens, (char *)string->data)) != TRIE_NULL) {
+					token_t * t = (token_t *) find_value;		
+					t->merge_token = merge_token; 
+					t->position_specific |= (int)(1 << 1);
+				}
+				
+			}
+			//token_t *t = token_new(merge_token, *key);
+			//trie_insert(tokens, (char *)merge_token->data, t);			
 		}
 	}
 
 }
-
 
 
 void offset_variants_traverse(offset_variants_t *o) {
@@ -476,11 +497,16 @@ Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * token
 
 	flow_set_t * flow_set = dffn->flow_set;
 
-	/* The first round search, return a trie of tokens*/
+	/* The first round search, for each token we record the number of different offsets it occurs.
+	   If a token is always found at a particular offset, then we mark it as position-specific. */
 	Trie *trie = flow_set_traverse_token(flow_set);
 	trie_dfs(trie, set_position_specific_by_fix_offset_cb, (void *)NULL); 
 
-	/* The second round search, return a hash table of offsets*/
+	/* The second round search, we first look for the offsets that appear in a large portion of flows, 
+	   and then for each of them we count the number of different tokens that start form it. 
+	   If that number of is smaller than a threshold beta_merge, we combine those tokens using the choice operator and mark the 
+	   resulted token as position-specific as well.  
+	   If the specific position is the begining of a flow, we add a "^" before it.*/
 	offset_variants_t * res = (offset_variants_t *)malloc(sizeof(offset_variants_t));	
 
 	res->k_offset = k_offset;

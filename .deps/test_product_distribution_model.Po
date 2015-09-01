@@ -35,7 +35,7 @@ test_product_distribution_model.o: test_product_distribution_model.c \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/sys/queue.h hash-table.h
+ /usr/include/x86_64-linux-gnu/sys/queue.h hash-table.h trie.h
 
 /usr/include/stdc-predef.h:
 
@@ -138,3 +138,5 @@ lst_string.h:
 /usr/include/x86_64-linux-gnu/sys/queue.h:
 
 hash-table.h:
+
+trie.h:

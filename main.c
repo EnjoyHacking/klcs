@@ -115,7 +115,6 @@ int main(int argc, char **argv) {
 
 	printf("************************\n");
 	trie_dfs(trie, print_callback, (void *)NULL);
-
 	printf("************************\n");
 	/* 3. perform the third sub-module - extracting single byte tokens using product distribution model*/
 
@@ -123,7 +122,10 @@ int main(int argc, char **argv) {
 	int last_bytes = 4;
 	int num_bytes = N;
 
-	product_distribution_main(payloads, first_bytes, last_bytes, num_bytes, gamma_merge);
+	product_distribution_main(trie, payloads, first_bytes, last_bytes, num_bytes, gamma_merge);
+	printf("************************\n");
+	trie_dfs(trie, print_callback, (void *)NULL);
+	printf("************************\n");
 
 	/* Free suffix tree: */
 	lst_stree_free(tree);

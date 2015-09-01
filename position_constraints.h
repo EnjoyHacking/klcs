@@ -50,6 +50,8 @@ struct _token_t {
 
 	HashTable * offset_occurrence;
 
+	LST_String *merge_token;
+
 };
 
 struct _offset_t {

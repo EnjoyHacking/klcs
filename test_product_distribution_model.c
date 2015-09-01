@@ -2,7 +2,7 @@
 #include "lst_string.h"
 #include "hash-table.h"
 
-int main(int arg, char *argv) {
+int main(int arg, char **argv) {
 
 	char * str1 = "HTTP/1.1 index.html";
 	char * str2 = "HTTP/1.0 aaaaa.html";

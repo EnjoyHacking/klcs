@@ -37,7 +37,7 @@ int main(int argc, char * argv[]) {
 	lst_stringset_add(tokens, lst_string_new(token3, 1, strlen(token3)));
 	lst_stringset_add(tokens, lst_string_new(token4, 1, strlen(token4)));
 
-	int k_offset = 3;
+	int k_offset = 1;
 	int beta_merge = 5;
 	position_constraints_main(payloads, tokens, k_offset, beta_merge);
 

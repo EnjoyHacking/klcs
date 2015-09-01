@@ -36,4 +36,5 @@ test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c
 
 
 test_product_distribution_model_SOURCES = test_product_distribution_model.c product_distribution_model.h product_distribution_model.c \
-		lst_string.h lst_string.c hash-table.c hash-table.h hash-int.h hash-int.c compare-int.h compare-int.c
+		lst_string.h lst_string.c hash-table.c hash-table.h hash-int.h hash-int.c compare-int.h compare-int.c trie.h trie.c \
+		position_constraints.h position_constraints.c pattern_search.h pattern_search.c
