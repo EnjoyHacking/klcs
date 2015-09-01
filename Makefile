@@ -77,7 +77,7 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 bin_PROGRAMS = main$(EXEEXT) lcstext$(EXEEXT) \
-	position_constraints$(EXEEXT)
+	test_position_constraints$(EXEEXT)
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
@@ -111,11 +111,14 @@ main_OBJECTS = $(am_main_OBJECTS)
 main_DEPENDENCIES =
 main_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(main_LDFLAGS) $(LDFLAGS) \
 	-o $@
-am_position_constraints_OBJECTS = position_constraints.$(OBJEXT) \
-	pattern_search.$(OBJEXT) lst_string.$(OBJEXT) trie.$(OBJEXT) \
-	hash-int.$(OBJEXT) compare-int.$(OBJEXT) hash-table.$(OBJEXT)
-position_constraints_OBJECTS = $(am_position_constraints_OBJECTS)
-position_constraints_LDADD = $(LDADD)
+am_test_position_constraints_OBJECTS =  \
+	test_position_constraints.$(OBJEXT) \
+	position_constraints.$(OBJEXT) trie.$(OBJEXT) \
+	lst_string.$(OBJEXT) hash-table.$(OBJEXT) hash-int.$(OBJEXT) \
+	compare-int.$(OBJEXT) pattern_search.$(OBJEXT)
+test_position_constraints_OBJECTS =  \
+	$(am_test_position_constraints_OBJECTS)
+test_position_constraints_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -145,9 +148,9 @@ am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(lcstext_SOURCES) $(main_SOURCES) \
-	$(position_constraints_SOURCES)
+	$(test_position_constraints_SOURCES)
 DIST_SOURCES = $(lcstext_SOURCES) $(main_SOURCES) \
-	$(position_constraints_SOURCES)
+	$(test_position_constraints_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -192,13 +195,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/yafei/workspace_for_github/klcs/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sang/klcs/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoconf
-AUTOHEADER = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoheader
-AUTOMAKE = ${SHELL} /home/yafei/workspace_for_github/klcs/missing automake-1.14
-AWK = mawk
+AUTOCONF = ${SHELL} /home/sang/klcs/missing autoconf
+AUTOHEADER = ${SHELL} /home/sang/klcs/missing autoheader
+AUTOMAKE = ${SHELL} /home/sang/klcs/missing automake-1.14
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -std=gnu99 -g -Wall
@@ -222,7 +225,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/yafei/workspace_for_github/klcs/missing makeinfo
+MAKEINFO = ${SHELL} /home/sang/klcs/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = klcs
@@ -237,10 +240,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/yafei/workspace_for_github/klcs
-abs_srcdir = /home/yafei/workspace_for_github/klcs
-abs_top_builddir = /home/yafei/workspace_for_github/klcs
-abs_top_srcdir = /home/yafei/workspace_for_github/klcs
+abs_builddir = /home/sang/klcs
+abs_srcdir = /home/sang/klcs
+abs_top_builddir = /home/sang/klcs
+abs_top_srcdir = /home/sang/klcs
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -259,7 +262,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/yafei/workspace_for_github/klcs/install-sh
+install_sh = ${SHELL} /home/sang/klcs/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -288,15 +291,16 @@ main_SOURCES = main.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c l
 
 main_LDADD = -lc -lm
 main_LDFLAGS = -L/lib 
-position_constraints_SOURCES = position_constraints.c position_constraints.h pattern_search.c pattern_search.h lst_string.c lst_string.h \
-				trie.c trie.h hash-int.h hash-int.c compare-int.h compare-int.c hash-table.h hash-table.c
-
 lcstext_SOURCES = lcstext.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c lst_debug.h lst_stree.c lst_stree.h \
 		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
 		compare-int.c compare-int.h set.h set.c
 
 lcstext_LDADD = -lc -lm
 lcstext_LDFLAGS = -L/lib 
+test_position_constraints_SOURCES = test_position_constraints.c position_constraints.h position_constraints.c trie.h trie.c \
+		lst_string.h lst_string.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c \
+		pattern_search.h pattern_search.c
+
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -402,9 +406,9 @@ main$(EXEEXT): $(main_OBJECTS) $(main_DEPENDENCIES) $(EXTRA_main_DEPENDENCIES)
 	@rm -f main$(EXEEXT)
 	$(AM_V_CCLD)$(main_LINK) $(main_OBJECTS) $(main_LDADD) $(LIBS)
 
-position_constraints$(EXEEXT): $(position_constraints_OBJECTS) $(position_constraints_DEPENDENCIES) $(EXTRA_position_constraints_DEPENDENCIES) 
-	@rm -f position_constraints$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(position_constraints_OBJECTS) $(position_constraints_LDADD) $(LIBS)
+test_position_constraints$(EXEEXT): $(test_position_constraints_OBJECTS) $(test_position_constraints_DEPENDENCIES) $(EXTRA_test_position_constraints_DEPENDENCIES) 
+	@rm -f test_position_constraints$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(test_position_constraints_OBJECTS) $(test_position_constraints_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -424,6 +428,7 @@ include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/pattern_search.Po
 include ./$(DEPDIR)/position_constraints.Po
 include ./$(DEPDIR)/set.Po
+include ./$(DEPDIR)/test_position_constraints.Po
 include ./$(DEPDIR)/trie.Po
 include ./$(DEPDIR)/utils.Po
 

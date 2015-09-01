@@ -60,12 +60,6 @@ node_cb(LST_Node *node, void *data)
 }
 
 
-void
-string_cb(LST_String *string, void *data)
-{
-  printf("%s ", lst_string_print(string));
-  printf("%s", data);
-}
 
 void checkForSubString(LST_STree *tree, LST_String  *string)
 {

@@ -38,12 +38,6 @@ node_cb(LST_Node *node, void *data)
 }
 
 
-void
-string_cb(LST_String *string, void *data)
-{
-  printf("%s ", lst_string_print(string));
-  printf("%s", data);
-}
 
 void checkForSubString(LST_STree *tree, LST_String  *string)
 {
@@ -80,6 +74,8 @@ int main(int argc, char **argv) {
 	fprintf(stdout, "string set size : %d \n", payloads->size);
 	fprintf(stdout, "fileCounter : %d \n", fileCounter);
 
+	lst_stringset_foreach(payloads, string_cb, "\n");
+
 	/* Create a suffix tree for all strings in the set */
 	tree = lst_stree_new(payloads);
 	fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
@@ -113,6 +109,7 @@ int main(int argc, char **argv) {
 	lst_stree_free(tree);
 
 
+	lst_stringset_foreach(payloads, string_cb, "\n");
 	Trie * trie = position_constraints_main(payloads, tokens);
 
 	return 0;

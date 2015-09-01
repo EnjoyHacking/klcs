@@ -435,5 +435,6 @@ void             lst_stringset_foreach(LST_StringSet *set, LST_StringCB callback
  * all the strings it contains.
  */
 void             lst_stringset_free(LST_StringSet *set);
+void 		 string_cb(LST_String *string, void *data);
 
 #endif

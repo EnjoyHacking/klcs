@@ -573,8 +573,8 @@ alg_find_deepest(LST_Node *node, LST_LCS_Data *data)
 	  if ( counter < data->k){
           	return 0;
 	  }
-	  printf("%d : %s \n", set_num_entries(node->string_indices), lst_string_print(lst_node_get_string(node, 0)) );
-	  printf("counter : %d -- k : %d  \n", counter, data->k);
+	  //printf("%d : %s \n", set_num_entries(node->string_indices), lst_string_print(lst_node_get_string(node, 0)) );
+	  //printf("counter : %d -- k : %d  \n", counter, data->k);
 
   }
   else

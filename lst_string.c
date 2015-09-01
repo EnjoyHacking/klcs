@@ -510,3 +510,10 @@ lst_stringset_free(LST_StringSet *set)
 
   free(set);
 }
+
+void
+string_cb(LST_String *string, void *data)
+{
+  printf("%s ", lst_string_print(string));
+  printf("%s", data);
+}
