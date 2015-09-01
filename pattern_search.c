@@ -36,6 +36,7 @@ int*  kmp_search(char *pattern, char *target) {
 	int M = strlen(pattern);
 	int N = strlen(target);
 
+
 	int *indices = (int *) malloc (sizeof(int) * N);
 	int index;
 	for(index = 0; index < N; index++){
@@ -60,13 +61,13 @@ int*  kmp_search(char *pattern, char *target) {
 		}
 
 		if (j == M) {
-			printf("Info: Found pattern <%s> at index '%d' of <%s> \n", pattern, i - j, target);	
+			//printf("Info: Found pattern <%s> at index '%d' of <%s> \n", pattern, i - j, target);	
 			indices[index++] = i - j;
 			j = lps[j - 1];
 		} else if (i < N && pattern[j] != target[i]) { // mismatch after j matches
 
 			if (j != 0) {
-				j = lps[i - 1] ;
+				j = lps[j - 1] ;
 			} else {
 				i = i + 1;
 			}
@@ -80,22 +81,3 @@ int*  kmp_search(char *pattern, char *target) {
 }
 
 
-/*
-
-int main() {
-	char *target = "ABABDABACDABABCABAB";
-	char *pattern = "AB";
-	int *indices = kmp_search(pattern, target);
-
-	int index = 0;
-	while(indices[index] != -1 && index < strlen(target)) {
-		printf("%d \t", indices[index++]);
-	}	
-
-	printf("\n");
-
-	free(indices);
-
-	return 0;
-}
-*/

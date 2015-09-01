@@ -22,7 +22,7 @@ AM_V_GEN	Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/;"	m
 AM_V_P	Makefile	/^AM_V_P = $(am__v_P_$(V))$/;"	m
 AM_V_at	Makefile	/^AM_V_at = $(am__v_at_$(V))$/;"	m
 ASSUMPTION_NUM_DISTINCT_STRINGS	lcstext.c	39;"	d	file:
-ASSUMPTION_NUM_DISTINCT_STRINGS	main.c	17;"	d	file:
+ASSUMPTION_NUM_DISTINCT_STRINGS	main.c	18;"	d	file:
 AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoconf$/;"	m
 AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoheader$/;"	m
 AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing automake-1.14$/;"	m
@@ -125,7 +125,7 @@ LST_StringSet	lst_string.h	/^typedef struct lst_stringset         LST_StringSet;
 LTLIBOBJS	Makefile	/^LTLIBOBJS = $/;"	m
 MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing makeinfo$/;"	m
 MAX_SUBSTRING_SIZE	merge_common_prefix.c	10;"	d	file:
-MERGE_TOKEN_MAX_LEN	position_constraints.c	11;"	d	file:
+MERGE_TOKEN_MAX_LEN	position_constraints.c	12;"	d	file:
 MKDIR_P	Makefile	/^MKDIR_P = \/bin\/mkdir -p$/;"	m
 NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/;"	m
 NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
@@ -281,7 +281,9 @@ am__v_at_0	Makefile	/^am__v_at_0 = @$/;"	m
 am__v_at_1	Makefile	/^am__v_at_1 = $/;"	m
 am_lcstext_OBJECTS	Makefile	/^am_lcstext_OBJECTS = lcstext.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/;"	m
 am_main_OBJECTS	Makefile	/^am_main_OBJECTS = main.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/;"	m
-am_position_constraints_OBJECTS	Makefile	/^am_position_constraints_OBJECTS = position_constraints.$(OBJEXT) \\$/;"	m
+am_test_kmp_search_OBJECTS	Makefile	/^am_test_kmp_search_OBJECTS = test_kmp_search.$(OBJEXT) \\$/;"	m
+am_test_position_constraints_OBJECTS	Makefile	/^am_test_position_constraints_OBJECTS =  \\$/;"	m
+am_test_product_distribution_model_OBJECTS	Makefile	/^am_test_product_distribution_model_OBJECTS =  \\$/;"	m
 as_fn_append	config.status	/^  as_fn_append ()$/;"	f
 as_fn_append	configure	/^  as_fn_append ()$/;"	f
 as_fn_arith	config.status	/^  as_fn_arith ()$/;"	f
@@ -320,7 +322,6 @@ byte_distribution_new	product_distribution_model.c	/^byte_distribution_t * byte_
 byte_distribution_t	product_distribution_model.h	/^typedef struct _byte_distribution_t byte_distribution_t;$/;"	t	typeref:struct:_byte_distribution_t
 calculate_product_distribution_callback	product_distribution_model.c	/^void calculate_product_distribution_callback(LST_String *nbytes, void *data) {$/;"	f
 checkForSubString	lcstext.c	/^void checkForSubString(LST_STree *tree, LST_String  *string)$/;"	f
-checkForSubString	main.c	/^void checkForSubString(LST_STree *tree, LST_String  *string)$/;"	f
 cmp_func	lst_string.h	/^  LST_StringItemCmpFunc       cmp_func;$/;"	m	struct:lst_stringclass
 convert_bitstrings_to_int	lst_algorithms.c	/^static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size){$/;"	f	file:
 convert_flow_cb	convertion.c	/^void convert_flow_cb(LST_String *flow, void *data) {$/;"	f
@@ -524,7 +525,9 @@ main	convertion.c	/^int main(int argc, char **argv) {$/;"	f
 main	lcstext.c	/^int main(int argc, char **argv) {$/;"	f
 main	main.c	/^int main(int argc, char **argv) {$/;"	f
 main	merge_common_prefix.c	/^int main(int argc, char** argv) {$/;"	f
-main	product_distribution_model.c	/^int main(int arg, char *argv) {$/;"	f
+main	test_kmp_search.c	/^int main() {$/;"	f
+main	test_position_constraints.c	/^int main(int argc, char * argv[]) {$/;"	f
+main	test_product_distribution_model.c	/^int main(int arg, char *argv) {$/;"	f
 main_DEPENDENCIES	Makefile	/^main_DEPENDENCIES =$/;"	m
 main_LDADD	Makefile	/^main_LDADD = -lc -lm$/;"	m
 main_LDFLAGS	Makefile	/^main_LDFLAGS = -L\/lib $/;"	m
@@ -552,7 +555,6 @@ node	lst_algorithms.c	/^  LST_Node *node;$/;"	m	struct:lst_node_it	file:
 node	lst_debug.c	/^  LST_Node *node;$/;"	m	struct:lst_stree_qi	file:
 node	lst_stree.c	/^  LST_Node    *node;$/;"	m	struct:lst_path_end	file:
 node_cb	lcstext.c	/^node_cb(LST_Node *node, void *data)$/;"	f
-node_cb	main.c	/^node_cb(LST_Node *node, void *data)$/;"	f
 node_find_edge_with_startitem	lst_stree.c	/^node_find_edge_with_startitem(LST_Node *node, LST_String *string, u_int index)$/;"	f	file:
 node_free	lst_stree.c	/^node_free(LST_Node *node)$/;"	f	file:
 node_new	lst_stree.c	/^node_new(int index)$/;"	f	file:
@@ -587,10 +589,7 @@ pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/klcs$/;"	m
 pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/klcs$/;"	m
 pkglibdir	Makefile	/^pkglibdir = $(libdir)\/klcs$/;"	m
 pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/klcs$/;"	m
-position_constraints_LDADD	Makefile	/^position_constraints_LDADD = $(LDADD)$/;"	m
-position_constraints_OBJECTS	Makefile	/^position_constraints_OBJECTS = $(am_position_constraints_OBJECTS)$/;"	m
-position_constraints_SOURCES	Makefile	/^position_constraints_SOURCES = position_constraints.c position_constraints.h pattern_search.c pattern_search.h lst_string.c lst_string.h \\$/;"	m
-position_constraints_main	position_constraints.c	/^Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens){$/;"	f
+position_constraints_main	position_constraints.c	/^Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens, int k_offset, int beta_merge){$/;"	f
 position_specific	position_constraints.h	/^	u_int position_specific; $/;"	m	struct:_token_t
 prefix	Makefile	/^prefix = \/usr\/local$/;"	m
 prime_index	hash-table.c	/^	unsigned int prime_index;$/;"	m	struct:_HashTable	file:
@@ -599,6 +598,7 @@ print_bitstrings	lst_algorithms.c	/^int print_bitstrings(u_char * bitstrings, in
 print_callback	position_constraints.c	/^ void print_callback(TrieNode *node, void * extension) {$/;"	f
 print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	m	struct:lst_stringclass
 product_distribution_free	product_distribution_model.c	/^void product_distribution_free(product_distribution_t * pd) {$/;"	f
+product_distribution_main	product_distribution_model.c	/^int product_distribution_main(LST_StringSet * set){$/;"	f
 product_distribution_new	product_distribution_model.c	/^product_distribution_t * product_distribution_new(LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes){$/;"	f
 product_distribution_t	product_distribution_model.h	/^typedef struct _product_distribution_t product_distribution_t;$/;"	t	typeref:struct:_product_distribution_t
 program_details	missing	/^program_details ()$/;"	f
@@ -662,8 +662,7 @@ string	lst_string.h	/^  LST_String  *string;$/;"	m	struct:lst_stringindex
 string	lst_structs.h	/^  LST_String   *string;$/;"	m	struct:lst_string_hash_item
 string_byte_cmp_func	lst_string.c	/^string_byte_cmp_func(char *item1, char *item2)$/;"	f	file:
 string_byte_copy_func	lst_string.c	/^string_byte_copy_func(char *src, char *dst)$/;"	f	file:
-string_cb	lcstext.c	/^string_cb(LST_String *string, void *data)$/;"	f
-string_cb	main.c	/^string_cb(LST_String *string, void *data)$/;"	f
+string_cb	lst_string.c	/^string_cb(LST_String *string, void *data)$/;"	f
 string_compare	compare-string.c	/^int string_compare(void *string1, void *string2)$/;"	f
 string_equal	compare-string.c	/^int string_equal(void *string1, void *string2)$/;"	f
 string_hash	hash-string.c	/^unsigned int string_hash(void *string)$/;"	f
@@ -691,6 +690,15 @@ tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar
 tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/;"	m
 target_alias	Makefile	/^target_alias = $/;"	m
 test_array	merge_common_prefix.c	/^int test_array[NUM_TEST_VALUES];$/;"	v
+test_kmp_search_LDADD	Makefile	/^test_kmp_search_LDADD = $(LDADD)$/;"	m
+test_kmp_search_OBJECTS	Makefile	/^test_kmp_search_OBJECTS = $(am_test_kmp_search_OBJECTS)$/;"	m
+test_kmp_search_SOURCES	Makefile	/^test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c$/;"	m
+test_position_constraints_LDADD	Makefile	/^test_position_constraints_LDADD = $(LDADD)$/;"	m
+test_position_constraints_OBJECTS	Makefile	/^test_position_constraints_OBJECTS =  \\$/;"	m
+test_position_constraints_SOURCES	Makefile	/^test_position_constraints_SOURCES = test_position_constraints.c position_constraints.h position_constraints.c trie.h trie.c \\$/;"	m
+test_product_distribution_model_LDADD	Makefile	/^test_product_distribution_model_LDADD = $(LDADD)$/;"	m
+test_product_distribution_model_OBJECTS	Makefile	/^test_product_distribution_model_OBJECTS =  \\$/;"	m
+test_product_distribution_model_SOURCES	Makefile	/^test_product_distribution_model_SOURCES = test_product_distribution_model.c product_distribution_model.h product_distribution_model.c \\$/;"	m
 test_strings	merge_common_prefix.c	/^char test_strings[NUM_TEST_VALUES][10];$/;"	v
 test_usage	lcstext.c	/^test_usage(char *progname)$/;"	f	file:
 test_usage	main.c	/^test_usage(char *progname)$/;"	f	file:

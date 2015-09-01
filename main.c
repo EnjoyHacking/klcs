@@ -7,17 +7,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include <math.h>
+
 #include "lst_structs.h"
 #include "lst_stree.h"
 #include "lst_string.h"
 #include "lst_algorithms.h"
 
 #include "position_constraints.h"
+#include "product_distribution_model.h"
 
 #define ASSUMPTION_NUM_DISTINCT_STRINGS 256
 
 #include "utils.h"
 extern int fileCounter;
+
 static void
 test_usage(char *progname)
 {
@@ -28,25 +32,6 @@ test_usage(char *progname)
   exit(0);
 }
 
-
-void
-node_cb(LST_Node *node, void *data)
-{
-  if (node->up_edge)
-    printf("Node: %u, string index: %i\n", node->id,
-	   lst_stree_get_string_index((LST_STree *) data, node->up_edge->range.string));
-}
-
-
-
-void checkForSubString(LST_STree *tree, LST_String  *string)
-{
-    int res = lst_alg_substring_check(tree, string);
-    if(res == 1)
-	    printf("Pattern <%s> is a Substring\n", lst_string_print(string));
-    else
-	    printf("Pattern <%s> is NOT a Substring\n", lst_string_print(string));
-}
 
 
 #if 1
@@ -67,6 +52,8 @@ int main(int argc, char **argv) {
 	k = atoi(argv[3]);
 	dirName = argv[4];
 
+
+
 	
 	/* Create a string set to conveniently hold all our strings from a given directory */
 	payloads = lst_stringset_new();
@@ -74,10 +61,29 @@ int main(int argc, char **argv) {
 	fprintf(stdout, "string set size : %d \n", payloads->size);
 	fprintf(stdout, "fileCounter : %d \n", fileCounter);
 
-	lst_stringset_foreach(payloads, string_cb, "\n");
+
+	/*The experimental paramter setting as follows.*/
+
+	/* We totally test K samples. */
+	int K = payloads->size;
+	/* We truncate every flow payload with 256 bytes. */
+	int N = 20;  
+	/* We set the minimum substring length l_min = 2 for k-common substring extraction. */
+	int l_min = 2;
+	/* We set the minimum coverage k_min = 10% * K for k-common substring extraction. */
+	int k_min = (int) ceil(0.1 * K);
+	/* The follow three merge parameters all takes 5 for token merging. */
+	int alpha_merge = 5;
+	int beta_merge = 5;
+	int gamma_merge = 5;
+	/*The k_offset with K means that we only consider position-specific tokens that appear in all the flows.*/
+	int k_offset = K; 
+
+
 
 	/* Create a suffix tree for all strings in the set */
 	tree = lst_stree_new(payloads);
+
 	fprintf(stdout, "tree.string_index : %d \n", tree->string_index);
 
 	/* Find k longest common substring(s) */
@@ -104,14 +110,23 @@ int main(int argc, char **argv) {
 		printf("\n");
 	}
 
+	/* 2. peform the second sub-module - introducing position constraints */
+	Trie * trie = position_constraints_main(payloads, tokens, k_offset, beta_merge);
+
+	printf("************************\n");
+	trie_dfs(trie, print_callback, (void *)NULL);
+
+	printf("************************\n");
+	/* 3. perform the third sub-module - extracting single byte tokens using product distribution model*/
+
+	int first_bytes = 8;
+	int last_bytes = 4;
+	int num_bytes = N;
+
+	product_distribution_main(payloads, first_bytes, last_bytes, num_bytes, gamma_merge);
 
 	/* Free suffix tree: */
 	lst_stree_free(tree);
-
-
-	lst_stringset_foreach(payloads, string_cb, "\n");
-	Trie * trie = position_constraints_main(payloads, tokens);
-
 	return 0;
 }
 

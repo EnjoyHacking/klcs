@@ -1,0 +1,6 @@
+test_kmp_search.o: test_kmp_search.c /usr/include/stdc-predef.h \
+ pattern_search.h
+
+/usr/include/stdc-predef.h:
+
+pattern_search.h:

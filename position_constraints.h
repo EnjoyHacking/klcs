@@ -95,7 +95,8 @@ void merge_by_position_specific_with_offset_variants(Trie *tokens, offset_varian
 
 void offset_variants_traverse(offset_variants_t *o);
 void flow_new_cb(LST_String *string, void *data) ;
-Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens);
+
+Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens, int k_offset, int beta_merge);
 
 
 

@@ -111,6 +111,17 @@ void token_add(token_t *t, int offset) {
 
 }
 
+void token_set_position_specific(token_t *t){
+
+	if(!t){
+		return ;
+	}
+
+	if(hash_table_num_entries(t->offset_occurrence) == 1) {
+		t->position_specific = 1;
+	}
+	return;
+}
 
 void token_print(token_t *t){
 
@@ -123,23 +134,18 @@ void token_print(token_t *t){
 	int count;
 
 	hash_table = t->offset_occurrence;
-	count = 0;
 
 	/* Iterate over all values in the table */
 	hash_table_iterate(hash_table, &iterator);
 	
-	printf("<%s> : ", lst_string_print(t->token));	
+	printf("<%s, %d> : ", lst_string_print(t->token), t->position_specific);	
 
 	while (hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);
 		printf("%d(%d) \t", *((int *)pair.key), *((int *)pair.value));
-		++count;
 	}
 	printf("\n");
 
-	if(count == 1) {
-		t->position_specific = 1;
-	}
 	return;
 
 }
@@ -278,7 +284,6 @@ Trie*  flow_set_traverse_token(flow_set_t *flow_set) {
 	return trie;
 
 }
-
  void print_callback(TrieNode *node, void * extension) {
 
 	if(!node){
@@ -291,6 +296,22 @@ Trie*  flow_set_traverse_token(flow_set_t *flow_set) {
 	token_t  *token = (token_t *) node->data;	
 	
 	token_print(token);
+
+	return ;
+}
+
+ void set_position_specific_by_fix_offset_cb(TrieNode *node, void * extension) {
+
+	if(!node){
+		return;
+	}
+	if(!node->data){
+		return;
+	}
+	
+	token_t  *token = (token_t *) node->data;	
+	
+	token_set_position_specific(token);
 
 	return ;
 }
@@ -430,11 +451,7 @@ void flow_new_cb(LST_String *string, void *data) {
 
 	flow_t * flow = flow_new(string, dffn->tokens);
 
-	printf("-------------\n");
-
-	printf("payload: %s \n", lst_string_print(string));
-	flow_print(flow);
-	printf("-------------\n");
+	//flow_print(flow);
 
 	flow_set_add(dffn->flow_set, flow);
 
@@ -443,7 +460,7 @@ void flow_new_cb(LST_String *string, void *data) {
 }
 
 
-Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens){
+Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens, int k_offset, int beta_merge){
 
 	
 	if(!payloads || !tokens) {
@@ -455,20 +472,20 @@ Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * token
 	dffn->flow_set = flow_set_new();
 	dffn->tokens = tokens;
 
-	lst_stringset_foreach(payloads, string_cb, "\n");
-
 	lst_stringset_foreach(payloads, flow_new_cb, dffn);
 
 	flow_set_t * flow_set = dffn->flow_set;
 
 	/* The first round search, return a trie of tokens*/
 	Trie *trie = flow_set_traverse_token(flow_set);
-	trie_dfs(trie, print_callback, (void *)NULL);
+	trie_dfs(trie, set_position_specific_by_fix_offset_cb, (void *)NULL); 
 
 	/* The second round search, return a hash table of offsets*/
 	offset_variants_t * res = (offset_variants_t *)malloc(sizeof(offset_variants_t));	
-	res->k_offset = 2;
-	res->beta_merge = 5;
+
+	res->k_offset = k_offset;
+	res->beta_merge = beta_merge;
+
 	res->offset_variants = hash_table_new(int_hash, int_equal);
 	trie_dfs(trie, search_callback, res);	
 
@@ -477,7 +494,7 @@ Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * token
 
 	merge_by_position_speific_with_offset_variants(trie, res) ;
 
-	trie_dfs(trie, print_callback, (void *)NULL);
+	//trie_dfs(trie, print_callback, (void *)NULL);
 
 	/* free allocated memory */
 	hash_table_free(res->offset_variants);
