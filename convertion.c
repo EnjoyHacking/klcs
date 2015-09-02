@@ -191,7 +191,7 @@ void convert_flow_cb(LST_String *flow, void *data) {
 
 	lst_stringset_add(set->flows_converted, flow_converted);
 
-	convertion_data_single_free(single);
+	//convertion_data_single_free(single);
 
 	return ;
 
@@ -229,6 +229,23 @@ void convertion_data_set_free (convertion_data_set_t * data) {
 }
 
 
+void flow_converted_int_print_cb(LST_String *flow_converted, void *data) {
+
+	int * flow_digital = (int *) flow_converted->data;
+	
+	for (int i = 0; i < flow_converted->num_items; i++) {
+		printf("%d ", flow_digital[i]);
+		
+		if(i == flow_converted->num_items - 1) {
+			printf("\n");
+		}
+	}
+
+	return ;
+
+}
+
+
 void flow_converted_print_cb(LST_String *flow_converted, void *data) {
 
 	int * flow_digital = (int *) flow_converted->data;
@@ -256,9 +273,10 @@ void convertion_main(Trie * tokens, LST_StringSet *flows){
 
 	lst_stringset_foreach(flows, convert_flow_cb, data);	
 
-	lst_stringset_foreach(data->flows_converted, flow_converted_print_cb, NULL);
+	lst_stringset_foreach(data->flows_converted, flow_converted_int_print_cb, NULL);
+	//lst_stringset_foreach(data->flows_converted, flow_converted_print_cb, NULL);
 
-	//convertion_data_set_free(data);
+	convertion_data_set_free(data);
 
 }
 

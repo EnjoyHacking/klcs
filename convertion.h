@@ -44,6 +44,8 @@ void convertion_data_set_free (convertion_data_set_t * data) ;
 
 void flow_converted_print_cb(LST_String *flow_converted, void *data) ;
 
+void flow_converted_int_print_cb(LST_String *flow_converted, void *data) ;
+
 void convertion_main(Trie * tokens, LST_StringSet *flows);
 
 #endif
