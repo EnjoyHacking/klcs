@@ -16,6 +16,7 @@
 
 #include "position_constraints.h"
 #include "product_distribution_model.h"
+#include "convertion.h"
 
 #define ASSUMPTION_NUM_DISTINCT_STRINGS 256
 
@@ -126,6 +127,9 @@ int main(int argc, char **argv) {
 	printf("************************\n");
 	trie_dfs(trie, print_callback, (void *)NULL);
 	printf("************************\n");
+
+	/* 4. convertion */
+	convertion_main(trie, payloads);
 
 	/* Free suffix tree: */
 	lst_stree_free(tree);

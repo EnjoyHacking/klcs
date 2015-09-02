@@ -1,5 +1,6 @@
-main.o: main.c /usr/include/stdc-predef.h config.h /usr/include/string.h \
- /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+test_convertion.o: test_convertion.c /usr/include/stdc-predef.h \
+ convertion.h lst_string.h /usr/include/string.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -26,30 +27,21 @@ main.o: main.c /usr/include/stdc-predef.h config.h /usr/include/string.h \
  /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/huge_val.h \
- /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
- /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
- /usr/include/x86_64-linux-gnu/bits/inf.h \
- /usr/include/x86_64-linux-gnu/bits/nan.h \
- /usr/include/x86_64-linux-gnu/bits/mathdef.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h lst_structs.h \
- /usr/include/x86_64-linux-gnu/sys/queue.h lst_string.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h set.h lst_stree.h \
- lst_algorithms.h position_constraints.h hash-table.h trie.h \
- product_distribution_model.h convertion.h utils.h /usr/include/dirent.h \
- /usr/include/x86_64-linux-gnu/bits/dirent.h \
- /usr/include/x86_64-linux-gnu/sys/stat.h \
- /usr/include/x86_64-linux-gnu/bits/stat.h
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/sys/queue.h trie.h position_constraints.h \
+ hash-table.h
 
 /usr/include/stdc-predef.h:
 
-config.h:
+convertion.h:
+
+lst_string.h:
 
 /usr/include/string.h:
 
@@ -129,28 +121,6 @@ config.h:
 
 /usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
 
-/usr/include/math.h:
-
-/usr/include/x86_64-linux-gnu/bits/huge_val.h:
-
-/usr/include/x86_64-linux-gnu/bits/huge_valf.h:
-
-/usr/include/x86_64-linux-gnu/bits/huge_vall.h:
-
-/usr/include/x86_64-linux-gnu/bits/inf.h:
-
-/usr/include/x86_64-linux-gnu/bits/nan.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathdef.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-lst_structs.h:
-
-/usr/include/x86_64-linux-gnu/sys/queue.h:
-
-lst_string.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h:
@@ -165,28 +135,10 @@ lst_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-set.h:
+/usr/include/x86_64-linux-gnu/sys/queue.h:
 
-lst_stree.h:
-
-lst_algorithms.h:
+trie.h:
 
 position_constraints.h:
 
 hash-table.h:
-
-trie.h:
-
-product_distribution_model.h:
-
-convertion.h:
-
-utils.h:
-
-/usr/include/dirent.h:
-
-/usr/include/x86_64-linux-gnu/bits/dirent.h:
-
-/usr/include/x86_64-linux-gnu/sys/stat.h:
-
-/usr/include/x86_64-linux-gnu/bits/stat.h:
