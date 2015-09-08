@@ -613,7 +613,7 @@ void trie_dfs(Trie *trie, Trie_node_callback cb, void *extension) {
 	}
 
 	trie_alg_dfs(trie->root_node, cb, extension);
-	printf("\n");
+	//printf("\n");
 
 	return;
 }

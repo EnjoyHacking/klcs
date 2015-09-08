@@ -22,7 +22,7 @@ AM_V_GEN	Makefile	/^AM_V_GEN = $(am__v_GEN_$(V))$/;"	m
 AM_V_P	Makefile	/^AM_V_P = $(am__v_P_$(V))$/;"	m
 AM_V_at	Makefile	/^AM_V_at = $(am__v_at_$(V))$/;"	m
 ASSUMPTION_NUM_DISTINCT_STRINGS	lcstext.c	39;"	d	file:
-ASSUMPTION_NUM_DISTINCT_STRINGS	main.c	18;"	d	file:
+ASSUMPTION_NUM_DISTINCT_STRINGS	main.c	20;"	d	file:
 AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoconf$/;"	m
 AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing autoheader$/;"	m
 AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/yafei\/workspace_for_github\/klcs\/missing automake-1.14$/;"	m
@@ -281,6 +281,7 @@ am__v_at_0	Makefile	/^am__v_at_0 = @$/;"	m
 am__v_at_1	Makefile	/^am__v_at_1 = $/;"	m
 am_lcstext_OBJECTS	Makefile	/^am_lcstext_OBJECTS = lcstext.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/;"	m
 am_main_OBJECTS	Makefile	/^am_main_OBJECTS = main.$(OBJEXT) lst_algorithms.$(OBJEXT) \\$/;"	m
+am_test_convertion_OBJECTS	Makefile	/^am_test_convertion_OBJECTS = test_convertion.$(OBJEXT) \\$/;"	m
 am_test_kmp_search_OBJECTS	Makefile	/^am_test_kmp_search_OBJECTS = test_kmp_search.$(OBJEXT) \\$/;"	m
 am_test_position_constraints_OBJECTS	Makefile	/^am_test_position_constraints_OBJECTS =  \\$/;"	m
 am_test_product_distribution_model_OBJECTS	Makefile	/^am_test_product_distribution_model_OBJECTS =  \\$/;"	m
@@ -304,6 +305,7 @@ as_fn_set_status	configure	/^as_fn_set_status ()$/;"	f
 as_fn_success	configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
 as_fn_unset	config.status	/^as_fn_unset ()$/;"	f
 as_fn_unset	configure	/^as_fn_unset ()$/;"	f
+associate_callback	position_constraints.c	/^void associate_callback(LST_String *string, void *data) {$/;"	f
 begin_of_flow	position_constraints.h	/^	u_int begin_of_flow;$/;"	m	struct:_token_t
 beta_merge	position_constraints.h	/^	int beta_merge;$/;"	m	struct:_offset_variants_t
 bin_PROGRAMS	Makefile	/^bin_PROGRAMS = main$(EXEEXT) lcstext$(EXEEXT) \\$/;"	m
@@ -327,11 +329,12 @@ convert_bitstrings_to_int	lst_algorithms.c	/^static long convert_bitstrings_to_i
 convert_flow_cb	convertion.c	/^void convert_flow_cb(LST_String *flow, void *data) {$/;"	f
 convert_token_cb	convertion.c	/^void convert_token_cb(LST_String *token, void *data) {$/;"	f
 convertion_data_set_free	convertion.c	/^void convertion_data_set_free (convertion_data_set_t * data) {$/;"	f
-convertion_data_set_new	convertion.c	/^convertion_data_set_t * convertion_data_set_new(LST_StringSet * tokens) {$/;"	f
+convertion_data_set_new	convertion.c	/^convertion_data_set_t * convertion_data_set_new(Trie * tokens) {$/;"	f
 convertion_data_set_t	convertion.h	/^typedef struct _convertion_data_set_t 		convertion_data_set_t;$/;"	t	typeref:struct:_convertion_data_set_t
 convertion_data_single_free	convertion.c	/^void convertion_data_single_free(convertion_data_single_t * data){$/;"	f
 convertion_data_single_new	convertion.c	/^convertion_data_single_t * convertion_data_single_new(LST_String *flow) {$/;"	f
 convertion_data_single_t	convertion.h	/^typedef struct _convertion_data_single_t 	convertion_data_single_t;$/;"	t	typeref:struct:_convertion_data_single_t
+convertion_main	convertion.c	/^void convertion_main(Trie * trie, LST_StringSet *flows){$/;"	f
 copy_func	lst_string.h	/^  LST_StringItemCopyFunc      copy_func;$/;"	m	struct:lst_stringclass
 data	lst_string.h	/^  void                       *data;$/;"	m	struct:lst_string
 data	set.c	/^	SetValue data;$/;"	m	struct:_SetEntry	file:
@@ -521,13 +524,13 @@ lst_stringset_foreach	lst_string.c	/^lst_stringset_foreach(LST_StringSet *set,$/
 lst_stringset_free	lst_string.c	/^lst_stringset_free(LST_StringSet *set)$/;"	f
 lst_stringset_new	lst_string.c	/^lst_stringset_new(void)$/;"	f
 lst_stringset_remove	lst_string.c	/^lst_stringset_remove(LST_StringSet *set, LST_String *string)$/;"	f
-main	convertion.c	/^int main(int argc, char **argv) {$/;"	f
 main	lcstext.c	/^int main(int argc, char **argv) {$/;"	f
 main	main.c	/^int main(int argc, char **argv) {$/;"	f
 main	merge_common_prefix.c	/^int main(int argc, char** argv) {$/;"	f
+main	test_convertion.c	/^int main(int argc, char **argv) {$/;"	f
 main	test_kmp_search.c	/^int main() {$/;"	f
 main	test_position_constraints.c	/^int main(int argc, char * argv[]) {$/;"	f
-main	test_product_distribution_model.c	/^int main(int arg, char *argv) {$/;"	f
+main	test_product_distribution_model.c	/^int main(int arg, char **argv) {$/;"	f
 main_DEPENDENCIES	Makefile	/^main_DEPENDENCIES =$/;"	m
 main_LDADD	Makefile	/^main_LDADD = -lc -lm$/;"	m
 main_LDFLAGS	Makefile	/^main_LDFLAGS = -L\/lib $/;"	m
@@ -541,6 +544,7 @@ members	lst_string.h	/^  LIST_HEAD(slist, lst_string) members;  $/;"	m	struct:ls
 merge_by_position_speific_with_offset_variants	position_constraints.c	/^void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variants_t *ov) {$/;"	f
 merge_callback	position_constraints.c	/^void merge_callback(LST_String *string, void *data) {$/;"	f
 merge_common_prefix_t	merge_common_prefix.h	/^typedef struct _merege_common_prefix_t	merge_common_prefix_t;$/;"	t	typeref:struct:_merege_common_prefix_t
+merge_token	position_constraints.h	/^	LST_String *merge_token;$/;"	m	struct:_token_t
 mkdir_p	Makefile	/^mkdir_p = $(MKDIR_P)$/;"	m
 mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
 needs_visitor_update	lst_structs.h	/^  int                               needs_visitor_update;$/;"	m	struct:lst_stree
@@ -598,7 +602,7 @@ print_bitstrings	lst_algorithms.c	/^int print_bitstrings(u_char * bitstrings, in
 print_callback	position_constraints.c	/^ void print_callback(TrieNode *node, void * extension) {$/;"	f
 print_func	lst_string.h	/^  LST_StringPrintFunc         print_func;$/;"	m	struct:lst_stringclass
 product_distribution_free	product_distribution_model.c	/^void product_distribution_free(product_distribution_t * pd) {$/;"	f
-product_distribution_main	product_distribution_model.c	/^int product_distribution_main(LST_StringSet * set){$/;"	f
+product_distribution_main	product_distribution_model.c	/^int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge){$/;"	f
 product_distribution_new	product_distribution_model.c	/^product_distribution_t * product_distribution_new(LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes){$/;"	f
 product_distribution_t	product_distribution_model.h	/^typedef struct _product_distribution_t product_distribution_t;$/;"	t	typeref:struct:_product_distribution_t
 program_details	missing	/^program_details ()$/;"	f
@@ -631,6 +635,7 @@ set_iterate	set.c	/^void set_iterate(Set *set, SetIterator *iter)$/;"	f
 set_new	set.c	/^Set *set_new(SetHashFunc hash_func, SetEqualFunc equal_func)$/;"	f
 set_num_entries	set.c	/^unsigned int set_num_entries(Set *set)$/;"	f
 set_num_primes	set.c	/^static const unsigned int set_num_primes = sizeof(set_primes) \/ sizeof(int);$/;"	v	file:
+set_position_specific_by_fix_offset_cb	position_constraints.c	/^ void set_position_specific_by_fix_offset_cb(TrieNode *node, void * extension) {$/;"	f
 set_primes	set.c	/^static const unsigned int set_primes[] = {$/;"	v	file:
 set_query	set.c	/^int set_query(Set *set, SetValue data)$/;"	f
 set_register_free_function	set.c	/^void set_register_free_function(Set *set, SetFreeFunc free_func)$/;"	f
@@ -690,6 +695,9 @@ tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar
 tardir	Makefile	/^	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz$/;"	m
 target_alias	Makefile	/^target_alias = $/;"	m
 test_array	merge_common_prefix.c	/^int test_array[NUM_TEST_VALUES];$/;"	v
+test_convertion_LDADD	Makefile	/^test_convertion_LDADD = $(LDADD)$/;"	m
+test_convertion_OBJECTS	Makefile	/^test_convertion_OBJECTS = $(am_test_convertion_OBJECTS)$/;"	m
+test_convertion_SOURCES	Makefile	/^test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string.h lst_string.c$/;"	m
 test_kmp_search_LDADD	Makefile	/^test_kmp_search_LDADD = $(LDADD)$/;"	m
 test_kmp_search_OBJECTS	Makefile	/^test_kmp_search_OBJECTS = $(am_test_kmp_search_OBJECTS)$/;"	m
 test_kmp_search_SOURCES	Makefile	/^test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c$/;"	m
@@ -708,8 +716,9 @@ token_add	position_constraints.c	/^void token_add(token_t *t, int offset) {$/;"	
 token_free	position_constraints.c	/^void token_free(token_t *t){$/;"	f
 token_new	position_constraints.c	/^token_t * token_new(LST_String *token, int offset){$/;"	f
 token_print	position_constraints.c	/^void token_print(token_t *t){$/;"	f
+token_set_position_specific	position_constraints.c	/^void token_set_position_specific(token_t *t){$/;"	f
 token_t	position_constraints.h	/^typedef struct _token_t 	token_t;$/;"	t	typeref:struct:_token_t
-tokens	convertion.h	/^	LST_StringSet 	*tokens;$/;"	m	struct:_convertion_data_set_t
+tokens	convertion.h	/^	Trie * tokens;$/;"	m	struct:_convertion_data_set_t
 tokens	position_constraints.h	/^	LST_StringSet * tokens;$/;"	m	struct:_data_for_flow_new_t
 top_build_prefix	Makefile	/^top_build_prefix = $/;"	m
 top_builddir	Makefile	/^top_builddir = .$/;"	m
