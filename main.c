@@ -44,13 +44,12 @@ int main(int argc, char **argv) {
 	int k;
 	char* dirName;
 
-	if (argc <  5)
+	if (argc <  4)
 		test_usage(argv[0]);
 
 	min_len = atoi(argv[1]);
 	max_len = atoi(argv[2]);
-	k = atoi(argv[3]);
-	dirName = argv[4];
+	dirName = argv[3];
 
 
 
@@ -67,9 +66,9 @@ int main(int argc, char **argv) {
 	/* We totally test K samples. */
 	int K = payloads->size;
 	/* We truncate every flow payload with 256 bytes. */
-	int N = 20;  
+	int N = 16;  
 	/* We set the minimum substring length l_min = 2 for k-common substring extraction. */
-	int l_min = 2;
+	int l_min = min_len;
 	/* We set the minimum coverage k_min = 10% * K for k-common substring extraction. */
 	int k_min = (int) ceil(0.1 * K);
 	/* The follow three merge parameters all takes 5 for token merging. */
@@ -91,7 +90,7 @@ int main(int argc, char **argv) {
 
 	memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
 
-	tokens = lst_alg_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+	tokens = lst_alg_k_longest_common_substring(tree, l_min, max_len, k_min, num_distinct_strings);
 
 	//tokens = lst_alg_first_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
 
@@ -109,6 +108,8 @@ int main(int argc, char **argv) {
 		lst_stringset_foreach(tokens, string_cb, "\t");
 		printf("\n");
 	}
+
+	return 0;
 
 	/* 2. peform the second sub-module - introducing position constraints */
 	Trie * trie = position_constraints_main(payloads, tokens, k_offset, beta_merge);

@@ -35,10 +35,10 @@ void dirScan(char* dirName, LST_StringSet *set){
 
 }
 void  readContent(char* pathName, LST_StringSet *set){
-      FILE *f;
-      u_char *data;
+      FILE *f = NULL;
+      u_char *data = NULL;
       struct stat st;
-      LST_String *string;
+      LST_String *string = NULL;
       
       printf("Reading file %s.\n", pathName);
 
@@ -48,7 +48,7 @@ void  readContent(char* pathName, LST_StringSet *set){
 	  return;
 	}
 
-      data = malloc(st.st_size);
+      data = (u_char *)malloc(st.st_size * sizeof(u_char));
       if (!data)
 	{
 	  printf("File %s too big, skipping.\n", pathName);
@@ -68,7 +68,14 @@ void  readContent(char* pathName, LST_StringSet *set){
 	}
       string = lst_string_new(data, 1, st.st_size);
       lst_stringset_add(set, string);
-      free(data);
-      free(pathName);
+	if(data){
+		free(data);
+		data = NULL;
+	}
+	if(pathName){
+		free(pathName);
+		pathName = NULL;
+	}
+	
       fclose(f);
 }
