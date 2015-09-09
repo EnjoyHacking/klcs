@@ -1,0 +1,2 @@
+GET /client8.login.html?xml=1 HTTP/1.1
+Host: msg2.client.xunlei

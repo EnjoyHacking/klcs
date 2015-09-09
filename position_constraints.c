@@ -8,8 +8,9 @@
 
 
 
-
 #define MERGE_TOKEN_MAX_LEN 50
+
+static int dmode = ENCODED;
 
 void flow_print(flow_t *flow) {
 
@@ -123,6 +124,65 @@ void token_set_position_specific(token_t *t){
 	return;
 }
 
+
+/**
+ * Converts a token to a encoded string
+ * @param payl Payload buffer
+ * @param len Length of payload
+ * @param show Number of bytes to show
+ * @return string on heap
+ */
+char *token_to_encoded(char *payl, int len)
+{
+    int i, j = 0;
+    char *buf, hex[4], *ptr;
+
+    buf = malloc(len * 3 + 1);
+    if (!buf) {
+        error("Could not allocate memory of %d bytes", len * 3 + 1);
+        return "";
+    }
+
+    for (i = 0; i < len; i++) {
+        unsigned char c = payl[i];
+
+        switch (dmode) {
+        case HEX:
+            snprintf(hex, 4, " %.2x", c);
+            if (i == 0)
+                ptr = hex + 1;
+            else
+                ptr = hex;
+
+            memcpy(buf + j, ptr, strlen(ptr));
+            j += strlen(ptr);
+            break;
+        case ASCII:
+            if (isprint(c) && c != '%') {
+                buf[j++] = c;
+            } else {
+                buf[j++] = '.';
+            }
+            break;
+	case BIN:
+		buf[j++] = c;
+		break;
+        default:
+        case ENCODED:
+            if (isprint(c) && c != '%') {
+                buf[j++] = c;
+            } else {
+                snprintf(hex, 4, "%%%.2x", c);
+                memcpy(buf + j, hex, 3);
+                j += 3;
+            }
+        }
+    }
+    buf[j] = 0;
+
+    return buf;
+}
+
 void token_print(token_t *t){
 
 	if(!t){
@@ -138,12 +198,15 @@ void token_print(token_t *t){
 	/* Iterate over all values in the table */
 	hash_table_iterate(hash_table, &iterator);
 	
-	printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
+	//printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
+//				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
+
+	printf("%30s \t %15d \t %15s \t ", token_to_encoded((char *)t->token->data, t->token->num_items), t->position_specific,\
 				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
 
 	while (hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);
-		printf("%d(%d) \t", *((int *)pair.key), *((int *)pair.value));
+		printf("%d(%d), ", *((int *)pair.key), *((int *)pair.value));
 	}
 	printf("\n");
 

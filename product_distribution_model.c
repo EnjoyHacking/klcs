@@ -153,19 +153,31 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			//printf("<%c, %d>\t", key2[0], *value2);
 			char * single_token = (char *) malloc (sizeof(char) * 3);
 			memset(single_token, '\0', 3);
+
+			char hex[4];
+			memset(hex, '\0', 4);
+			if (!(isprint(key2[0]) && key2[0] != '%')) {
+				snprintf(hex, 4, "%%%.2x", key2[0]);
+			} else {
+				strcpy(hex, key2);
+			}
+
 			if (0 == *key1) {
-				printf("^%s\t", key2);
+				printf("^%s\t", hex);
 				sprintf(single_token, "^%s", key2);
 			} else if (num_bytes - 1 == *key1) {
-				printf("%s$\t", key2);
+				printf("%s$\t", hex);
 				sprintf(single_token, "%s$", key2);
 			} else {
-				printf("%s\t", key2);
+				printf("%s\t", hex);
 				sprintf(single_token, "%s", key2);
 			}
 
+
 			token_t * t = token_new(lst_string_new(single_token, 1, strlen(single_token)), *key1);
-			trie_insert(trie, (char *)t->token->data, t); 
+			if(t){
+				trie_insert(trie, (char *)t->token->data, t); 
+			}
 		}
 		printf("\n");
 	}

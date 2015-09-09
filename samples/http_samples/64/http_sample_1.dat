@@ -1,0 +1,3 @@
+GET /game/white2.xml HTTP/1.1
+Host: static.client.xunlei.com
+C

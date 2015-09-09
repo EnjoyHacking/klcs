@@ -8,6 +8,11 @@
 
 #include "trie.h"
 
+typedef enum
+{
+    ENCODED, ASCII, HEX, BIN
+} dmode_t;
+
 typedef struct _token_t 	token_t;
 typedef struct _offset_t	offset_t; 
 typedef struct _element_t 	element_t;

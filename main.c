@@ -40,7 +40,7 @@ test_usage(char *progname)
 int main(int argc, char **argv) {
 
 	LST_STree     *tree;
-	LST_StringSet *payloads, *tokens;
+	LST_StringSet *payloads, *tokens = NULL;
 	u_int min_len, max_len;
 	int k;
 	char* dirName;
@@ -80,6 +80,11 @@ int main(int argc, char **argv) {
 	int k_offset = K; 
 
 
+	if(!payloads) {
+		return 0;
+	}
+
+
 
 	/* Create a suffix tree for all strings in the set */
 	tree = lst_stree_new(payloads);
@@ -97,7 +102,6 @@ int main(int argc, char **argv) {
 
 	//tokens = lst_alg_longest_common_substring(tree, min_len, max_len, num_distinct_strings);
 
-
 	if(tokens == NULL){
 		printf("Info: result is null.\n"); 
 		return 0;
@@ -110,24 +114,27 @@ int main(int argc, char **argv) {
 		printf("\n");
 	}
 
-	return 0;
 
 	/* 2. peform the second sub-module - introducing position constraints */
 	Trie * trie = position_constraints_main(payloads, tokens, k_offset, beta_merge);
 
-	printf("************************\n");
+	printf("--------- 2. Introducting position constraints ----------\n");
+	printf("\t\tToken \t\t Position-specific \t Associate Tokens \t Offset(occurrence) \n");
 	trie_dfs(trie, print_callback, (void *)NULL);
-	printf("************************\n");
+	printf("---------------------------------------------------------\n");
+
+
 	/* 3. perform the third sub-module - extracting single byte tokens using product distribution model*/
 
 	int first_bytes = 8;
 	int last_bytes = 4;
 	int num_bytes = N;
 
+	printf("--------- 3. Extracting single byte tokens ----------\n");
 	product_distribution_main(trie, payloads, first_bytes, last_bytes, num_bytes, gamma_merge);
-	printf("************************\n");
 	trie_dfs(trie, print_callback, (void *)NULL);
-	printf("************************\n");
+	printf("-----------------------------------------------------\n");
+
 
 	/* 4. convertion */
 	convertion_main(trie, payloads);

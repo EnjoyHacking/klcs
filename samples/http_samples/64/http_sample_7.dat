@@ -1,0 +1,3 @@
+GET /config.ini HTTP/1.1
+Host: smallfiles.client.xunlei.com
+If

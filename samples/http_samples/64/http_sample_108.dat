@@ -1,0 +1,2 @@
+GET /gamebox/xggbswitchlist.txt HTTP/1.1
+Host: boxcfg.niu.xunle

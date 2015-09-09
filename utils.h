@@ -9,5 +9,5 @@
 
 //typedef void (*File_Content_Operate) (char* pathName, LST_StringSet *set);
 void dirScan(char* dirName, LST_StringSet *set);
-void  readContent(char* pathName, LST_StringSet *set);
+void  readContent(const char* pathName, LST_StringSet *set);
 #endif
