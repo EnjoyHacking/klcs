@@ -57,6 +57,15 @@ struct _token_t {
 
 	LST_String *merge_token;
 
+	/**
+	* For the convenience in the later sequence alignment module, we need to encode for all tokens. 
+	* if the token is ordinary, then it is encoded with a positive integer greater than or equal to 256.
+	* if the token is position-specific, then it is encoded with a negative integer (exclude -1).	
+	*/
+	int replacement; 
+	
+	int shortest_len; // the minimum length of the assoicated tokens
+
 };
 
 struct _offset_t {
@@ -96,15 +105,17 @@ void print_callback(TrieNode *node, void *extension);
 void search_callback(TrieNode *node, void *extension);
 void variant_callback(LST_String *string, void *data);
 void merge_callback(LST_String *string, void *data);
+void obtain_shortest_len_callback(LST_String *string, void *data); 
 
 void merge_by_position_specific_with_offset_variants(Trie *tokens, offset_variants_t *ov);
 
 
 void offset_variants_traverse(offset_variants_t *o);
 void flow_new_cb(LST_String *string, void *data) ;
+char *token_to_encoded(char *payl, int len);
+void str_encoded_cb(LST_String *string, void *data);
 
 Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * tokens, int k_offset, int beta_merge);
-
 
 
 #endif

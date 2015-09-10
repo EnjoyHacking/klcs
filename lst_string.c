@@ -31,6 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "lst_string.h"
 #include "lst_macros.h"
 #include "lst_debug.h"
+#include "position_constraints.h"
 
 static int   string_id_counter;
 
@@ -511,9 +512,10 @@ lst_stringset_free(LST_StringSet *set)
   free(set);
 }
 
+
 void
 string_cb(LST_String *string, void *data)
 {
-  printf("%s ", lst_string_print(string));
+  printf("%s",lst_string_print(string));
   printf("%s", data);
 }

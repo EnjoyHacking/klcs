@@ -45,7 +45,8 @@ lst_string.o: lst_string.c /usr/include/stdc-predef.h config.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/include/x86_64-linux-gnu/sys/queue.h lst_macros.h lst_debug.h \
- lst_stree.h lst_structs.h set.h
+ lst_stree.h lst_structs.h set.h position_constraints.h hash-table.h \
+ trie.h
 
 /usr/include/stdc-predef.h:
 
@@ -182,3 +183,9 @@ lst_stree.h:
 lst_structs.h:
 
 set.h:
+
+position_constraints.h:
+
+hash-table.h:
+
+trie.h:

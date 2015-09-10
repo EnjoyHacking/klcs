@@ -96,9 +96,9 @@ int main(int argc, char **argv) {
 
 	memset(num_distinct_strings, 0, ASSUMPTION_NUM_DISTINCT_STRINGS);
 
-	tokens = lst_alg_k_longest_common_substring(tree, l_min, max_len, k_min, num_distinct_strings);
+	//tokens = lst_alg_k_longest_common_substring(tree, l_min, max_len, k_min, num_distinct_strings);
 
-	//tokens = lst_alg_first_k_longest_common_substring(tree, min_len, max_len, k, num_distinct_strings);
+	tokens = lst_alg_first_k_longest_common_substring(tree, min_len, max_len, k_min, num_distinct_strings);
 
 	//tokens = lst_alg_longest_common_substring(tree, min_len, max_len, num_distinct_strings);
 
@@ -110,16 +110,20 @@ int main(int argc, char **argv) {
 	/* Print them out, if any. */
 	if (tokens){
 		printf("result size : %d \n", tokens->size);
-		lst_stringset_foreach(tokens, string_cb, "\t");
+		lst_stringset_foreach(tokens, str_encoded_cb, "\n");
 		printf("\n");
 	}
+
+		
+
+	return 0;
 
 
 	/* 2. peform the second sub-module - introducing position constraints */
 	Trie * trie = position_constraints_main(payloads, tokens, k_offset, beta_merge);
 
 	printf("--------- 2. Introducting position constraints ----------\n");
-	printf("\t\tToken \t\t Position-specific \t Associate Tokens \t Offset(occurrence) \n");
+	printf("\t\tToken \t\t Position-specific \t Replacement \t Associate Tokens \t Shortest Length \t Offset(occurrence) \n");
 	trie_dfs(trie, print_callback, (void *)NULL);
 	printf("---------------------------------------------------------\n");
 
@@ -137,6 +141,7 @@ int main(int argc, char **argv) {
 
 
 	/* 4. convertion */
+	printf("--------- 4. Convert raw payloads to the integer sequence ----------\n");
 	convertion_main(trie, payloads);
 
 	/* Free suffix tree: */

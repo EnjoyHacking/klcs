@@ -10,6 +10,9 @@
 
 #define MERGE_TOKEN_MAX_LEN 50
 
+int ordinary_token_replacement_counter = 256; // this counter is increase.
+int position_specific_token_replacement_counter = -1; // this counter is decreace.
+
 static int dmode = ENCODED;
 
 void flow_print(flow_t *flow) {
@@ -72,6 +75,13 @@ token_t * token_new(LST_String *token, int offset){
 	t->offset_occurrence = hash_table_new(int_hash, int_equal);
 	t->merge_token = NULL;
 
+	if(token->num_items - 1 == 1 || (token->num_items - 1 == 2 && (((char *)token->data))[1] == '$') || ((char *)token->data)[0] =='^') {
+		t->replacement = position_specific_token_replacement_counter++; // means that the token is not be encoded.
+	} else {
+		t->replacement = ordinary_token_replacement_counter++; // means that the token is not be encoded.
+	}
+	t->shortest_len = token->num_items - 1;
+
 	int * key = (int *) malloc (sizeof(int));
 	*key = offset;
 	int * value = (int *) malloc (sizeof(int));
@@ -120,7 +130,8 @@ void token_set_position_specific(token_t *t){
 
 	if(hash_table_num_entries(t->offset_occurrence) == 1) {
 		t->position_specific = 1;
-	}
+		t->replacement = position_specific_token_replacement_counter--;
+	} 	
 	return;
 }
 
@@ -134,53 +145,53 @@ void token_set_position_specific(token_t *t){
  */
 char *token_to_encoded(char *payl, int len)
 {
-    int i, j = 0;
-    char *buf, hex[4], *ptr;
+	int i, j = 0;
+	char *buf, hex[4], *ptr;
 
-    buf = malloc(len * 3 + 1);
-    if (!buf) {
-        error("Could not allocate memory of %d bytes", len * 3 + 1);
-        return "";
-    }
+	buf = malloc(len * 3 + 1);
+	if (!buf) {
+		error("Could not allocate memory of %d bytes", len * 3 + 1);
+		return "";
+	}
 
-    for (i = 0; i < len; i++) {
-        unsigned char c = payl[i];
+	for (i = 0; i < len; i++) {
+		unsigned char c = payl[i];
 
-        switch (dmode) {
-        case HEX:
-            snprintf(hex, 4, " %.2x", c);
-            if (i == 0)
-                ptr = hex + 1;
-            else
-                ptr = hex;
+		switch (dmode) {
+			case HEX:
+				snprintf(hex, 4, " %.2x", c);
+				if (i == 0)
+					ptr = hex + 1;
+				else
+					ptr = hex;
 
-            memcpy(buf + j, ptr, strlen(ptr));
-            j += strlen(ptr);
-            break;
-        case ASCII:
-            if (isprint(c) && c != '%') {
-                buf[j++] = c;
-            } else {
-                buf[j++] = '.';
-            }
-            break;
-	case BIN:
-		buf[j++] = c;
-		break;
-        default:
-        case ENCODED:
-            if (isprint(c) && c != '%') {
-                buf[j++] = c;
-            } else {
-                snprintf(hex, 4, "%%%.2x", c);
-                memcpy(buf + j, hex, 3);
-                j += 3;
-            }
-        }
-    }
-    buf[j] = 0;
+				memcpy(buf + j, ptr, strlen(ptr));
+				j += strlen(ptr);
+				break;
+			case ASCII:
+				if (isprint(c) && c != '%') {
+					buf[j++] = c;
+				} else {
+					buf[j++] = '.';
+				}
+				break;
+			case BIN:
+				buf[j++] = c;
+				break;
+			default:
+			case ENCODED:
+				if (isprint(c) && c != '%') {
+					buf[j++] = c;
+				} else {
+					snprintf(hex, 4, "%%%.2x", c);
+					memcpy(buf + j, hex, 3);
+					j += 3;
+				}
+		}
+	}
+	buf[j] = 0;
 
-    return buf;
+	return buf;
 }
 
 void token_print(token_t *t){
@@ -201,8 +212,10 @@ void token_print(token_t *t){
 	//printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
 //				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
 
-	printf("%30s \t %15d \t %15s \t ", token_to_encoded((char *)t->token->data, t->token->num_items), t->position_specific,\
-				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
+	printf("%d, %d: %s \n", strlen((char *)t->token->data), t->token->num_items - 1, (char *)t->token->data);
+
+	printf("%30s \t %10d \t %10d \t %10s \t %10d ", token_to_encoded((char *)t->token->data, t->token->num_items - 1), t->position_specific,\
+				 t->replacement, t->merge_token == NULL ? "Null" : (char *)t->merge_token->data, t->shortest_len);	
 
 	while (hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);
@@ -454,6 +467,18 @@ void merge_callback(LST_String *string, void *data) {
 	return ;
 }
 
+void obtain_shortest_len_callback(LST_String *string, void *data) {
+	if(!string || !data) {
+		return;
+	}
+	int * tmp = (char *) data;
+	
+	if(*tmp > string->num_items - 1) {
+		*tmp = string->num_items - 1;	
+	}
+	return;
+}
+
 void associate_callback(LST_String *string, void *data) {
 
 	Trie *tokens = (Trie *) data;
@@ -473,12 +498,15 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 		offset_t * value = (offset_t *)pair.value;
 		if( value->num_variants < ov->beta_merge) {
 			char * str = (char *)malloc(sizeof(char) * MERGE_TOKEN_MAX_LEN); // need to modify
-
+			int * shortest_len = (int *) malloc(sizeof(int));
+			*shortest_len = 256;
 			if(*key == 0) {
 				strcat(str, "^");
 			}
 
 			lst_stringset_foreach(value->variants, merge_callback, str);
+			lst_stringset_foreach(value->variants, obtain_shortest_len_callback, shortest_len);
+		
 
 			str[strlen(str) - 1] = '\0';
 
@@ -493,6 +521,8 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 					token_t * t = (token_t *) find_value;		
 					t->merge_token = merge_token; 
 					t->position_specific |= (int)(1 << 1);
+					t->replacement = position_specific_token_replacement_counter--;
+					t->shortest_len = shortest_len;
 				}
 				
 			}
@@ -592,6 +622,12 @@ Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * token
 	return trie;
 }
 
+void
+str_encoded_cb(LST_String *string, void *data)
+{
+  printf("%s",token_to_encoded((char *)string->data, string->num_items - 1));
+  printf("%s", data);
+}
 
 
 
