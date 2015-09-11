@@ -79,7 +79,7 @@ POST_UNINSTALL = :
 bin_PROGRAMS = main$(EXEEXT) lcstext$(EXEEXT) \
 	test_position_constraints$(EXEEXT) test_kmp_search$(EXEEXT) \
 	test_product_distribution_model$(EXEEXT) \
-	test_convertion$(EXEEXT)
+	test_convertion$(EXEEXT) test_merge_common_prefix$(EXEEXT)
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
@@ -125,6 +125,12 @@ am_test_kmp_search_OBJECTS = test_kmp_search.$(OBJEXT) \
 	pattern_search.$(OBJEXT)
 test_kmp_search_OBJECTS = $(am_test_kmp_search_OBJECTS)
 test_kmp_search_LDADD = $(LDADD)
+am_test_merge_common_prefix_OBJECTS =  \
+	test_merge_common_prefix.$(OBJEXT) \
+	merge_common_prefix.$(OBJEXT) trie.$(OBJEXT)
+test_merge_common_prefix_OBJECTS =  \
+	$(am_test_merge_common_prefix_OBJECTS)
+test_merge_common_prefix_LDADD = $(LDADD)
 am_test_position_constraints_OBJECTS =  \
 	test_position_constraints.$(OBJEXT) \
 	position_constraints.$(OBJEXT) trie.$(OBJEXT) \
@@ -172,10 +178,12 @@ am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(lcstext_SOURCES) $(main_SOURCES) \
 	$(test_convertion_SOURCES) $(test_kmp_search_SOURCES) \
+	$(test_merge_common_prefix_SOURCES) \
 	$(test_position_constraints_SOURCES) \
 	$(test_product_distribution_model_SOURCES)
 DIST_SOURCES = $(lcstext_SOURCES) $(main_SOURCES) \
 	$(test_convertion_SOURCES) $(test_kmp_search_SOURCES) \
+	$(test_merge_common_prefix_SOURCES) \
 	$(test_position_constraints_SOURCES) \
 	$(test_product_distribution_model_SOURCES)
 am__can_run_installinfo = \
@@ -338,6 +346,7 @@ test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \
 		pattern_search.c
 
+test_merge_common_prefix_SOURCES = test_merge_common_prefix.c merge_common_prefix.c merge_common_prefix.h trie.h trie.c
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -451,6 +460,10 @@ test_kmp_search$(EXEEXT): $(test_kmp_search_OBJECTS) $(test_kmp_search_DEPENDENC
 	@rm -f test_kmp_search$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(test_kmp_search_OBJECTS) $(test_kmp_search_LDADD) $(LIBS)
 
+test_merge_common_prefix$(EXEEXT): $(test_merge_common_prefix_OBJECTS) $(test_merge_common_prefix_DEPENDENCIES) $(EXTRA_test_merge_common_prefix_DEPENDENCIES) 
+	@rm -f test_merge_common_prefix$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(test_merge_common_prefix_OBJECTS) $(test_merge_common_prefix_LDADD) $(LIBS)
+
 test_position_constraints$(EXEEXT): $(test_position_constraints_OBJECTS) $(test_position_constraints_DEPENDENCIES) $(EXTRA_test_position_constraints_DEPENDENCIES) 
 	@rm -f test_position_constraints$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(test_position_constraints_OBJECTS) $(test_position_constraints_LDADD) $(LIBS)
@@ -475,12 +488,14 @@ include ./$(DEPDIR)/lst_debug.Po
 include ./$(DEPDIR)/lst_stree.Po
 include ./$(DEPDIR)/lst_string.Po
 include ./$(DEPDIR)/main.Po
+include ./$(DEPDIR)/merge_common_prefix.Po
 include ./$(DEPDIR)/pattern_search.Po
 include ./$(DEPDIR)/position_constraints.Po
 include ./$(DEPDIR)/product_distribution_model.Po
 include ./$(DEPDIR)/set.Po
 include ./$(DEPDIR)/test_convertion.Po
 include ./$(DEPDIR)/test_kmp_search.Po
+include ./$(DEPDIR)/test_merge_common_prefix.Po
 include ./$(DEPDIR)/test_position_constraints.Po
 include ./$(DEPDIR)/test_product_distribution_model.Po
 include ./$(DEPDIR)/trie.Po

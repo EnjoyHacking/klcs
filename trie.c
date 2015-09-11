@@ -73,13 +73,15 @@ static void trie_alg_dfs(TrieNode * subtrie, Trie_node_callback cb, void *extens
 	if (!subtrie) {
 		return ;
 	}
+
+	cb(subtrie, extension);
+
 	for(i = 0; i < 256; ++i) {
 		if (subtrie->next[i] != NULL) {
 			trie_alg_dfs(subtrie->next[i], cb, extension);
 		} 
 	}
 	
-	cb(subtrie, extension);
 
 	/*
 	if(subtrie->data != NULL) {

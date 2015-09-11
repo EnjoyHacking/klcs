@@ -5,7 +5,6 @@
 #include "trie.h"
 #include "merge_common_prefix.h"
 
-
 #define NUM_TEST_VALUES 100
 #define MAX_SUBSTRING_SIZE 20
 
@@ -63,31 +62,57 @@ void lookup_trie(Trie * trie){
 	return ;
 
 }
-/*
+
 void trie_node_merge_callback(TrieNode *node, void *extension){
 
+	if(!node){
+		return;
+	}
+	if(!node->data){
+		return;
+	}
+
 	merge_common_prefix_t * mcp = (merge_common_prefix_t *)extension;	
-	if (node->use_count < mcp->alpha_merge && node->use_count > 1) {
+
+	if(!node->use_count){
+		return;
+	}
+
+	if(node->use_count == 1) {
+		return;
+	}
+
+
+	if (node->use_count < mcp->alpha_merge ) {
+
 		char * new_data = (char *)malloc(sizeof(char) * MAX_SUBSTRING_SIZE);	
-		strcmp(new_data, (char *)node->data);
+
+		strcpy(new_data, (char *)node->data);
+
 		strcat(new_data, "\(");
-		for(i = 0; i < 256; ++i) {
+
+		for(int i = 0; i < 256; ++i) {
 			if (node->next[i] != NULL) {
-				char *ch = (char *) malloc(sizeof(char) * 2);
+				char *ch = (char *) malloc (sizeof(char) * 2);
+
 				sprintf(ch, "%c", i);
+
 				strcat(new_data, ch);
+
 				TrieNode *child = node->next[i];
+
 				node->next[i] = child->next[i];
 				
 			} 
 		}
 		node->data = new_data;
 	}
+
+	return;
 }
-*/
 
 
-static void int_callback(TrieNode *node, void *extension) {
+void int_callback(TrieNode *node, void *extension) {
 
 	if(!node){
 		return;
@@ -104,7 +129,7 @@ static void int_callback(TrieNode *node, void *extension) {
 
 }
 
-static void str_callback(TrieNode *node, void *extension) {
+void str_callback(TrieNode *node, void *extension) {
 
 	if(!node){
 		return;
@@ -117,39 +142,9 @@ static void str_callback(TrieNode *node, void *extension) {
 	
 	printf("%s\n", value);
 
+
 	return ;
 }
 
-int main(int argc, char** argv) {
-
-	/*
-	Trie *trie = generate_trie();
-
-	lookup_trie(trie);
-	*/
-
-	Trie * trie = trie_new();
-	/*
-	trie_insert(trie, "aa", "aa");
-	trie_insert(trie, "ab", "ab");
-	trie_insert(trie, "ac", "ac");
-
-	trie_insert(trie, "ba", "ba");
-	trie_insert(trie, "bb", "bb");
-	trie_insert(trie, "bc", "bc");
-	*/
-
-	trie_insert(trie, "welcom", "welcom");
-	trie_insert(trie, "welcome", "welcome");
-	trie_insert(trie, "elcome", "elcome");
-	
-
-	printf("-------------------------\n");
-	void *extension = NULL;
-
-	trie_dfs(trie, str_callback, extension);
-
-	return 0;
-}
 
 
