@@ -44,5 +44,6 @@ test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \
 		pattern_search.c
 
-test_merge_common_prefix_SOURCES = test_merge_common_prefix.c merge_common_prefix.c merge_common_prefix.h trie.h trie.c
+test_merge_common_prefix_SOURCES = test_merge_common_prefix.c merge_common_prefix.c merge_common_prefix.h trie.h trie.c lst_string.h \
+		lst_string.c pattern_search.h pattern_search.c
 

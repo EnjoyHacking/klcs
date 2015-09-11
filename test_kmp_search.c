@@ -3,7 +3,7 @@
 
 int main() {
 	char *target = "ABABDABACDABABCABAB";
-	char *pattern = "ABc";
+	char *pattern = "AB";
 
 	printf("target_len : %d \n", strlen(target));
 	printf("pattern_len : %d \n", strlen(pattern));

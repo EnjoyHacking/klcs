@@ -127,7 +127,8 @@ test_kmp_search_OBJECTS = $(am_test_kmp_search_OBJECTS)
 test_kmp_search_LDADD = $(LDADD)
 am_test_merge_common_prefix_OBJECTS =  \
 	test_merge_common_prefix.$(OBJEXT) \
-	merge_common_prefix.$(OBJEXT) trie.$(OBJEXT)
+	merge_common_prefix.$(OBJEXT) trie.$(OBJEXT) \
+	lst_string.$(OBJEXT) pattern_search.$(OBJEXT)
 test_merge_common_prefix_OBJECTS =  \
 	$(am_test_merge_common_prefix_OBJECTS)
 test_merge_common_prefix_LDADD = $(LDADD)
@@ -230,13 +231,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/yafei/workspace_for_github/klcs/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sang/klcs/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoconf
-AUTOHEADER = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoheader
-AUTOMAKE = ${SHELL} /home/yafei/workspace_for_github/klcs/missing automake-1.14
-AWK = mawk
+AUTOCONF = ${SHELL} /home/sang/klcs/missing autoconf
+AUTOHEADER = ${SHELL} /home/sang/klcs/missing autoheader
+AUTOMAKE = ${SHELL} /home/sang/klcs/missing automake-1.14
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -std=gnu99 -g -Wall
@@ -260,7 +261,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/yafei/workspace_for_github/klcs/missing makeinfo
+MAKEINFO = ${SHELL} /home/sang/klcs/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = klcs
@@ -275,10 +276,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/yafei/workspace_for_github/klcs
-abs_srcdir = /home/yafei/workspace_for_github/klcs
-abs_top_builddir = /home/yafei/workspace_for_github/klcs
-abs_top_srcdir = /home/yafei/workspace_for_github/klcs
+abs_builddir = /home/sang/klcs
+abs_srcdir = /home/sang/klcs
+abs_top_builddir = /home/sang/klcs
+abs_top_srcdir = /home/sang/klcs
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -297,7 +298,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/yafei/workspace_for_github/klcs/install-sh
+install_sh = ${SHELL} /home/sang/klcs/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -346,7 +347,9 @@ test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \
 		pattern_search.c
 
-test_merge_common_prefix_SOURCES = test_merge_common_prefix.c merge_common_prefix.c merge_common_prefix.h trie.h trie.c
+test_merge_common_prefix_SOURCES = test_merge_common_prefix.c merge_common_prefix.c merge_common_prefix.h trie.h trie.c lst_string.h \
+		lst_string.c pattern_search.h pattern_search.c
+
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

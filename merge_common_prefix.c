@@ -11,6 +11,8 @@
 int test_array[NUM_TEST_VALUES];
 char test_strings[NUM_TEST_VALUES][10];
 
+LST_StringSet * set = NULL;
+
 Trie *generate_trie(void)
 {
 	Trie *trie;
@@ -74,22 +76,42 @@ void trie_node_merge_callback(TrieNode *node, void *extension){
 
 	merge_common_prefix_t * mcp = (merge_common_prefix_t *)extension;	
 
-	if(!node->use_count){
+	if(mcp->flag == 1) {
+		char *new_merge_substring = (char *) malloc (sizeof(char) * MAX_SUBSTRING_SIZE);
+		memset(new_merge_substring, '\0', MAX_SUBSTRING_SIZE);
+		strcpy(new_merge_substring, mcp->merge_substring);
+		char * tmp_p = node->data;
+		tmp_p += mcp->common_prefix_len + 1;
+		strcat(new_merge_substring,  tmp_p);
+		node->data = new_merge_substring;
 		return;
 	}
 
-	if(node->use_count == 1) {
-		return;
+	int child_nums = 0;
+
+	for(int i = 0; i < 256; i++) {
+
+		if(node->next[i] != NULL){
+			child_nums++;
+		}
+	}
+
+	//printf("child_nums : %d -- %s \n", child_nums, (char *)node->data);
+	//printf("node->use_count : %d -- %s \n", node->use_count, (char *)node->data);
+
+	if (child_nums == 0 || child_nums == 1) {
+		return;	
 	}
 
 
-	if (node->use_count < mcp->alpha_merge ) {
+	int tmp_counter = 1;
+	if (child_nums < mcp->alpha_merge ) {
 
 		char * new_data = (char *)malloc(sizeof(char) * MAX_SUBSTRING_SIZE);	
 
 		strcpy(new_data, (char *)node->data);
 
-		strcat(new_data, "\(");
+		strcat(new_data, "(");
 
 		for(int i = 0; i < 256; ++i) {
 			if (node->next[i] != NULL) {
@@ -98,16 +120,20 @@ void trie_node_merge_callback(TrieNode *node, void *extension){
 				sprintf(ch, "%c", i);
 
 				strcat(new_data, ch);
-
-				TrieNode *child = node->next[i];
-
-				node->next[i] = child->next[i];
-				
+				if(tmp_counter < child_nums) {
+					strcat(new_data, "|");
+				} else {
+					strcat(new_data, ")");
+				}
+				tmp_counter++;
 			} 
 		}
+		mcp->common_prefix_len = strlen(node->data);
+		mcp->merge_substring = new_data;
+		mcp->flag = 1;
+
 		node->data = new_data;
 	}
-
 	return;
 }
 
@@ -146,5 +172,135 @@ void str_callback(TrieNode *node, void *extension) {
 	return ;
 }
 
+void add_callback(TrieNode *node, void *extension) {
+
+	if(!node){
+		return;
+	}
+	if(!node->data){
+		return;
+	}
+	char * value = (char *) node->data;	
+
+	char * value_cp = (char *) malloc(sizeof(char) * (strlen(value) + 1));
+
+	strcpy(value_cp, value);
+	
+	lst_stringset_add(set, lst_string_new(value_cp, 1, strlen(value)));
+
+	return ;
+}
+
+tokens_for_one_trie_t * tokens_for_one_trie_new(LST_String *query_token){
+
+	if(!query_token) {
+		return NULL;
+	}
+
+	tokens_for_one_trie_t *tfot = (tokens_for_one_trie_t *) malloc (sizeof(tokens_for_one_trie_t ));
+	tfot->query_token = query_token;
+	tfot->set = lst_stringset_new();
+
+	return tfot;
+}
+void tokens_for_one_trie_free(tokens_for_one_trie_t *tfot ){
+
+	if(!tfot) {
+		return;
+	}
+
+	if(tfot->set) {
+		//lst_stringset_free(tfot->set);
+		//tfot->set = NULL;
+	}
+
+	if(tfot->query_token) {
+		//lst_string_free(tfot->query_token);
+		//tfot->query_token = NULL;
+	}
+	return;
+}
+
+
+void obtain_tokens_with_common_prefix_cb1(LST_String *query, void *data) {
+
+	if(!query || !data) {
+		return;
+	}
+
+	tokens_for_one_trie_t * tfot  = tokens_for_one_trie_new(query);
+	LST_StringSet * tokens = (LST_StringSet *) data;
+	lst_stringset_foreach(tokens, obtain_tokens_with_common_prefix_cb2, tfot);
+
+	//printf("%s : %d\n", (char *)query->data, tfot->set->size);
+
+	if(tfot->set) {
+		Trie * trie = trie_new();
+		lst_stringset_foreach(tfot->set, construct_trie_cb, trie);
+		merge_substring(trie);
+	}
+
+
+	tokens_for_one_trie_free(tfot);
+
+	return;
+
+}
+
+void obtain_tokens_with_common_prefix_cb2(LST_String *string, void *data) {
+
+	tokens_for_one_trie_t * tfot = (tokens_for_one_trie_t *)data;
+
+	LST_String * query_token = tfot->query_token;
+	int * indices = kmp_search((char *)query_token->data, (char *)string->data);
+
+	if(!indices) {
+		return;
+	}
+
+	if (indices[0] == 0) {
+		lst_stringset_add(tfot->set, lst_string_new((char *) string->data, 1, strlen((char *) string->data)));
+	}
+
+	return;
+}
+
+void  construct_trie_cb(LST_String *string, void *data){
+
+	Trie *trie = (Trie *) data;
+
+	trie_insert(trie, (char *)string->data, (char *)string->data);
+
+	return;
+
+
+}
+
+void merge_substring(Trie *trie){
+
+	if(!trie)
+		return;
+
+	merge_common_prefix_t  *mcp = (merge_common_prefix_t *) malloc (sizeof(merge_common_prefix_t));
+	mcp->alpha_merge = 5;
+	mcp->flag = 0;
+	mcp->merge_substring = NULL;
+
+
+	//trie_dfs(trie, str_callback, NULL);
+//	printf("1.-------------------------\n");
+	trie_dfs(trie, trie_node_merge_callback, mcp);
+	//printf("2.-------------------------\n");
+	trie_dfs(trie, str_callback, NULL);
+	//printf("3.-------------------------\n");
+	trie_dfs(trie, add_callback, NULL);
+
+	return;
+}
+
+void merge_common_prefix_main(LST_StringSet * substrings) {
+	set = lst_stringset_new();
+	lst_stringset_foreach(substrings, obtain_tokens_with_common_prefix_cb1, substrings);
+}
 
 
