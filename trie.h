@@ -56,6 +56,8 @@ typedef void *TrieValue;
 
 struct _TrieNode {
 	TrieValue data;
+	char * old_data;
+	
 	unsigned int use_count;
 	TrieNode *next[256];
 };

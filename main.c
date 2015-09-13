@@ -17,11 +17,14 @@
 #include "position_constraints.h"
 #include "product_distribution_model.h"
 #include "convertion.h"
+#include "merge_common_prefix.h"
 
 #define ASSUMPTION_NUM_DISTINCT_STRINGS 256
 
 #include "utils.h"
 extern int fileCounter;
+
+extern LST_StringSet * set;
 
 static void
 test_usage(char *progname)
@@ -52,8 +55,6 @@ int main(int argc, char **argv) {
 	max_len = atoi(argv[2]);
 	dirName = argv[3];
 
-
-
 	
 	/* Create a string set to conveniently hold all our strings from a given directory */
 	payloads = lst_stringset_new();
@@ -83,9 +84,6 @@ int main(int argc, char **argv) {
 	if(!payloads) {
 		return 0;
 	}
-
-
-
 	/* Create a suffix tree for all strings in the set */
 	tree = lst_stree_new(payloads);
 
@@ -110,12 +108,18 @@ int main(int argc, char **argv) {
 	/* Print them out, if any. */
 	if (tokens){
 		printf("result size : %d \n", tokens->size);
-		lst_stringset_foreach(tokens, str_encoded_cb, "\n");
+		lst_stringset_foreach(tokens, str_encoded_cb, "\t");
 		printf("\n");
 	}
+	/* Merge the substrings with common prefix before removing non-distinct substrings*/
 
+	merge_common_prefix_main(tokens);
 
-	return 0;
+	if(set) {
+		printf("set->size : %d\n", set->size);
+		lst_stringset_foreach(set, string_cb, "\t");
+		printf("\n");
+	}
 
 
 	/* 2. peform the second sub-module - introducing position constraints */
@@ -125,6 +129,8 @@ int main(int argc, char **argv) {
 	printf("\t\tToken \t\t Position-specific \t Replacement \t Associate Tokens \t Shortest Length \t Offset(occurrence) \n");
 	trie_dfs(trie, print_callback, (void *)NULL);
 	printf("---------------------------------------------------------\n");
+
+	return 0;
 
 
 	/* 3. perform the third sub-module - extracting single byte tokens using product distribution model*/

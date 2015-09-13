@@ -747,15 +747,23 @@ void add_substring_cb(LST_String * string, void *data) {
 
 	user_data_t * ud = (user_data_t *) data;
 
+	/* Checking if the string is non-distinct string*/	
+	
 	if(1 != lst_alg_substring_check(ud->lcs_tree, string)) {
-		lst_stringset_add(ud->result, string);
+		lst_stringset_add(ud->result, lst_string_new((char *)string->data, 1, strlen((char *)string->data)));
+		//lst_stringset_add(ud->result, string);
 	}
+
+	/*No check non-distinct string*/
+
+	//lst_stringset_add(ud->result, lst_string_new((char *)string->data, 1, strlen((char *)string->data)));
 
 	return;
 
 }
 
 /*
+
  * add
  * @author sangyafei
  * @brief extract first k longest common substring (even, all common substrings) among the given multiple strings
@@ -766,27 +774,27 @@ lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int m
 
 
 	user_data_t *ud = (user_data_t *) malloc (sizeof(user_data_t));
-	ud->result = NULL;
-	ud->lcs_tree = NULL;
+	ud->result = lst_stringset_new();
+	ud->lcs_tree = lst_stree_new(ud->result);
 
 
 	int tmp_max_len = max_len;
 	while(tmp_max_len >= min_len){
 		LST_StringSet *tmp_result = alg_longest_substring(tree, min_len, tmp_max_len, 2, k, extension);
 
-		lst_stringset_foreach(tmp_result, str_cb, "\t");
-		printf("\n");
-
-		if(ud->result == NULL) {
-			ud->result = tmp_result;	
+		//printf("tmp_result size : %d\n", tmp_result->size);
+		if(tmp_result) {
+	//		lst_stringset_foreach(tmp_result, str_cb, "\t");
+	//		printf("\n");
+		//	printf("-----------------------\n");
+			lst_stringset_foreach(tmp_result, add_substring_cb, ud);
+			//lst_stringset_foreach(tmp_result, str_cb, "\t");
+			//printf("ud->result size : %d\n", ud->result->size);
 			ud->lcs_tree = lst_stree_new(ud->result);
 			tmp_max_len--;
-			continue;
+			lst_stringset_free(tmp_result);
+			tmp_result = NULL;
 		}
-
-		lst_stringset_foreach(tmp_result, add_substring_cb, ud);
-		ud->lcs_tree = lst_stree_new(ud->result);
-		tmp_max_len--;
 	}	
 
 	return ud->result;

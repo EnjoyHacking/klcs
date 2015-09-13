@@ -42,8 +42,8 @@ main.o: main.c /usr/include/stdc-predef.h config.h /usr/include/string.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h set.h lst_stree.h \
  lst_algorithms.h position_constraints.h hash-table.h trie.h \
- product_distribution_model.h convertion.h utils.h /usr/include/dirent.h \
- /usr/include/x86_64-linux-gnu/bits/dirent.h \
+ product_distribution_model.h convertion.h merge_common_prefix.h utils.h \
+ /usr/include/dirent.h /usr/include/x86_64-linux-gnu/bits/dirent.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h
 
@@ -180,6 +180,8 @@ trie.h:
 product_distribution_model.h:
 
 convertion.h:
+
+merge_common_prefix.h:
 
 utils.h:
 

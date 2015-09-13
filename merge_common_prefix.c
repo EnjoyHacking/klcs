@@ -76,14 +76,23 @@ void trie_node_merge_callback(TrieNode *node, void *extension){
 
 	merge_common_prefix_t * mcp = (merge_common_prefix_t *)extension;	
 
+	node->old_data = NULL;
+
 	if(mcp->flag == 1) {
+
+		node->old_data = (char *) malloc (sizeof(char) * MAX_SUBSTRING_SIZE);
+		strcpy(node->old_data, (char *)node->data);
+
 		char *new_merge_substring = (char *) malloc (sizeof(char) * MAX_SUBSTRING_SIZE);
 		memset(new_merge_substring, '\0', MAX_SUBSTRING_SIZE);
 		strcpy(new_merge_substring, mcp->merge_substring);
 		char * tmp_p = node->data;
+
+
 		tmp_p += mcp->common_prefix_len + 1;
 		strcat(new_merge_substring,  tmp_p);
 		node->data = new_merge_substring;
+
 		return;
 	}
 
@@ -185,8 +194,9 @@ void add_callback(TrieNode *node, void *extension) {
 	char * value_cp = (char *) malloc(sizeof(char) * (strlen(value) + 1));
 
 	strcpy(value_cp, value);
-	
-	lst_stringset_add(set, lst_string_new(value_cp, 1, strlen(value)));
+
+	if(node->old_data != NULL)
+		lst_stringset_add(set, lst_string_new(value_cp, 1, strlen(value)));
 
 	return ;
 }
@@ -291,7 +301,7 @@ void merge_substring(Trie *trie){
 //	printf("1.-------------------------\n");
 	trie_dfs(trie, trie_node_merge_callback, mcp);
 	//printf("2.-------------------------\n");
-	trie_dfs(trie, str_callback, NULL);
+	//trie_dfs(trie, str_callback, NULL);
 	//printf("3.-------------------------\n");
 	trie_dfs(trie, add_callback, NULL);
 

@@ -109,7 +109,8 @@ am_main_OBJECTS = main.$(OBJEXT) lst_algorithms.$(OBJEXT) \
 	utils.$(OBJEXT) hash-int.$(OBJEXT) compare-int.$(OBJEXT) \
 	set.$(OBJEXT) position_constraints.$(OBJEXT) trie.$(OBJEXT) \
 	hash-table.$(OBJEXT) pattern_search.$(OBJEXT) \
-	product_distribution_model.$(OBJEXT) convertion.$(OBJEXT)
+	product_distribution_model.$(OBJEXT) convertion.$(OBJEXT) \
+	merge_common_prefix.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
 main_DEPENDENCIES =
 main_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(main_LDFLAGS) $(LDFLAGS) \
@@ -324,7 +325,7 @@ main_SOURCES = main.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c l
 		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
 		compare-int.c compare-int.h set.h set.c position_constraints.h position_constraints.c trie.h trie.c hash-table.h \
 		hash-table.c pattern_search.h pattern_search.c product_distribution_model.h product_distribution_model.c \
-		convertion.h convertion.c
+		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c
 
 main_LDADD = -lc -lm
 main_LDFLAGS = -L/lib 

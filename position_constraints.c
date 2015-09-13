@@ -212,7 +212,7 @@ void token_print(token_t *t){
 	//printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
 //				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
 
-	printf("%d, %d: %s \n", strlen((char *)t->token->data), t->token->num_items - 1, (char *)t->token->data);
+	//printf("%d, %d: %s \n", strlen((char *)t->token->data), t->token->num_items - 1, (char *)t->token->data);
 
 	printf("%30s \t %10d \t %10d \t %10s \t %10d ", token_to_encoded((char *)t->token->data, t->token->num_items - 1), t->position_specific,\
 				 t->replacement, t->merge_token == NULL ? "Null" : (char *)t->merge_token->data, t->shortest_len);	
