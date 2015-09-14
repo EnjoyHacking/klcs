@@ -72,7 +72,8 @@ int main(int argc, char **argv) {
 	/* We set the minimum substring length l_min = 2 for k-common substring extraction. */
 	int l_min = min_len;
 	/* We set the minimum coverage k_min = 10% * K for k-common substring extraction. */
-	int k_min = (int) ceil(0.1 * K);
+	//int k_min = (int) ceil(0.1 * K);
+	int k_min = K;
 	/* The follow three merge parameters all takes 5 for token merging. */
 	int alpha_merge = 5;
 	int beta_merge = 5;
@@ -112,7 +113,8 @@ int main(int argc, char **argv) {
 		printf("\n");
 	}
 	/* Merge the substrings with common prefix before removing non-distinct substrings*/
-
+	
+	/*
 	merge_common_prefix_main(tokens);
 
 	if(set) {
@@ -120,6 +122,7 @@ int main(int argc, char **argv) {
 		lst_stringset_foreach(set, string_cb, "\t");
 		printf("\n");
 	}
+	*/
 
 
 	/* 2. peform the second sub-module - introducing position constraints */
@@ -129,8 +132,6 @@ int main(int argc, char **argv) {
 	printf("\t\tToken \t\t Position-specific \t Replacement \t Associate Tokens \t Shortest Length \t Offset(occurrence) \n");
 	trie_dfs(trie, print_callback, (void *)NULL);
 	printf("---------------------------------------------------------\n");
-
-	return 0;
 
 
 	/* 3. perform the third sub-module - extracting single byte tokens using product distribution model*/

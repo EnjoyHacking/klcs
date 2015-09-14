@@ -4,6 +4,9 @@
 #include "trie.h"
 #include "position_constraints.h"
 
+
+FILE * fp = NULL;
+
 convertion_data_single_t * convertion_data_single_new(LST_String *flow) {
 
 	convertion_data_single_t * single = (convertion_data_single_t *) malloc(sizeof(convertion_data_single_t));
@@ -127,8 +130,7 @@ void convert_token_cb(TrieNode *node, void *data) {
 
 	token_t * t = (token_t *)node->data;
 
-	single->replacement_len = t->token->num_items; 
-	//single->replacement_len = 3; 
+	single->replacement_len = t->shortest_len; 
 
 	
 	int * flow_digital = string_replace((char *)flow->data, (char *)t->token->data, *(single->replacement), single->replacement_len, \
@@ -234,10 +236,10 @@ void flow_converted_int_print_cb(LST_String *flow_converted, void *data) {
 	int * flow_digital = (int *) flow_converted->data;
 	
 	for (int i = 0; i < flow_converted->num_items; i++) {
-		printf("%d ", flow_digital[i]);
+		fprintf(fp, "%d ", flow_digital[i]);
 		
 		if(i == flow_converted->num_items - 1) {
-			printf("\n");
+			fprintf(fp,"\n");
 		}
 	}
 
@@ -268,6 +270,12 @@ void flow_converted_print_cb(LST_String *flow_converted, void *data) {
 
 void convertion_main(Trie * tokens, LST_StringSet *flows){
 
+	fp = fopen("./http64.dat", "w");
+	if(!fp) {
+		perror("Open file failure!");
+		return;
+	}
+
 
 	convertion_data_set_t * data = convertion_data_set_new(tokens);	
 
@@ -277,6 +285,9 @@ void convertion_main(Trie * tokens, LST_StringSet *flows){
 	//lst_stringset_foreach(data->flows_converted, flow_converted_print_cb, NULL);
 
 	convertion_data_set_free(data);
+	
+	fclose(fp);
+	fp = NULL;
 
 }
 
