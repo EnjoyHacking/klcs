@@ -13,9 +13,9 @@ convertion_data_single_t * convertion_data_single_new(LST_String *flow) {
 
 	single->flow = flow;
 
-	int * flow_digital = (int *) malloc (sizeof(int) * flow->num_items) ;
+	int * flow_digital = (int *) malloc (sizeof(int) * flow->num_items - 1) ;
 
-	single->flow_converted = lst_string_new(flow_digital, sizeof(int), flow->num_items);
+	single->flow_converted = lst_string_new(flow_digital, sizeof(int), flow->num_items - 1);
 
 	single->replacement = (int *) malloc (sizeof(int));
 
@@ -124,16 +124,15 @@ void convert_token_cb(TrieNode *node, void *data) {
 
 	convertion_data_single_t * single = (convertion_data_single_t *) data;
 
-
-
 	LST_String * flow = single->flow;
 
 	token_t * t = (token_t *)node->data;
 
 	single->replacement_len = t->shortest_len; 
+	single->replacement = t->replacement;
 
 	
-	int * flow_digital = string_replace((char *)flow->data, (char *)t->token->data, *(single->replacement), single->replacement_len, \
+	int * flow_digital = string_replace((char *)flow->data, (char *)t->token->data, single->replacement, single->replacement_len, \
 						(int *)single->flow_converted->data, single->first_flag);
 
 
@@ -160,7 +159,7 @@ void convert_token_cb(TrieNode *node, void *data) {
 	printf("\n");
 	*/
 	
-	(*(single->replacement))++;
+	//(*(single->replacement))++;
 	single->first_flag++;
 	//single->flow_converted = lst_string_new(flow_old, sizeof(int), flow->num_items);
 
@@ -189,7 +188,7 @@ void convert_flow_cb(LST_String *flow, void *data) {
 	*/
 	
 
-	LST_String * flow_converted = lst_string_new((int *)single->flow_converted->data, sizeof(int), single->flow_converted->num_items);
+	LST_String * flow_converted = lst_string_new((int *)single->flow_converted->data, sizeof(int), single->flow_converted->num_items - 1);
 
 	lst_stringset_add(set->flows_converted, flow_converted);
 
@@ -236,7 +235,7 @@ void flow_converted_int_print_cb(LST_String *flow_converted, void *data) {
 	int * flow_digital = (int *) flow_converted->data;
 	
 	for (int i = 0; i < flow_converted->num_items; i++) {
-		fprintf(fp, "%d ", flow_digital[i]);
+		fprintf(fp, "%3d ", flow_digital[i]);
 		
 		if(i == flow_converted->num_items - 1) {
 			fprintf(fp,"\n");

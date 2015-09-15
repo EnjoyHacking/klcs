@@ -171,7 +171,6 @@ int main(int argc, char **argv) {
 	trie_dfs(trie, print_callback, (void *)NULL);
 	printf("-----------------------------------------------------\n");
 
-	return 0 ;
 
 
 	/* 4. convertion */
