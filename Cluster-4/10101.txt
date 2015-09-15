@@ -1,1 +1,1 @@
-MAIL FROM: <frazier@lnfdist.com>
+MAIL FROM:<frazier@lnfdist.com>

@@ -82,6 +82,7 @@ token_t * token_new(LST_String *token, int offset){
 	}
 	t->shortest_len = token->num_items - 1;
 
+
 	int * key = (int *) malloc (sizeof(int));
 	*key = offset;
 	int * value = (int *) malloc (sizeof(int));
@@ -506,6 +507,8 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 
 			lst_stringset_foreach(value->variants, merge_callback, str);
 			lst_stringset_foreach(value->variants, obtain_shortest_len_callback, shortest_len);
+
+			//printf("shortest_len : %d \n", *shortest_len);
 		
 
 			str[strlen(str) - 1] = '\0';
@@ -522,7 +525,7 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 					t->merge_token = merge_token; 
 					t->position_specific |= (int)(1 << 1);
 					t->replacement = position_specific_token_replacement_counter--;
-					t->shortest_len = shortest_len;
+					t->shortest_len = *shortest_len;
 				}
 				
 			}
@@ -593,6 +596,7 @@ Trie * position_constraints_main(LST_StringSet * payloads, LST_StringSet * token
 	/* The first round search, for each token we record the number of different offsets it occurs.
 	   If a token is always found at a particular offset, then we mark it as position-specific. */
 	Trie *trie = flow_set_traverse_token(flow_set);
+
 	trie_dfs(trie, set_position_specific_by_fix_offset_cb, (void *)NULL); 
 
 	/* The second round search, we first look for the offsets that appear in a large portion of flows, 

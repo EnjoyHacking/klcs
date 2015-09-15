@@ -2,6 +2,49 @@
 #include "lst_string.h"
 #include "hash-table.h"
 
+
+#if 1
+
+int main (int argc, char* argv[]) {
+	char * str1 = "HTTP/1.1 index.html";
+	char * str2 = "HTTP/1.0 aaaaa.html";
+	char * str3 = "HTTP/1.0 bbbbb.html";
+	char * str4 = "HTTP/1.1 ccccc.html";
+	char * str5 = "HTTP/0.9 ddddd.html";
+	char * str6 = "HTTP/1.1 fffff.html";
+	char * str7 = "HTTP/0.9 eeeee.html";
+
+	LST_String * nbytes1 = lst_string_new(str1, 1, strlen(str1));
+	LST_String * nbytes2 = lst_string_new(str2, 1, strlen(str2));
+	LST_String * nbytes3 = lst_string_new(str3, 1, strlen(str3));
+	LST_String * nbytes4 = lst_string_new(str4, 1, strlen(str4));
+	LST_String * nbytes5 = lst_string_new(str5, 1, strlen(str5));
+	LST_String * nbytes6 = lst_string_new(str6, 1, strlen(str6));
+	LST_String * nbytes7 = lst_string_new(str7, 1, strlen(str7));
+
+	LST_StringSet * set = lst_stringset_new();
+	lst_stringset_add(set, nbytes1);
+	lst_stringset_add(set, nbytes2);
+	lst_stringset_add(set, nbytes3);
+	lst_stringset_add(set, nbytes4);
+	lst_stringset_add(set, nbytes5);
+	lst_stringset_add(set, nbytes6);
+	lst_stringset_add(set, nbytes7);
+
+	int first_bytes = 4;
+	int last_bytes = 0;
+	int num_bytes = 19;
+	int gamma_merge = 2;
+
+	product_distribution_main(NULL, set, first_bytes, last_bytes, num_bytes, gamma_merge);
+	//trie_dfs(trie, print_callback, (void *)NULL);
+
+	return 0;
+}
+#endif
+
+
+#if 0
 int main(int arg, char **argv) {
 
 	char * str1 = "HTTP/1.1 index.html";
@@ -80,4 +123,4 @@ int main(int arg, char **argv) {
 
 	return 0;
 }
-
+#endif

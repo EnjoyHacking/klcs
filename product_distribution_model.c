@@ -2,6 +2,8 @@
 #include "lst_string.h"
 #include "hash-int.h"
 #include "compare-int.h"
+#include "hash-string.h"
+#include "compare-string.h"
 #include "hash-table.h"
 
 #include "position_constraints.h"
@@ -31,6 +33,7 @@ void calculate_product_distribution_callback(LST_String *nbytes, void *data) {
 			byte_distribution_t * bd_new = byte_distribution_new(nbytes, *offset);
 			hash_table_insert(pd->offset_distribution, offset, bd_new);
 		}
+
 		if(index == pd->first_bytes - 1) {
 			index = pd->num_bytes - pd->last_bytes;
 		} else {
@@ -88,7 +91,8 @@ void byte_distribution_add(byte_distribution_t *bd, LST_String *nbytes, int offs
 	char *value = (char *) lst_string_get_item(nbytes, offset);
 
 	HashTableValue frequency;
-	char * key = (char *) malloc(sizeof(char));
+	char * key = (char *) malloc(sizeof(char) * 2);
+	memset(key, '\0', 2);
 	*key = value[0];
 
 	if((frequency = hash_table_lookup(bd->value_frequency, key)) != HASH_TABLE_NULL){
@@ -108,9 +112,10 @@ byte_distribution_t * byte_distribution_new(LST_String *nbytes, int offset) {
 
 	byte_distribution_t * bd = (byte_distribution_t *) malloc (sizeof(byte_distribution_t));
 
-	bd->value_frequency = hash_table_new(int_hash, int_equal);	
+	bd->value_frequency = hash_table_new(string_hash, string_equal);	
 	
-	char * value = (char *) malloc (sizeof(char));
+	char * value = (char *) malloc (sizeof(char) * 2);
+	memset(value, '\0', 2);
 	*value = item[0];
 	int * frequency = (int *) malloc (sizeof(int));
 	*frequency = 1;
@@ -122,10 +127,6 @@ byte_distribution_t * byte_distribution_new(LST_String *nbytes, int offset) {
 
 int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes, int last_bytes, int num_bytes, int gamma_merge){
 
-	//int first_bytes = 8;
-	//int last_bytes = 10;
-	//int num_bytes = 19;
-	//int gamma_merge = 2;
 
 	product_distribution_t * pd = product_distribution_new(set, first_bytes, last_bytes, num_bytes);
 
@@ -145,7 +146,7 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 		if (hash_table_num_entries(value1->value_frequency) > gamma_merge) {
 			continue;
 		}
-		printf("offset %d : ", *key1);	
+		printf("offset %d, size %d: \n", *key1, hash_table_num_entries(value1->value_frequency));	
 		while(hash_table_iter_has_more(&iterator2)){
 			HashTablePair pair2 = hash_table_iter_next(&iterator2);
 			char *key2 = (char *) pair2.key;
@@ -154,12 +155,13 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			char * single_token = (char *) malloc (sizeof(char) * 3);
 			memset(single_token, '\0', 3);
 
+			
 			char hex[4];
 			memset(hex, '\0', 4);
 			if (!(isprint(key2[0]) && key2[0] != '%')) {
-				snprintf(hex, 4, "%%%.2x", key2[0]);
+				sprintf(hex, "%%%.2x", key2[0]);
 			} else {
-				strcpy(hex, key2);
+				strncpy(hex, key2, 3);
 			}
 
 			if (0 == *key1) {
@@ -172,6 +174,7 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 				printf("%s\t", hex);
 				sprintf(single_token, "%s", key2);
 			}
+			//printf("%s -- strlen: %d \n", single_token, strlen(single_token));
 
 
 			token_t * t = token_new(lst_string_new(single_token, 1, strlen(single_token)), *key1);

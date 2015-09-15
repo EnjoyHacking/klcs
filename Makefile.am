@@ -8,7 +8,8 @@ main_SOURCES =  main.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c 
 		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
 		compare-int.c compare-int.h set.h set.c position_constraints.h position_constraints.c trie.h trie.c hash-table.h \
 		hash-table.c pattern_search.h pattern_search.c product_distribution_model.h product_distribution_model.c \
-		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c
+		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 main_LDADD = -lc -lm
 
@@ -38,7 +39,8 @@ test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c
 
 test_product_distribution_model_SOURCES = test_product_distribution_model.c product_distribution_model.h product_distribution_model.c \
 		lst_string.h lst_string.c hash-table.c hash-table.h hash-int.h hash-int.c compare-int.h compare-int.c trie.h trie.c \
-		position_constraints.h position_constraints.c pattern_search.h pattern_search.c
+		position_constraints.h position_constraints.c pattern_search.h pattern_search.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string.h lst_string.c trie.h trie.c position_constraints.h \
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \

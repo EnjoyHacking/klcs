@@ -110,7 +110,8 @@ am_main_OBJECTS = main.$(OBJEXT) lst_algorithms.$(OBJEXT) \
 	set.$(OBJEXT) position_constraints.$(OBJEXT) trie.$(OBJEXT) \
 	hash-table.$(OBJEXT) pattern_search.$(OBJEXT) \
 	product_distribution_model.$(OBJEXT) convertion.$(OBJEXT) \
-	merge_common_prefix.$(OBJEXT)
+	merge_common_prefix.$(OBJEXT) hash-string.$(OBJEXT) \
+	compare-string.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
 main_DEPENDENCIES =
 main_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(main_LDFLAGS) $(LDFLAGS) \
@@ -146,7 +147,8 @@ am_test_product_distribution_model_OBJECTS =  \
 	product_distribution_model.$(OBJEXT) lst_string.$(OBJEXT) \
 	hash-table.$(OBJEXT) hash-int.$(OBJEXT) compare-int.$(OBJEXT) \
 	trie.$(OBJEXT) position_constraints.$(OBJEXT) \
-	pattern_search.$(OBJEXT)
+	pattern_search.$(OBJEXT) hash-string.$(OBJEXT) \
+	compare-string.$(OBJEXT)
 test_product_distribution_model_OBJECTS =  \
 	$(am_test_product_distribution_model_OBJECTS)
 test_product_distribution_model_LDADD = $(LDADD)
@@ -232,13 +234,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/sang/klcs/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/yafei/workspace_for_github/klcs/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/sang/klcs/missing autoconf
-AUTOHEADER = ${SHELL} /home/sang/klcs/missing autoheader
-AUTOMAKE = ${SHELL} /home/sang/klcs/missing automake-1.14
-AWK = gawk
+AUTOCONF = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoconf
+AUTOHEADER = ${SHELL} /home/yafei/workspace_for_github/klcs/missing autoheader
+AUTOMAKE = ${SHELL} /home/yafei/workspace_for_github/klcs/missing automake-1.14
+AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -std=gnu99 -g -Wall
@@ -262,7 +264,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/sang/klcs/missing makeinfo
+MAKEINFO = ${SHELL} /home/yafei/workspace_for_github/klcs/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = klcs
@@ -277,10 +279,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/sang/klcs
-abs_srcdir = /home/sang/klcs
-abs_top_builddir = /home/sang/klcs
-abs_top_srcdir = /home/sang/klcs
+abs_builddir = /home/yafei/workspace_for_github/klcs
+abs_srcdir = /home/yafei/workspace_for_github/klcs
+abs_top_builddir = /home/yafei/workspace_for_github/klcs
+abs_top_srcdir = /home/yafei/workspace_for_github/klcs
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -299,7 +301,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/sang/klcs/install-sh
+install_sh = ${SHELL} /home/yafei/workspace_for_github/klcs/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -325,7 +327,8 @@ main_SOURCES = main.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c l
 		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
 		compare-int.c compare-int.h set.h set.c position_constraints.h position_constraints.c trie.h trie.c hash-table.h \
 		hash-table.c pattern_search.h pattern_search.c product_distribution_model.h product_distribution_model.c \
-		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c
+		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 main_LDADD = -lc -lm
 main_LDFLAGS = -L/lib 
@@ -342,7 +345,8 @@ test_position_constraints_SOURCES = test_position_constraints.c position_constra
 test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c
 test_product_distribution_model_SOURCES = test_product_distribution_model.c product_distribution_model.h product_distribution_model.c \
 		lst_string.h lst_string.c hash-table.c hash-table.h hash-int.h hash-int.c compare-int.h compare-int.c trie.h trie.c \
-		position_constraints.h position_constraints.c pattern_search.h pattern_search.c
+		position_constraints.h position_constraints.c pattern_search.h pattern_search.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string.h lst_string.c trie.h trie.c position_constraints.h \
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \
@@ -483,8 +487,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/compare-int.Po
+include ./$(DEPDIR)/compare-string.Po
 include ./$(DEPDIR)/convertion.Po
 include ./$(DEPDIR)/hash-int.Po
+include ./$(DEPDIR)/hash-string.Po
 include ./$(DEPDIR)/hash-table.Po
 include ./$(DEPDIR)/lcstext.Po
 include ./$(DEPDIR)/lst_algorithms.Po

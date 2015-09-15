@@ -516,6 +516,9 @@ lst_stringset_free(LST_StringSet *set)
 void
 string_cb(LST_String *string, void *data)
 {
+
+  printf("string->num_items : %d \n", string->num_items);
+  printf("string->data strlen : %d \n", strlen((char *)string->data));
   printf("%s",lst_string_print(string));
   printf("%s", data);
 }

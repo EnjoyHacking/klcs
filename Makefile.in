@@ -110,7 +110,8 @@ am_main_OBJECTS = main.$(OBJEXT) lst_algorithms.$(OBJEXT) \
 	set.$(OBJEXT) position_constraints.$(OBJEXT) trie.$(OBJEXT) \
 	hash-table.$(OBJEXT) pattern_search.$(OBJEXT) \
 	product_distribution_model.$(OBJEXT) convertion.$(OBJEXT) \
-	merge_common_prefix.$(OBJEXT)
+	merge_common_prefix.$(OBJEXT) hash-string.$(OBJEXT) \
+	compare-string.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
 main_DEPENDENCIES =
 main_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(main_LDFLAGS) $(LDFLAGS) \
@@ -146,7 +147,8 @@ am_test_product_distribution_model_OBJECTS =  \
 	product_distribution_model.$(OBJEXT) lst_string.$(OBJEXT) \
 	hash-table.$(OBJEXT) hash-int.$(OBJEXT) compare-int.$(OBJEXT) \
 	trie.$(OBJEXT) position_constraints.$(OBJEXT) \
-	pattern_search.$(OBJEXT)
+	pattern_search.$(OBJEXT) hash-string.$(OBJEXT) \
+	compare-string.$(OBJEXT)
 test_product_distribution_model_OBJECTS =  \
 	$(am_test_product_distribution_model_OBJECTS)
 test_product_distribution_model_LDADD = $(LDADD)
@@ -325,7 +327,8 @@ main_SOURCES = main.c libstree.h lst_algorithms.c lst_algorithms.h lst_debug.c l
 		lst_string.h lst_string.c lst_structs.h lst_timestamp.h utils.h utils.c lst_macros.h hash-int.h hash-int.c \
 		compare-int.c compare-int.h set.h set.c position_constraints.h position_constraints.c trie.h trie.c hash-table.h \
 		hash-table.c pattern_search.h pattern_search.c product_distribution_model.h product_distribution_model.c \
-		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c
+		convertion.h convertion.c merge_common_prefix.h merge_common_prefix.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 main_LDADD = -lc -lm
 main_LDFLAGS = -L/lib 
@@ -342,7 +345,8 @@ test_position_constraints_SOURCES = test_position_constraints.c position_constra
 test_kmp_search_SOURCES = test_kmp_search.c pattern_search.h pattern_search.c
 test_product_distribution_model_SOURCES = test_product_distribution_model.c product_distribution_model.h product_distribution_model.c \
 		lst_string.h lst_string.c hash-table.c hash-table.h hash-int.h hash-int.c compare-int.h compare-int.c trie.h trie.c \
-		position_constraints.h position_constraints.c pattern_search.h pattern_search.c
+		position_constraints.h position_constraints.c pattern_search.h pattern_search.c hash-string.h hash-string.c \
+		compare-string.h compare-string.c
 
 test_convertion_SOURCES = test_convertion.c convertion.h convertion.c lst_string.h lst_string.c trie.h trie.c position_constraints.h \
 		position_constraints.c hash-table.h hash-table.c hash-int.h hash-int.c compare-int.h compare-int.c pattern_search.h \
@@ -483,8 +487,10 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compare-int.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compare-string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/convertion.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hash-int.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hash-string.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hash-table.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lcstext.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lst_algorithms.Po@am__quote@

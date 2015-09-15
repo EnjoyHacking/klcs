@@ -1,4 +1,8 @@
 #include "utils.h"
+#include <string.h>
+
+
+int N;
 
 int fileCounter = 0;
 
@@ -76,7 +80,27 @@ void  readContent(const char* pathName, LST_StringSet *set){
 		return ;
 	}
 
-	string = lst_string_new(data, 1, st.st_size);
+	if(st.st_size < N) {
+		printf("Error reading %s -- skipping, too few bytes less than N.\n", pathName);
+		free(data);
+		data = NULL;
+		return ;
+	}
+
+	//printf("data : %s\n", data);
+
+	char * truncated_data = (char *) malloc (sizeof(char) * (N + 1));
+	memset(truncated_data, '\0', N + 1);
+
+	strncpy(truncated_data, data, N);
+
+	truncated_data[N] = '\0';
+
+
+	string = lst_string_new(truncated_data, 1, strlen(truncated_data));
+
+	if(!string)
+		printf("string is null");
 
 	lst_stringset_add(set, string);
 

@@ -37,6 +37,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "hash-int.h"
 #include "compare-int.h"
 
+int global_max_len = 0;
+
 
 static void bitstrings_copy(u_char *dst, u_char *src, int size);
 static long convert_bitstrings_to_int(u_char* bitstrings, int bitstrings_size);
@@ -671,6 +673,9 @@ alg_longest_substring(LST_STree *tree, u_int min_len, u_int max_len, int lcs, in
 		D(("Deepest nodes found -- we have %u longest substring(s) at depth %u.\n",
 					data.num_deepest, data.deepest));
 		//printf("we have %u longest substring(s) at depth %u.\n",data.num_deepest, data.deepest);
+		if(max_len == 0) {
+			global_max_len = data.deepest;
+		}
 
 
 		/* Now, data.num_deepest tells us how many largest substrings
@@ -778,18 +783,23 @@ lst_alg_first_k_longest_common_substring(LST_STree *tree, u_int min_len, u_int m
 	ud->lcs_tree = lst_stree_new(ud->result);
 
 
-	int tmp_max_len = max_len;
-	while(tmp_max_len >= min_len){
+	int tmp_max_len = 0;
+	while(tmp_max_len >= min_len || tmp_max_len == 0){
 		LST_StringSet *tmp_result = alg_longest_substring(tree, min_len, tmp_max_len, 2, k, extension);
+
+		if(tmp_max_len == 0)
+		{
+			tmp_max_len = global_max_len;
+		}
 
 		//printf("tmp_result size : %d\n", tmp_result->size);
 		if(tmp_result) {
-	//		lst_stringset_foreach(tmp_result, str_cb, "\t");
-	//		printf("\n");
-		//	printf("-----------------------\n");
+			lst_stringset_foreach(tmp_result, str_cb, "\t");
+			printf("\n");
+			printf("-----------------------\n");
+
 			lst_stringset_foreach(tmp_result, add_substring_cb, ud);
-			//lst_stringset_foreach(tmp_result, str_cb, "\t");
-			//printf("ud->result size : %d\n", ud->result->size);
+
 			ud->lcs_tree = lst_stree_new(ud->result);
 			tmp_max_len--;
 			lst_stringset_free(tmp_result);
