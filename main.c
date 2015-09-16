@@ -44,6 +44,8 @@ int k_offset;
 
 extern int global_max_len;
 
+extern FILE * token_fp;
+
 static void
 test_usage(char *progname)
 {
@@ -172,10 +174,17 @@ int main(int argc, char **argv) {
 	printf("-----------------------------------------------------\n");
 
 
+	/* Output all tokens to the given file for the following multiple sequence alignment module.*/
+	token_fp = fopen("./token.txt", "w");
+	if(token_fp) {
+		trie_dfs(trie, print_callback, (void *)NULL);
+		fclose(token_fp);
+	}
 
 	/* 4. convertion */
 	printf("--------- 4. Convert raw payloads to the integer sequence ----------\n");
 	convertion_main(trie, payloads);
+
 
 	/* Free suffix tree: */
 	lst_stree_free(tree);

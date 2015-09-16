@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
 
 
 	char * payload1 = "HTTP/1.1 index.html GET";
-	char * payload2 = "HTTP/1.0 index.html";
+	char * payload2 = "HTTP/1.0 index.html HO";
 
 	LST_String *flow1 = lst_string_new(payload1, 1, strlen(payload1));
 	LST_String *flow2 = lst_string_new(payload2, 1, strlen(payload2));
@@ -20,19 +20,22 @@ int main(int argc, char **argv) {
 	char * str1 = "HTTP/1.1";
 	char * str2 = "HTTP/1.0";
 	char * str3 = "GET";
+	char * str4 = "HO";
 
 	LST_String *token1 = lst_string_new(str1, 1, strlen(str1));
 	LST_String *token2 = lst_string_new(str2, 1, strlen(str2));
 	LST_String *token3 = lst_string_new(str3, 1, strlen(str3));
+	LST_String *token4 = lst_string_new(str4, 1, strlen(str4));
 
 	LST_StringSet *tokens = lst_stringset_new();
 	lst_stringset_add(tokens, token1);
 	lst_stringset_add(tokens, token2);
 	lst_stringset_add(tokens, token3);
+	lst_stringset_add(tokens, token4);
 
 	int beta_merge = 5;
 
-	int k_offset = 2; 
+	int k_offset = 1; 
 
 	Trie * trie = position_constraints_main(flows, tokens, k_offset, beta_merge);
 
@@ -45,6 +48,8 @@ int main(int argc, char **argv) {
 
 	lst_stringset_foreach(flows, convert_flow_cb, data);	
 
+	lst_stringset_foreach(data->flows_converted, flow_converted_int_print_cb, NULL);
+	printf("------------------\n");
 	lst_stringset_foreach(data->flows_converted, flow_converted_print_cb, NULL);
 
 	convertion_data_set_free(data);

@@ -13,6 +13,11 @@ typedef enum
     ENCODED, ASCII, HEX, BIN
 } dmode_t;
 
+typedef enum
+{
+   PS_ORDINARY, PS_NOT_MERGE, PS_MERGE, PS_SINGLE_BEGIN, PS_SINGLE_END, PS_SINGLE
+} position_specific_t;
+
 typedef struct _token_t 	token_t;
 typedef struct _offset_t	offset_t; 
 typedef struct _element_t 	element_t;
@@ -49,7 +54,20 @@ struct _token_t {
 
 	LST_String *token;
 
-	u_int position_specific; 
+	/**
+	 * if the position_specific takes 0, means that this token is a ordinary token, the len of token >= 2.
+	 * if it takes 1, means that this token is a position-specific token, which always occurs the same offset, 
+	 *      but not is merged.
+	 * if it takes 2, means that this token is a position-specific token, which always occurs the same offset 
+	 *      and is merged.
+	 * if it takes 3, means that this token is a positon-specific token, which always occurs the begin position
+	 *      (i.e., offset = 0) of a payload sample and is a single token.
+	 * if it takes 4, means that this token is a positon-specific token, which always occurs the end position
+	 *      of a payload sample and is a single token.
+	 * if it takes 5, means that this token is a single positon-specific token.
+	 */
+
+	position_specific_t  position_specific; 
 
 	u_int begin_of_flow;
 

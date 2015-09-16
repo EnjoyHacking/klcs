@@ -10,6 +10,8 @@
 
 #define MERGE_TOKEN_MAX_LEN 50
 
+FILE * token_fp = NULL;
+
 int ordinary_token_replacement_counter = 256; // this counter is increase, and the corresponding position_specific is 0.
 int position_specific_token_replacement_counter = -2; // this counter is decreace, and the corresponding position_specific is 1.
 
@@ -70,13 +72,14 @@ token_t * token_new(LST_String *token, int offset){
 	token_t *t = (token_t *) malloc(sizeof(token_t));
 	t->token = token;
 	
-	t->position_specific = 0;
+	t->position_specific = PS_ORDINARY; 
 	t->begin_of_flow = 0;
 	t->offset_occurrence = hash_table_new(int_hash, int_equal);
 	t->merge_token = NULL;
 
-	if(token->num_items - 1 == 1 || (token->num_items - 1 == 2 && (((char *)token->data))[1] == '$') || ((char *)token->data)[0] =='^') {
-		t->replacement = position_specific_token_replacement_counter++; // means that the token is not be encoded.
+	if( token->num_items - 1 == 2 && (((char *)(token->data))[1] == '$' || ((char *)(token->data))[0] =='^' ) ){
+
+		t->replacement = position_specific_token_replacement_counter--; // means that the token is not be encoded.
 	} else {
 		t->replacement = ordinary_token_replacement_counter++; // means that the token is not be encoded.
 	}
@@ -130,8 +133,8 @@ void token_set_position_specific(token_t *t){
 	}
 
 	if(hash_table_num_entries(t->offset_occurrence) == 1) {
-		t->position_specific = 1;
-		t->replacement = position_specific_token_replacement_counter--;
+		t->position_specific = PS_NOT_MERGE;
+		//t->replacement = position_specific_token_replacement_counter--;
 	} 	
 	return;
 }
@@ -210,19 +213,24 @@ void token_print(token_t *t){
 	/* Iterate over all values in the table */
 	hash_table_iterate(hash_table, &iterator);
 	
-	//printf("<%s, %d> - %s: ", lst_string_print(t->token), t->position_specific,\
-//				 t->merge_token == NULL ? "Null" : (char *)t->merge_token->data);	
 
-	//printf("%d, %d: %s \n", strlen((char *)t->token->data), t->token->num_items - 1, (char *)t->token->data);
-
-	printf("%30s \t %10d \t %10d \t %10s \t %10d ", token_to_encoded((char *)t->token->data, t->token->num_items - 1), t->position_specific,\
-				 t->replacement, t->merge_token == NULL ? "Null" : (char *)t->merge_token->data, t->shortest_len);	
+	printf("%30s \t %10d \t %10d \t %10s \t %10d ", token_to_encoded((char *)t->token->data, \
+		t->token->num_items - 1), t->position_specific, t->replacement, \ 
+		t->merge_token == NULL ? "Null" : (char *)t->merge_token->data, t->shortest_len);	
 
 	while (hash_table_iter_has_more(&iterator)) {
 		HashTablePair pair = hash_table_iter_next(&iterator);
 		printf("%d(%d), ", *((int *)pair.key), *((int *)pair.value));
 	}
+
 	printf("\n");
+
+	if(token_fp != NULL)
+	{
+		fprintf(token_fp, "%s,%d,%d,%s\n", (char *)t->token->data, t->replacement, t->shortest_len,\
+				t->merge_token == NULL ? "NULL" : (char *)t->merge_token->data);	
+	}
+
 
 	return;
 
@@ -357,6 +365,7 @@ Trie*  flow_set_traverse_token(flow_set_t *flow_set) {
 				token_add(t, element->offset);
 			} else {
 				t = token_new(element->token, element->offset);	
+				t->position_specific = PS_ORDINARY;
 			}
 
 			trie_insert(trie, (char *)element->token->data, t);		
@@ -523,12 +532,16 @@ void merge_by_position_speific_with_offset_variants(Trie *tokens, offset_variant
 				if( (find_value = trie_lookup(tokens, (char *)string->data)) != TRIE_NULL) {
 					token_t * t = (token_t *) find_value;		
 					t->merge_token = merge_token; 
-					t->position_specific |= (int)(1 << 1);
-					t->replacement = position_specific_token_replacement_counter--;
-					t->shortest_len = *shortest_len;
+
+					if(0 != strcmp((char *)t->token->data, (char *)t->merge_token->data)) {
+						t->position_specific = PS_MERGE;
+						t->replacement = position_specific_token_replacement_counter;
+						t->shortest_len = *shortest_len;
+					}
 				}
 				
 			}
+			position_specific_token_replacement_counter--;
 			//token_t *t = token_new(merge_token, *key);
 			//trie_insert(tokens, (char *)merge_token->data, t);			
 		}

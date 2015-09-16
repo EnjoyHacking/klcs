@@ -155,6 +155,11 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			char * single_token = (char *) malloc (sizeof(char) * 3);
 			memset(single_token, '\0', 3);
 
+			char * raw_token = (char *) malloc (sizeof(char) * 2); 
+			memset(raw_token, '\0', 2);
+			strcpy(raw_token, key2);
+
+
 			
 			char hex[4];
 			memset(hex, '\0', 4);
@@ -176,8 +181,17 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			}
 			//printf("%s -- strlen: %d \n", single_token, strlen(single_token));
 
-
 			token_t * t = token_new(lst_string_new(single_token, 1, strlen(single_token)), *key1);
+			if (single_token[0] == '^') {
+				t->position_specific = PS_SINGLE_BEGIN;
+			} else if (single_token[strlen(single_token) - 1] == '$') {
+				t->position_specific = PS_SINGLE_END;
+			} else {
+				t->position_specific = PS_SINGLE;
+			} 
+
+			//t->merge_token = lst_string_new(single_token, 1, strlen(single_token));
+
 			if(t){
 				trie_insert(trie, (char *)t->token->data, t); 
 			}
