@@ -12,7 +12,7 @@
 
 FILE * token_fp = NULL;
 
-int ordinary_token_replacement_counter = 256; // this counter is increase, and the corresponding position_specific is 0.
+int ordinary_token_replacement_counter = 258; // this counter is increase, and the corresponding position_specific is 0.
 int position_specific_token_replacement_counter = -2; // this counter is decreace, and the corresponding position_specific is 1.
 
 static int dmode = ENCODED;
