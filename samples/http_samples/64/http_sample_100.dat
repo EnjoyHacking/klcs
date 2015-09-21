@@ -1,3 +1,0 @@
-GET /tasktips.cfg HTTP/1.1
-Host: conf.coin.client.xunlei.com
-C

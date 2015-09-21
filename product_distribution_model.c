@@ -160,7 +160,7 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			strcpy(raw_token, key2);
 
 
-			
+			/*	
 			char hex[4];
 			memset(hex, '\0', 4);
 			if (!(isprint(key2[0]) && key2[0] != '%')) {
@@ -168,15 +168,15 @@ int product_distribution_main(Trie * trie, LST_StringSet * set, int first_bytes,
 			} else {
 				strncpy(hex, key2, 3);
 			}
-
+			*/
 			if (0 == *key1) {
-				printf("^%s\t", hex);
+				//printf("^%s\t", hex);
 				sprintf(single_token, "^%s", key2);
 			} else if (num_bytes - 1 == *key1) {
-				printf("%s$\t", hex);
+				//printf("%s$\t", hex);
 				sprintf(single_token, "%s$", key2);
 			} else {
-				printf("%s\t", hex);
+				//printf("%s\t", hex);
 				sprintf(single_token, "%s", key2);
 			}
 			//printf("%s -- strlen: %d \n", single_token, strlen(single_token));
